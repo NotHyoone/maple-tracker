@@ -5,6 +5,11 @@ on:
     # UTC 기준 → 한국시간 08:17, 14:17, 22:17 (정각은 GitHub 혼잡으로 지연되기 쉬워 17분)
     - cron: "17 23,5,13 * * *"
   workflow_dispatch: # Actions 탭에서 수동 실행
+    inputs:
+      notify_test:
+        description: "디스코드 테스트 메시지만 보내기 (API 수집 안 함)"
+        type: boolean
+        default: false
   push:
     branches: [main]
     paths: ["collector/**", "web/**", "tests/**", "config.toml", ".github/workflows/**"]
@@ -39,7 +44,7 @@ jobs:
           NEXON_API_KEY: ${{ secrets.NEXON_API_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         # 코드 푸시 때는 API를 쓰지 않고 화면만 다시 만들어 배포 (호출 한도 절약)
-        run: python -m collector.main ${{ github.event_name == 'push' && '--site-only' || '' }}
+        run: python -m collector.main ${{ (github.event_name == 'push' || inputs.notify_test) && '--site-only' || '' }} ${{ inputs.notify_test && '--notify-test' || '' }}
 
       - name: 수집 데이터 커밋
         run: |

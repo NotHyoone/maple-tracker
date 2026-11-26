@@ -1,6 +1,7 @@
 """실행: python -m collector.main  (환경변수 NEXON_API_KEY 필요)
 
-  --site-only : API 호출 없이 data/ 의 기존 데이터로 페이지만 다시 생성
+  --site-only   : API 호출 없이 data/ 의 기존 데이터로 페이지만 다시 생성
+  --notify-test : 디스코드 웹훅 연결 확인용 테스트 메시지 전송 (--site-only 와 함께 사용)
 """
 from __future__ import annotations
 
@@ -61,7 +62,9 @@ def main(argv: list[str]) -> int:
     write_json(DATA / "guide.json", {safe_name(k): v for k, v in guides.items()})
     collected_at = read_json(DATA / "events" / "current.json", {}).get("collected_at")
     site.build(cfg.get("site", {}).get("title", "메이플 트래커"), ev, upd, chars, roster, guides, collected_at)
-    if "--site-only" not in argv:
+    if "--notify-test" in argv:
+        notify.send_test(ev, guides, cfg.get("site", {}).get("url"))
+    elif "--site-only" not in argv:
         try:
             notify.notify(ev, guides, cfg.get("notify", {}), cfg.get("site", {}).get("url"))
         except Exception as err:  # noqa: BLE001 - 알림 실패가 수집·배포를 막지 않도록

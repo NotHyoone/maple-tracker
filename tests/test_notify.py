@@ -86,6 +86,13 @@ class SendTest(unittest.TestCase):
             sent = []
             self.assertEqual(notify.notify([ev(2, -10, 2.5)], {}, CFG, sender=lambda u, p: sent.append(p)), 1)
 
+    def test_send_test_message(self):
+        sent = []
+        self.assertTrue(notify.send_test([ev(2, -10, 2.5)], {}, "https://site", sender=lambda u, p: sent.append(p)))
+        self.assertIn("테스트", sent[0]["content"])
+        self.assertEqual(len(sent[0]["embeds"]), 1)
+        self.assertFalse(notify.STATE.exists())  # 테스트는 알림 상태를 바꾸지 않음
+
     def test_no_webhook_skips_without_saving(self):
         import os
         os.environ.pop("DISCORD_WEBHOOK_URL")

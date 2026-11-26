@@ -45,7 +45,8 @@ GitHub Actions (매일 08:17 / 14:17 / 22:17 KST)
 1. 디스코드 채널 설정 → 연동 → 웹후크 → 새 웹후크 → 웹후크 URL 복사
 2. 저장소 `Settings → Secrets and variables → Actions → New repository secret`
    - Name: `DISCORD_WEBHOOK_URL`, Secret: 복사한 URL
-3. 알림 기준·멘션은 `config.toml`의 `[notify]`에서 바꿉니다.
+3. 연결 확인: `Actions → 메이플 정보 수집 → Run workflow`에서 **디스코드 테스트 메시지만 보내기**를 체크하고 실행
+4. 알림 기준·멘션은 `config.toml`의 `[notify]`에서 바꿉니다.
 
 ## 로컬 실행
 

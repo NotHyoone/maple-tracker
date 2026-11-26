@@ -88,6 +88,30 @@ def post(webhook: str, payload: dict) -> None:
         r.read()
 
 
+def send_test(events: list[dict], guides: dict, site_url: str | None = None, sender=post) -> bool:
+    """웹훅 연결 확인용 테스트 메시지 (상태는 바꾸지 않음)"""
+    webhook = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
+    if not webhook:
+        print("[notify] DISCORD_WEBHOOK_URL이 등록되어 있지 않습니다. 저장소 Secrets에 먼저 등록하세요.")
+        return False
+    ending = sorted((e for e in events if e.get("date_event_end")), key=lambda e: e["date_event_end"])
+    embeds = []
+    if ending:
+        d = parse_dt(ending[0]["date_event_end"])
+        left = (d - now_kst()).total_seconds() / 86400 if d else None
+        embeds.append(build_embed(ending[0], "ending", max(left or 0, 0), guides))
+    payload = {"username": "메이플 트래커",
+               "content": f"✅ 테스트 메시지입니다. 실제 알림은 이런 모양으로 옵니다. {site_url or ''}".strip(),
+               "embeds": embeds, "allowed_mentions": {"parse": []}}
+    try:
+        sender(webhook, payload)
+    except (urllib.error.URLError, TimeoutError) as err:
+        print(f"[notify] 테스트 메시지 전송 실패 (웹훅 주소를 확인하세요): {err}")
+        return False
+    print("[notify] 테스트 메시지를 보냈습니다")
+    return True
+
+
 def notify(events: list[dict], guides: dict, cfg: dict, site_url: str | None = None, sender=post) -> int:
     if not cfg.get("discord", True):
         return 0
