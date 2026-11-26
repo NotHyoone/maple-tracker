@@ -15,9 +15,10 @@ async function getJSON(url) {
 }
 
 async function loadData() {
-  const [app, level, hexa, symbol, starforce] = await Promise.all(
-    ["data/app.json", "rules/level.json", "rules/hexa.json", "rules/symbol.json", "rules/starforce.json"].map(getJSON));
-  app.rules = { level, hexa, symbol, starforce };
+  const [app, level, hexa, symbol, starforce, potential, potentialMeta] = await Promise.all(
+    ["data/app.json", "rules/level.json", "rules/hexa.json", "rules/symbol.json", "rules/starforce.json",
+      "rules/potential.json", "rules/potential_meta.json"].map(getJSON));
+  app.rules = { level, hexa, symbol, starforce, potential, potentialMeta };
   return app;
 }
 

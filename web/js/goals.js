@@ -7,6 +7,7 @@ import { hexaGoal } from "./calc/hexa.js";
 import {
   starforceResult, starforceFormFields, readStarforceForm, runSimulations, detectStarforceEvents, starforceItems,
 } from "./sfgoal.js";
+import { potentialResult, potentialFormFields, syncPotentialFields, readPotentialForm, potentialItems } from "./potgoal.js";
 import {
   PRICE_ITEMS, normalizePrices, priceFromInput, ageDays, isStale, fragmentsToMeso, mesoToWon, sumMeso,
 } from "./calc/prices.js";
@@ -15,7 +16,7 @@ const PRICE_KEY = "prices";
 export const loadPrices = () => normalizePrices(store.load(PRICE_KEY, {}));
 
 const KEY = "goals";
-const TYPES = { level: "레벨", hexa: "HEXA 코어", symbol: "심볼", starforce: "스타포스" };
+const TYPES = { level: "레벨", hexa: "HEXA 코어", symbol: "심볼", starforce: "스타포스", potential: "잠재능력" };
 
 export const loadGoals = () => store.load(KEY, []);
 const saveGoals = (g) => store.save(KEY, g);
@@ -112,7 +113,7 @@ function symbolResult(goal, c, ctx) {
   };
 }
 
-const RESULT = { level: levelResult, hexa: hexaResult, symbol: symbolResult, starforce: starforceResult };
+const RESULT = { level: levelResult, hexa: hexaResult, symbol: symbolResult, starforce: starforceResult, potential: potentialResult };
 
 function computeGoal(goal, c, ctx) {
   try { return RESULT[goal.type](goal, c, ctx); } catch (err) {
@@ -179,11 +180,13 @@ function addForm(c, i, ctx) {
   ${c.hexamatrix?.length ? '<option value="hexa">HEXA 코어</option>' : ""}
   ${c.symbol?.length ? '<option value="symbol">심볼</option>' : ""}
   ${starforceItems(c, ctx.rules.starforce).length ? '<option value="starforce">스타포스</option>' : ""}
+  ${potentialItems(c, ctx.rules.potential).length ? '<option value="potential">잠재능력</option>' : ""}
 </select></label>
 <label data-for="hexa" hidden>코어 <select name="core"><option value="*">모든 코어</option>${coreOpts}</select></label>
 <label data-for="symbol" hidden>심볼 <select name="symbol"><option value="*">모든 심볼</option>${symOpts}</select></label>
 ${starforceFormFields(c, ctx.rules.starforce)}
-<label><span data-label-target>목표 레벨</span> <input name="target" type="number" inputmode="numeric" min="1" max="300" required></label>
+${potentialFormFields(c, ctx.rules.potential)}
+<label data-target-wrap><span data-label-target>목표 레벨</span> <input name="target" type="number" inputmode="numeric" min="1" max="300" required></label>
 <label data-for="symbol" hidden>하루 획득량(선택, 비우면 일일 퀘스트 기준) <input name="perDay" type="number" inputmode="numeric" min="0" placeholder="예: 20"></label>
 <div class="row"><button class="btn primary" type="submit">추가</button></div></form>`;
 }
@@ -195,6 +198,10 @@ function syncFormFields(form) {
   const presets = { level: c.basic.character_level + 1, hexa: 30, symbol: 20, starforce: 22 };
   form.target.placeholder = `예: ${presets[type]}`;
   form.querySelector("[data-label-target]").textContent = type === "starforce" ? "목표 성급" : "목표 레벨";
+  // 잠재능력은 목표 레벨 대신 목표 등급·옵션 조건을 씁니다
+  form.querySelector("[data-target-wrap]").hidden = type === "potential";
+  form.target.required = type !== "potential";
+  syncPotentialFields(form);
 }
 
 // ---------- 탭 전체 ----------
@@ -220,12 +227,18 @@ export function renderGoalsTab(root, ctx) {
     f._char = ctx.chars[Number(f.dataset.char)];
     syncFormFields(f);
     f.type.addEventListener("change", () => syncFormFields(f));
+    f.cond?.addEventListener("change", () => syncPotentialFields(f));
     f.addEventListener("submit", (e) => {
       e.preventDefault();
       const goal = { id: newId(), char: f._char.basic.character_name, type: f.type.value, target: Number(f.target.value) };
       if (goal.type === "hexa") goal.core = f.core.value;
       if (goal.type === "symbol") { goal.symbol = f.symbol.value; goal.perDay = Number(f.perDay.value) || 0; }
       if (goal.type === "starforce") Object.assign(goal, readStarforceForm(f));
+      if (goal.type === "potential") {
+        Object.assign(goal, readPotentialForm(f));
+        delete goal.target;
+        if (goal.cond !== "none" && !(goal.min > 0)) { f.min.focus(); f.min.setCustomValidity("기준값을 입력하세요"); f.min.reportValidity(); f.min.setCustomValidity(""); return; }
+      }
       saveGoals([...loadGoals(), goal]);
       renderGoalsTab(root, ctx);
     });
