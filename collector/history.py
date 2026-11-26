@@ -126,6 +126,40 @@ def _records(resp: dict, source: str) -> list[dict]:
     return lists[0] if lists else []
 
 
+# 실제 응답 형식 점검용: 플래그 필드에 들어오는 값의 종류와 개수만 로그로 출력 (이름·시각 등은 출력하지 않음)
+VOCAB_FIELDS = {
+    "starforce": ["item_upgrade_result", "starcatch_result", "superior_item_flag", "destroy_defence", "chance_time",
+                  "event_field_flag", "upgrade_item", "protect_shield", "bonus_stat_upgrade"],
+    "cube": ["cube_type", "item_upgrade_result", "miracle_time_flag", "upgrade_guarantee", "potential_option_grade",
+             "additional_potential_option_grade"],
+    "potential": ["potential_type", "item_upgrade_result", "miracle_time_flag", "upgrade_guarantee", "potential_option_grade",
+                  "additional_potential_option_grade"],
+}
+VOCAB: dict = {}
+
+
+def note_vocab(source: str, recs: list[dict]) -> None:
+    v = VOCAB.setdefault(source, {"_fields": set()})
+    for r in recs:
+        v["_fields"].update(r.keys())
+        for f in VOCAB_FIELDS.get(source, []):
+            val = r.get(f)
+            val = repr(val)[:40] if not isinstance(val, str) else val[:40]
+            v.setdefault(f, {}).setdefault(val, 0)
+            v[f][val] += 1
+        if source == "starforce":
+            ev = "있음" if r.get("starforce_event_list") else "없음"
+            v.setdefault("starforce_event_list", {}).setdefault(ev, 0)
+            v["starforce_event_list"][ev] += 1
+
+
+def print_vocab() -> None:
+    import json
+    for source, v in VOCAB.items():
+        out = {k: (sorted(x) if isinstance(x, set) else x) for k, x in v.items()}
+        print(f"[history-vocab] {source} {json.dumps(out, ensure_ascii=False)}")
+
+
 def fetch_day(client: Client, day: date) -> dict[str, list[dict]]:
     out = {}
     for source, path in ENDPOINTS.items():
@@ -137,6 +171,7 @@ def fetch_day(client: Client, day: date) -> dict[str, list[dict]]:
             recs += _records(resp, source)
             guard += 1
         out[source] = recs
+        note_vocab(source, recs)
     return out
 
 
@@ -183,6 +218,7 @@ def collect(client: Client, cfg: dict) -> dict:
         state["complete"] = oldest <= FIRST_DAY
     state["updated"] = now_kst().isoformat(timespec="minutes")
     write_json(STATE, state)
+    print_vocab()
     print(f"[history] {done}일 집계 (가장 과거 {state.get('oldest')}, 전체 완료 {state.get('complete')})")
     return state
 
