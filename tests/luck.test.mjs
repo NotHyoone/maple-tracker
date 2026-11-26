@@ -18,7 +18,7 @@ test("스타포스: 기대 성공·파괴 계산과 제외 규칙", () => {
     "2025-05-01": { starforce: {
       "15|success|noguard|none": { success: 315, keep: 664, down: 0, destroy: 21 },  // 정확히 기댓값
       "15|success|noguard|event": { success: 10, keep: 0, down: 0, destroy: 0 },     // 이벤트 → 제외
-      "16|none|guard|none": { success: 30, keep: 70, down: 0, destroy: 0 },          // 파괴 방지
+      "16|fail|guard|none": { success: 30, keep: 70, down: 0, destroy: 0 },          // 파괴 방지, 스타캐치 실패
     } },
     "2024-01-01": { starforce: { "15|success|noguard|none": { success: 0, keep: 0, down: 50, destroy: 50 } } }, // 개편 전 → 제외
   };
@@ -61,4 +61,21 @@ test("재설정 종류별 확률표", () => {
   assert.equal(tierRatesFor(PM, "additional", "에디셔널 잠재능력 재설정").rare, 0.02381);
   assert.equal(tierRatesFor(PM, "additional", "화이트 에디셔널 큐브").rare, 0.047619);
   assert.equal(tierRatesFor(PM, "main", "명장의 큐브"), null);
+});
+
+test("스타캐치 정보 없음: 했다/안 했다 두 가정", () => {
+  const h = { "2025-05-01": { starforce: { "17|none|noguard|none": { success: 16, keep: 70, down: 0, destroy: 14 } } } };
+  const r = starforceLuck(h, SF, { since: SF.compare_since });
+  assert.equal(r.total.unknownCatch, 100);
+  close(r.total.expSuccess, 15.75, 1e-9);   // 스타캐치 가정
+  close(r.total.expSuccessB, 15, 1e-9);     // 안 했다고 가정
+  assert.ok(r.successLuckB > r.successLuck);
+});
+
+test("메멘토·펄스 인핸서는 비교 제외, 이름이 정확한 큐브만", () => {
+  assert.equal(tierRatesFor(PM, "additional", "메멘토 브론즈 에디셔널 큐브 (200제)"), null);
+  assert.equal(tierRatesFor(PM, "main", "메멘토 골드 큐브 (200제)"), null);
+  assert.equal(tierRatesFor(PM, "main", "펄스 인핸서"), null);
+  assert.equal(tierRatesFor(PM, "main", "카르마 블랙 큐브").unique, 0.014);
+  assert.equal(tierRatesFor(PM, "additional", "카르마 화이트 에디셔널 큐브").epic, 0.019608);
 });

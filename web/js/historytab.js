@@ -36,9 +36,10 @@ function starforceCard(r, since) {
 </div>
 <p><b>성공:</b> ${esc(luckText(r.successLuck))}</p>${luckBar(r.successLuck)}
 <p><b>파괴:</b> ${esc(luckText(r.destroyLuck))}</p>${luckBar(r.destroyLuck)}
+${t.unknownCatch ? `<p class="muted">넥슨 API가 스타캐치 결과를 주지 않아(${fmtInt(t.unknownCatch)}회) 위 값은 <b>스타캐치를 매번 성공했다고 가정</b>한 결과입니다. 스타캐치를 안 했다면 기대 성공 ${num(t.expSuccessB)}회 · 파괴 ${num(t.expDestroyB)}회로, 성공은 ${esc(luckText(r.successLuckB))}, 파괴는 ${esc(luckText(r.destroyLuckB))}입니다.</p>` : ""}
 <details class="steps"><summary>성급별 (시도 · 성공 실제/기대 · 파괴 실제/기대)</summary>
 <table><tr><td>성급</td><td class="r">시도</td><td class="r">성공</td><td class="r">파괴</td></tr>${rows}</table></details>
-<p class="muted">총 ${fmtInt(t.n)}회 비교. 스타캐치 성공 여부와 파괴 방지를 시도마다 반영한 기대값입니다. 이벤트·찬스타임·슈페리얼 기록 ${fmtInt(r.excluded)}회는 확률이 달라 제외했습니다.</p></div>`;
+<p class="muted">총 ${fmtInt(t.n)}회 비교. 스타캐치 성공 여부와 파괴 방지를 시도마다 반영한 기대값입니다. 이벤트·찬스타임·슈페리얼·강화권·개편 전 기록 ${fmtInt(r.excluded)}회는 확률이 달라 제외했습니다.</p></div>`;
 }
 
 function potentialCard(r, meta) {

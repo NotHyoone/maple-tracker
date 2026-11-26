@@ -11,9 +11,11 @@ def sf(before, result, catch="스타캐치 성공", guard="파괴 방지 미적�
 
 class HistoryTest(unittest.TestCase):
     def test_flag(self):
-        for v in (True, 1, "1", "적용", "파괴 방지 적용"):
+        for v in (True, 1, "1", "적용", "파괴 방지 적용", "이벤트 적용중"):
             self.assertTrue(flag(v), v)
-        for v in (False, 0, "0", "", None, "미적용", "파괴 방지 미적용", "해당 없음"):
+        for v in (False, 0, "0", "", None, "미적용", "파괴 방지 미적용", "해당 없음",
+                  "슈페리얼 장비 미해당", "찬스타임 미적용", "이벤트 적용되지 않음", "파괴 방지 이벤트맵 미적용",
+                  "프로텍트 실드 미적용/소멸되지 않음"):
             self.assertFalse(flag(v), v)
 
     def test_starforce_keys_and_outcomes(self):
@@ -31,6 +33,21 @@ class HistoryTest(unittest.TestCase):
         self.assertIn("15|success|noguard|event", agg)
         self.assertIn("10|success|noguard|chance", agg)
         self.assertIn("12|success|noguard|superior", agg)
+
+    def test_real_response_values(self):
+        # 2026-11 실제 응답에서 확인한 값 형식
+        rec = {"before_starforce_count": 17, "item_upgrade_result": "성공", "starcatch_result": None,
+               "superior_item_flag": "슈페리얼 장비 미해당", "destroy_defence": "파괴 방지 미적용",
+               "chance_time": "찬스타임 미적용", "event_field_flag": "파괴 방지 이벤트맵 미적용",
+               "upgrade_item": "", "starforce_event_list": None}
+        self.assertEqual(sf_key(rec), "17|none|noguard|none")
+        self.assertEqual(sf_key({**rec, "upgrade_item": "카르마 스타포스 17성 강화권"}), "17|none|noguard|item")
+        k, _ = pot_key({"cube_type": "카르마 블랙 큐브", "miracle_time_flag": "이벤트 적용되지 않음",
+                        "before_potential_option": [{"grade": "유니크"}]}, "cube")
+        self.assertEqual(k, "main|카르마 블랙 큐브|unique|normal")
+        k, _ = pot_key({"cube_type": "카르마 블랙 큐브", "miracle_time_flag": "이벤트 적용중",
+                        "before_potential_option": [{"grade": "유니크"}]}, "cube")
+        self.assertTrue(k.endswith("|miracle"))
 
     def test_potential(self):
         rec = lambda **kw: {"item_upgrade_result": "실패", "item_level": 200, **kw}

@@ -30,14 +30,19 @@ const inRange = (day, since) => !since || day >= since;
 export function starforceLuck(history, rules, { since = null } = {}) {
   const rows = new Map();
   let excluded = 0;
-  const tot = { n: 0, success: 0, expSuccess: 0, varSuccess: 0, destroy: 0, expDestroy: 0, varDestroy: 0 };
+  // 스타캐치 결과가 API에 없는 기록(catch=none)은 '했다고 가정'(A)과 '안 했다고 가정'(B) 두 기대값을 함께 계산
+  const tot = { n: 0, success: 0, expSuccess: 0, varSuccess: 0, destroy: 0, expDestroy: 0, varDestroy: 0,
+    unknownCatch: 0, expSuccessB: 0, varSuccessB: 0, expDestroyB: 0, varDestroyB: 0 };
   for (const [day, d] of Object.entries(history || {})) {
     for (const [key, c] of Object.entries(d.starforce || {})) {
       const n = c.success + c.keep + c.down + c.destroy;
       const [starS, catchR, guard, special] = key.split("|");
       const star = Number(starS);
       if (!inRange(day, since) || special !== "none" || !rules.probs[star]) { excluded += n; continue; }
-      const o = odds(rules, star, { starcatch: catchR === "success", safeguard: guard === "guard" ? [star] : [] });
+      const safeguard = guard === "guard" ? [star] : [];
+      const o = odds(rules, star, { starcatch: catchR === "success" || catchR === "none", safeguard });
+      const oB = catchR === "none" ? odds(rules, star, { starcatch: false, safeguard }) : o;
+      if (catchR === "none") tot.unknownCatch += n;
       const r = rows.get(star) || { star, n: 0, success: 0, expSuccess: 0, destroy: 0, expDestroy: 0 };
       r.n += n; r.success += c.success; r.destroy += c.destroy;
       r.expSuccess += n * o.success; r.expDestroy += n * o.destroy;
@@ -45,6 +50,8 @@ export function starforceLuck(history, rules, { since = null } = {}) {
       tot.n += n; tot.success += c.success; tot.destroy += c.destroy;
       tot.expSuccess += n * o.success; tot.varSuccess += n * o.success * (1 - o.success);
       tot.expDestroy += n * o.destroy; tot.varDestroy += n * o.destroy * (1 - o.destroy);
+      tot.expSuccessB += n * oB.success; tot.varSuccessB += n * oB.success * (1 - oB.success);
+      tot.expDestroyB += n * oB.destroy; tot.varDestroyB += n * oB.destroy * (1 - oB.destroy);
     }
   }
   return {
@@ -54,6 +61,9 @@ export function starforceLuck(history, rules, { since = null } = {}) {
     successLuck: luckPercentile(tot.success, tot.expSuccess, tot.varSuccess),
     // 파괴는 적을수록 운이 좋음
     destroyLuck: (() => { const p = luckPercentile(tot.destroy, tot.expDestroy, tot.varDestroy); return p == null ? null : 1 - p; })(),
+    // 스타캐치를 안 했다고 가정한 경우
+    successLuckB: luckPercentile(tot.success, tot.expSuccessB, tot.varSuccessB),
+    destroyLuckB: (() => { const p = luckPercentile(tot.destroy, tot.expDestroyB, tot.varDestroyB); return p == null ? null : 1 - p; })(),
   };
 }
 
@@ -61,10 +71,16 @@ export function starforceLuck(history, rules, { since = null } = {}) {
 
 /** 기록의 재설정 이름 → 등급 상승 확률표 */
 export function tierRatesFor(meta, kind, name) {
-  if (kind === "additional") return /큐브/.test(name) ? meta.tier_other.additionalCube : rateMap(meta.tier.additional);
-  if (/레드/.test(name)) return meta.tier_other.red;
-  if (/블랙|재설정/.test(name)) return rateMap(meta.tier.main);
-  return null; // 수상한/장인/명장 큐브 등은 비교하지 않음
+  // 확률이 확인된 것만 비교 (메멘토·수상한·장인·명장 큐브, 펄스 인핸서 등은 제외)
+  if (/메멘토|펄스/.test(name)) return null;
+  if (kind === "additional") {
+    if (/재설정/.test(name)) return rateMap(meta.tier.additional);
+    if (/^(카르마 )?(화이트 )?에디셔널 큐브$/.test(name)) return meta.tier_other.additionalCube;
+    return null;
+  }
+  if (/^(카르마 )?레드 큐브$/.test(name)) return meta.tier_other.red;
+  if (/^(카르마 )?블랙 큐브$|재설정/.test(name)) return rateMap(meta.tier.main);
+  return null;
 }
 const rateMap = (t) => Object.fromEntries(Object.entries(t).map(([g, v]) => [g, v.rate]));
 

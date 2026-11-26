@@ -43,11 +43,14 @@ def flag(v) -> bool:
     if isinstance(v, (int, float)):
         return v != 0
     s = str(v or "").strip()
-    return bool(s) and s.lower() not in ("0", "false", "n", "none") and not any(w in s for w in ("미적용", "해당 없음", "해당없음", "없음"))
+    # 실제 응답 예: "슈페리얼 장비 미해당", "찬스타임 미적용", "이벤트 적용되지 않음", "파괴 방지 미적용"
+    negatives = ("미적용", "미해당", "않음", "아님", "없음", "해당 없음", "해당없음")
+    return bool(s) and s.lower() not in ("0", "false", "n", "none") and not any(w in s for w in negatives)
 
 
 def sf_key(rec: dict) -> str | None:
-    """'성급|스타캐치|파괴방지|특수' (특수: none/event/chance/superior). 성급을 모르면 None"""
+    """'성급|스타캐치|파괴방지|특수' (특수: none/event/chance/superior/item/eventmap). 성급을 모르면 None
+    스타캐치: success/fail, API가 값을 주지 않으면(null) none"""
     before = rec.get("before_starforce_count")
     if before is None:
         return None
@@ -58,6 +61,10 @@ def sf_key(rec: dict) -> str | None:
         special = "superior"
     elif flag(rec.get("chance_time")):
         special = "chance"
+    elif str(rec.get("upgrade_item") or "").strip():
+        special = "item"      # 강화권·펄스 인핸서 등 메소 강화가 아닌 경우
+    elif flag(rec.get("event_field_flag")):
+        special = "eventmap"  # 파괴 방지 이벤트맵
     elif rec.get("starforce_event_list"):
         special = "event"
     else:
