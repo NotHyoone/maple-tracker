@@ -17,10 +17,16 @@ GitHub Actions (매일 08:17 / 14:17 / 22:17 KST)
       ├ 이벤트 목록·상세 → data/events/
       ├ 캐릭터 정보 → data/characters/<이름>/latest.json, history.json (일별 기록)
       ├ 성장 가이드 → data/guide.json
-      └ 웹페이지 → site/index.html → GitHub Pages 배포
+      └ web/ + data/app.json → site/ → GitHub Pages 배포
 ```
 
-외부 패키지 없이 Python 표준 라이브러리만 사용합니다 (Python 3.11 이상).
+- `collector/`: 수집·분석 (Python 3.11+, 표준 라이브러리만)
+- `web/`: 화면. 브라우저가 `data/app.json`을 읽어 그립니다 (빌드 도구 없는 바닐라 JS)
+  - `js/format.js` 포맷·날짜 계산, `js/store.js` 브라우저 저장소, `js/render.js` 화면 조각, `js/app.js` 진입점
+- `tests/`: 화면 로직 테스트 — `node --test tests/*.test.mjs`
+
+목표·시세 같은 개인 설정은 **브라우저에만 저장**되고 저장소에는 올라가지 않습니다.
+기기를 옮길 때는 `계정·설정` 탭의 백업 내보내기/가져오기를 쓰세요.
 
 ## 설정
 
@@ -37,6 +43,7 @@ GitHub Actions (매일 08:17 / 14:17 / 22:17 KST)
 export NEXON_API_KEY=발급받은키
 python -m collector.main            # 수집 + 페이지 생성
 python -m collector.main --site-only  # 저장된 데이터로 페이지만 다시 생성
+python -m http.server -d site       # http://localhost:8000 에서 확인 (파일 직접 열기는 안 됨)
 ```
 
 ## 성장 가이드 규칙 바꾸기

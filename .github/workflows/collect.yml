@@ -7,7 +7,7 @@ on:
   workflow_dispatch: # Actions 탭에서 수동 실행
   push:
     branches: [main]
-    paths: ["collector/**", "config.toml", ".github/workflows/**"]
+    paths: ["collector/**", "web/**", "tests/**", "config.toml", ".github/workflows/**"]
 
 permissions:
   contents: write
@@ -27,6 +27,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: 화면 코드 테스트
+        run: node --test tests/*.test.mjs
 
       - name: 넥슨 Open API 수집 + 페이지 생성
         env:

@@ -9,7 +9,7 @@ import tomllib
 
 from . import characters, events, growth, site
 from .nexon import Client
-from .util import DATA, ROOT, read_json, safe_name
+from .util import DATA, ROOT, read_json, safe_name, write_json
 
 
 def load_config() -> dict:
@@ -45,9 +45,9 @@ def main(argv: list[str]) -> int:
     chars.sort(key=lambda c: order.get(c["basic"]["character_name"], 99))
 
     guides = growth.build_guide(ev, chars, roster)
-    from .util import write_json
     write_json(DATA / "guide.json", {safe_name(k): v for k, v in guides.items()})
-    site.build(cfg.get("site", {}).get("title", "메이플 트래커"), ev, upd, chars, roster, guides)
+    collected_at = read_json(DATA / "events" / "current.json", {}).get("collected_at")
+    site.build(cfg.get("site", {}).get("title", "메이플 트래커"), ev, upd, chars, roster, guides, collected_at)
     return 0
 
 

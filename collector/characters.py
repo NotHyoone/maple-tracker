@@ -25,6 +25,7 @@ ITEM_KEYS = (
     "potential_option_grade", "potential_option_1", "potential_option_2", "potential_option_3",
     "additional_potential_option_grade", "additional_potential_option_1",
     "additional_potential_option_2", "additional_potential_option_3", "scroll_upgrade",
+    "starforce_scroll_flag",
 )
 
 
@@ -57,7 +58,12 @@ def slim(raw: dict) -> dict:
     """페이지 표시/분석에 필요한 부분만 남겨 저장 용량을 줄입니다."""
     out = dict(raw)
     if "item" in raw:
-        out["item"] = [{k: it.get(k) for k in ITEM_KEYS} for it in raw["item"].get("item_equipment", [])]
+        out["item"] = [
+            {**{k: it.get(k) for k in ITEM_KEYS},
+             # 스타포스 강화 비용은 아이템 레벨로 정해집니다
+             "item_level": (it.get("item_base_option") or {}).get("base_equipment_level")}
+            for it in raw["item"].get("item_equipment", [])
+        ]
     if "symbol" in raw:
         out["symbol"] = [{k: s.get(k) for k in (
             "symbol_name", "symbol_icon", "symbol_level", "symbol_force",
