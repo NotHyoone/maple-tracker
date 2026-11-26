@@ -77,3 +77,8 @@ td img{width:28px;height:28px}
 .steps summary{cursor:pointer;color:var(--mut);font-size:13px;margin-top:8px}
 .steps td{font-size:12px}
 .sim h3{margin:12px 0 4px}
+nav button{padding:8px 6px;font-size:14px}
+.luckbar{position:relative;height:10px;border-radius:5px;margin:4px 0 22px;background:linear-gradient(90deg,var(--warn),var(--chip) 50%,var(--good))}
+.luckbar i{position:absolute;top:-4px;width:4px;height:18px;margin-left:-2px;background:var(--fg);border-radius:2px}
+.luckbar span{position:absolute;top:12px;font-size:11px;color:var(--mut)}
+.luckbar span:last-of-type{right:0}

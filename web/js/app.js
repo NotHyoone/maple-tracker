@@ -5,6 +5,7 @@ import {
   characterPane, eventCard, endingSoonCard, rosterCard, updatesCard, backupCard,
 } from "./render.js";
 import { renderGoalsTab } from "./goals.js";
+import { renderHistoryTab } from "./historytab.js";
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
@@ -71,10 +72,11 @@ function render(d) {
   const chars = d.characters;
 
   $("#tabs").innerHTML =
-    '<button data-t="t-char">내 캐릭터</button>' +
+    '<button data-t="t-char">캐릭터</button>' +
     '<button data-t="t-goal">목표</button>' +
-    `<button data-t="t-event">이벤트 (${d.events.length})</button>` +
-    '<button data-t="t-more">계정·설정</button>';
+    '<button data-t="t-hist">기록</button>' +
+    `<button data-t="t-event">이벤트 ${d.events.length}</button>` +
+    '<button data-t="t-more">계정</button>';
 
   const sel = chars.map((c, i) => `<button data-t="c${i}">${esc(c.basic.character_name)}</button>`).join("");
   const panes = chars.map((c, i) =>
@@ -83,9 +85,13 @@ function render(d) {
   $("#app").innerHTML = `
 <section id="t-char"><div class="charsel">${sel}</div>${panes || '<p class="muted">수집된 캐릭터가 없습니다.</p>'}</section>
 <section id="t-goal"></section>
+<section id="t-hist"></section>
 <section id="t-event">${endingSoonCard(d.events, now)}${d.events.map((ev) => eventCard(ev, now)).join("") || '<p class="muted">진행 중인 이벤트가 없습니다.</p>'}</section>
 <section id="t-more">${rosterCard(d.roster)}${updatesCard(d.updates)}${backupCard(store.available())}<p class="muted">Data based on NEXON Open API</p></section>`;
 
+  try { renderHistoryTab($("#t-hist"), d); } catch (err) {
+    $("#t-hist").innerHTML = `<div class="card"><p class="err">기록을 표시하지 못했습니다: ${esc(err.message)}</p></div>`;
+  }
   renderGoalsTab($("#t-goal"), { chars, rules: d.rules, observed: d.observed_exp, events: d.events, setupTabs });
   setupTabs($("#tabs"), [...document.querySelectorAll("main > section")], "tab:main");
   setupTabs($(".charsel"), [...document.querySelectorAll(".pane")], "tab:character");

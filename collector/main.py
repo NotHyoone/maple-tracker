@@ -7,7 +7,7 @@ from __future__ import annotations
 import sys
 import tomllib
 
-from . import characters, events, growth, site
+from . import characters, events, growth, history, site
 from .nexon import Client
 from .util import DATA, ROOT, read_json, safe_name, write_json
 
@@ -38,6 +38,10 @@ def main(argv: list[str]) -> int:
         e = events.collect(client)
         ch = characters.collect(client, cfg.get("characters", {}), cfg.get("roster", {}).get("enabled", True))
         ev, upd, chars, roster = e["events"], e["updates"], ch["characters"], ch["roster"]
+        try:
+            history.collect(client, cfg.get("history", {}))
+        except Exception as err:  # noqa: BLE001 - 기록 수집 실패가 다른 수집을 막지 않도록
+            print(f"[history] 수집 중단: {err}")
         print(f"[main] API 호출 {client.calls}회")
 
     # config 순서대로 정렬

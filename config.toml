@@ -11,5 +11,11 @@ auto_top = 3
 # 저장소가 공개라면 이 목록으로 부캐들이 한 계정이라는 것이 드러납니다.
 enabled = true
 
+[history]
+# 스타포스·큐브·메소 잠재능력 재설정 사용 기록 수집 (집계 숫자만 저장)
+enabled = true
+# 과거 기록을 실행마다 며칠씩 채울지 (개발용 API 키는 하루 호출 수 제한이 있어 나눠서 채웁니다)
+backfill_days_per_run = 45
+
 [site]
 title = "메이플 트래커"

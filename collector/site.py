@@ -7,6 +7,7 @@ from __future__ import annotations
 import json
 import shutil
 
+from .history import load_all as history_all
 from .util import DATA, ROOT, now_kst, read_json
 
 WEB = ROOT / "web"
@@ -28,6 +29,8 @@ def build(title: str, events: list[dict], updates: list[dict], characters: list[
         "characters": characters,
         "guides": guides,
         "observed_exp": read_json(DATA / "observed_exp.json", {}),
+        "history": history_all(),
+        "history_state": read_json(DATA / "history" / "state.json", {}),
     }
     out = SITE / "data" / "app.json"
     out.parent.mkdir(parents=True, exist_ok=True)

@@ -130,5 +130,21 @@
   ],
   "source": "넥슨 공식 확률 페이지 '대상 장비에 따른 옵션' 규칙"
  },
- "checked": "2026-11-27"
+ "checked": "2026-11-27",
+ "tier_other": {
+  "additionalCube": {
+   "rare": 0.047619,
+   "epic": 0.019608,
+   "unique": 0.007
+  },
+  "red": {
+   "rare": 0.06,
+   "epic": 0.018,
+   "unique": 0.003
+  }
+ },
+ "tier_other_source": {
+  "additionalCube": "넥슨 공식 확률 페이지 (cube/addi)",
+  "red": "devcomma 큐브 계산기 (출처 1곳)"
+ }
 }

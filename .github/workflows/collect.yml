@@ -31,6 +31,9 @@ jobs:
       - name: 화면 코드 테스트
         run: node --test tests/*.test.mjs
 
+      - name: 수집기 테스트
+        run: python -m unittest discover -s tests -p "test_*.py"
+
       - name: 넥슨 Open API 수집 + 페이지 생성
         env:
           NEXON_API_KEY: ${{ secrets.NEXON_API_KEY }}
