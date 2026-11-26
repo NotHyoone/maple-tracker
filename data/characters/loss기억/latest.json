@@ -1,0 +1,778 @@
+{
+ "basic": {
+  "date": null,
+  "character_name": "loss기억",
+  "world_name": "스카니아",
+  "character_gender": "여",
+  "character_class": "레테",
+  "character_class_level": "6",
+  "character_level": 286,
+  "character_exp": 94133874358812,
+  "character_exp_rate": "85.996",
+  "character_guild_name": "역고드름",
+  "character_image": "https://open.api.nexon.com/static/maplestory/character/look/ICBCPIJLBIJDBBBINGIEAPODFKEJLCMBFLPFAGNJIGGDNGOIENAFGEJJBJOPDHFINMAAFDDPMPOEPMNKNELPCDMNFKCGIDAADPEGOLFCHNOKIAPNAGBEEJENOFIECDILFKMHOALBLEPJMKCHKOMBMAFGBOPMKMPLFGBFIAEIIPHHMOLBNKPHBOMCAFLLGHLPEOLANGAHAHECGMAJLNAKBGOMJLMOLDNJKEMHNBOCPKCHIIEJMPFADOEENNLJAPAOAFNNNNEKBIIHDPHPFENHGOEPOFBHIMPJFFFJLLPPHGBLOCCEBMEANNALCBKPFCPMMPFGNDKPEBLCEBHHLEFPNHIKDDDNBDLKMNHIHLGACMAHDPLPKGNJGMDGKLDCHKFMFMINFFEMOCJMAOHMOJABAJEKLHNFODDJCEACDDAIHPGCCGONCKDBDOICDAMLBAFFENEFGNLPLPMJLODDKKNPICIAKMNOJJNFMCKHHAILKKBFNAFLJFNGNFBCKJFGEHFPHAGGPIDNLDJKBCAFAJMLFMCIHLEDLIPDIJJGECPOEJDEIMKACLMHMGJHFMEIGDDBDCLEJCKFIEAPHFAPCFOFJDPKINMJJAKGMFPAPKJDIOCIPALDDIEBJBHODPACPFDHNCHEBIGMGHNJACKILLJBENNHLDKIGMDOMHKFIKMKDLPGIKAFELKALGNCIEKCLFKODBAEOCIHDIOFGDJKNPGNNCECBALEJOHIBDAENIBGCBNNONPIMEBOOJNPPJNFNPCMEFOLLNEEFPCOFMIPJDKDHAPGMDPJNBOOIHBGANNFLHMDINPCFOGJEOMEEEMJDEAICGMAOLGHNCPFKHKPFCJGOOBMJHNFHHMJGBAIFOMLBAJLMOFLLJCDJBMBAKJFMOPNENNPNJLNKJOPELBBKMIBELINACKPIAMCEHEHHPJLKALCOCADAEANBLFFDNDFCLJALOMACLPJOPABHNNEIAKCJCELPJDBHPDEEHHGADFFPMOEBGJIHNMMLPOLHLMCGPIO?wmotion=W00",
+  "character_date_create": "2026-08-30T00:00+09:00",
+  "access_flag": "true",
+  "liberation_quest_clear": "0"
+ },
+ "stat": {
+  "최소 스탯공격력": "25502355",
+  "최대 스탯공격력": "28335948",
+  "데미지": "97.00",
+  "보스 몬스터 데미지": "254.00",
+  "최종 데미지": "160.64",
+  "방어율 무시": "88.74",
+  "크리티컬 확률": "86",
+  "크리티컬 데미지": "59.25",
+  "상태이상 내성": "62",
+  "스탠스": "100",
+  "방어력": "16926",
+  "이동속도": "161",
+  "점프력": "123",
+  "스타포스": "194",
+  "아케인포스": "1350",
+  "어센틱포스": "370",
+  "STR": "2714",
+  "DEX": "2335",
+  "INT": "40117",
+  "LUK": "4425",
+  "HP": "51941",
+  "MP": "71937",
+  "AP 배분 STR": "4",
+  "AP 배분 DEX": "4",
+  "AP 배분 INT": "1448",
+  "AP 배분 LUK": "4",
+  "AP 배분 HP": "0",
+  "AP 배분 MP": "0",
+  "아이템 드롭률": "30",
+  "메소 획득량": "48",
+  "버프 지속시간": "60",
+  "공격 속도": "6",
+  "일반 몬스터 데미지": "99.00",
+  "재사용 대기시간 감소 (초)": "2",
+  "재사용 대기시간 감소 (%)": "6",
+  "재사용 대기시간 미적용": "7",
+  "속성 내성 무시": "5.00",
+  "상태이상 추가 데미지": "0.00",
+  "무기 숙련도": "90",
+  "추가 경험치 획득": "119.00",
+  "공격력": "1104",
+  "마력": "2789",
+  "전투력": "24369222",
+  "소환수 지속시간 증가": "10"
+ },
+ "ability": {
+  "grade": "레전드리",
+  "lines": [
+   "아이템 드롭률 20% 증가",
+   "메소 획득량 15% 증가",
+   "STR 20 증가, LUK 10 증가"
+  ]
+ },
+ "hexamatrix": [
+  {
+   "hexa_core_name": "오버로드 : 이터널 게이즈",
+   "hexa_core_type": "스킬 코어",
+   "hexa_core_level": 3
+  },
+  {
+   "hexa_core_name": "앱솔루트 레인",
+   "hexa_core_type": "스킬 코어",
+   "hexa_core_level": 1
+  },
+  {
+   "hexa_core_name": "보이드 오리진",
+   "hexa_core_type": "스킬 코어",
+   "hexa_core_level": 3
+  },
+  {
+   "hexa_core_name": "임프린트 VI/이딕트 : 펠 스톰 VI",
+   "hexa_core_type": "마스터리 코어",
+   "hexa_core_level": 19
+  },
+  {
+   "hexa_core_name": "인보크 : 바르가르 VI/이딕트 : 램페이지 VI",
+   "hexa_core_type": "마스터리 코어",
+   "hexa_core_level": 19
+  },
+  {
+   "hexa_core_name": "인보크 : 템플러 VI/이딕트 : 템플러 아츠 VI",
+   "hexa_core_type": "마스터리 코어",
+   "hexa_core_level": 19
+  },
+  {
+   "hexa_core_name": "임펠 VI/팩트 매니페스트",
+   "hexa_core_type": "마스터리 코어",
+   "hexa_core_level": 11
+  },
+  {
+   "hexa_core_name": "오버로드 : 템플러 온슬로트",
+   "hexa_core_type": "강화 코어",
+   "hexa_core_level": 1
+  },
+  {
+   "hexa_core_name": "오버로드 : 바르가르 트라이던트",
+   "hexa_core_type": "강화 코어",
+   "hexa_core_level": 1
+  },
+  {
+   "hexa_core_name": "인보크/오버로드 : 아즈라스",
+   "hexa_core_type": "강화 코어",
+   "hexa_core_level": 1
+  },
+  {
+   "hexa_core_name": "체인 커맨드",
+   "hexa_core_type": "강화 코어",
+   "hexa_core_level": 1
+  },
+  {
+   "hexa_core_name": "솔 야누스",
+   "hexa_core_type": "공용 코어",
+   "hexa_core_level": 3
+  },
+  {
+   "hexa_core_name": "솔 헤카테",
+   "hexa_core_type": "공용 코어",
+   "hexa_core_level": 1
+  },
+  {
+   "hexa_core_name": "프라이멀 퓨리 VI",
+   "hexa_core_type": "공용 코어",
+   "hexa_core_level": 1
+  }
+ ],
+ "hexamatrix_stat": {
+  "date": null,
+  "character_class": "레테",
+  "character_hexa_stat_core": [
+   {
+    "slot_id": "0",
+    "main_stat_name": "보스 데미지 증가",
+    "sub_stat_name_1": "주력 스탯 증가",
+    "sub_stat_name_2": "마력 증가",
+    "main_stat_level": 4,
+    "sub_stat_level_1": 8,
+    "sub_stat_level_2": 8,
+    "stat_grade": 20
+   }
+  ],
+  "character_hexa_stat_core_2": [
+   {
+    "slot_id": "0",
+    "main_stat_name": "크리티컬 데미지 증가",
+    "sub_stat_name_1": "주력 스탯 증가",
+    "sub_stat_name_2": "마력 증가",
+    "main_stat_level": 5,
+    "sub_stat_level_1": 6,
+    "sub_stat_level_2": 9,
+    "stat_grade": 20
+   }
+  ],
+  "character_hexa_stat_core_3": [
+   {
+    "slot_id": "0",
+    "main_stat_name": "마력 증가",
+    "sub_stat_name_1": "크리티컬 데미지 증가",
+    "sub_stat_name_2": "보스 데미지 증가",
+    "main_stat_level": 6,
+    "sub_stat_level_1": 9,
+    "sub_stat_level_2": 5,
+    "stat_grade": 20
+   }
+  ],
+  "preset_hexa_stat_core": [
+   {
+    "slot_id": "0",
+    "main_stat_name": "보스 데미지 증가",
+    "sub_stat_name_1": "주력 스탯 증가",
+    "sub_stat_name_2": "마력 증가",
+    "main_stat_level": 4,
+    "sub_stat_level_1": 8,
+    "sub_stat_level_2": 8,
+    "stat_grade": 20
+   },
+   {
+    "slot_id": "1",
+    "main_stat_name": null,
+    "sub_stat_name_1": null,
+    "sub_stat_name_2": null,
+    "main_stat_level": 0,
+    "sub_stat_level_1": 0,
+    "sub_stat_level_2": 0,
+    "stat_grade": 0
+   }
+  ],
+  "preset_hexa_stat_core_2": [
+   {
+    "slot_id": "0",
+    "main_stat_name": "크리티컬 데미지 증가",
+    "sub_stat_name_1": "주력 스탯 증가",
+    "sub_stat_name_2": "마력 증가",
+    "main_stat_level": 5,
+    "sub_stat_level_1": 6,
+    "sub_stat_level_2": 9,
+    "stat_grade": 20
+   },
+   {
+    "slot_id": "1",
+    "main_stat_name": null,
+    "sub_stat_name_1": null,
+    "sub_stat_name_2": null,
+    "main_stat_level": 0,
+    "sub_stat_level_1": 0,
+    "sub_stat_level_2": 0,
+    "stat_grade": 0
+   }
+  ],
+  "preset_hexa_stat_core_3": [
+   {
+    "slot_id": "0",
+    "main_stat_name": "마력 증가",
+    "sub_stat_name_1": "크리티컬 데미지 증가",
+    "sub_stat_name_2": "보스 데미지 증가",
+    "main_stat_level": 6,
+    "sub_stat_level_1": 9,
+    "sub_stat_level_2": 5,
+    "stat_grade": 20
+   },
+   {
+    "slot_id": "1",
+    "main_stat_name": null,
+    "sub_stat_name_1": null,
+    "sub_stat_name_2": null,
+    "main_stat_level": 0,
+    "sub_stat_level_1": 0,
+    "sub_stat_level_2": 0,
+    "stat_grade": 0
+   }
+  ]
+ },
+ "symbol": [
+  {
+   "symbol_name": "아케인심볼 : 소멸의 여로",
+   "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDJHOA",
+   "symbol_level": 20,
+   "symbol_force": "220",
+   "symbol_growth_count": 0,
+   "symbol_require_growth_count": 411
+  },
+  {
+   "symbol_name": "아케인심볼 : 츄츄 아일랜드",
+   "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDJHOD",
+   "symbol_level": 20,
+   "symbol_force": "220",
+   "symbol_growth_count": 0,
+   "symbol_require_growth_count": 411
+  },
+  {
+   "symbol_name": "아케인심볼 : 아르카나",
+   "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDJHOF",
+   "symbol_level": 20,
+   "symbol_force": "220",
+   "symbol_growth_count": 0,
+   "symbol_require_growth_count": 411
+  },
+  {
+   "symbol_name": "아케인심볼 : 레헬른",
+   "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDJHOC",
+   "symbol_level": 20,
+   "symbol_force": "220",
+   "symbol_growth_count": 0,
+   "symbol_require_growth_count": 411
+  },
+  {
+   "symbol_name": "아케인심볼 : 모라스",
+   "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDJHOE",
+   "symbol_level": 20,
+   "symbol_force": "220",
+   "symbol_growth_count": 0,
+   "symbol_require_growth_count": 411
+  },
+  {
+   "symbol_name": "아케인심볼 : 에스페라",
+   "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDJHOH",
+   "symbol_level": 20,
+   "symbol_force": "220",
+   "symbol_growth_count": 0,
+   "symbol_require_growth_count": 411
+  },
+  {
+   "symbol_name": "어센틱심볼 : 세르니움",
+   "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDIHOB",
+   "symbol_level": 8,
+   "symbol_force": "80",
+   "symbol_growth_count": 1710,
+   "symbol_require_growth_count": 736
+  },
+  {
+   "symbol_name": "어센틱심볼 : 아르크스",
+   "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDIHOA",
+   "symbol_level": 6,
+   "symbol_force": "60",
+   "symbol_growth_count": 1330,
+   "symbol_require_growth_count": 444
+  },
+  {
+   "symbol_name": "어센틱심볼 : 오디움",
+   "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDIHOD",
+   "symbol_level": 6,
+   "symbol_force": "60",
+   "symbol_growth_count": 1276,
+   "symbol_require_growth_count": 444
+  },
+  {
+   "symbol_name": "어센틱심볼 : 도원경",
+   "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDIHOC",
+   "symbol_level": 6,
+   "symbol_force": "60",
+   "symbol_growth_count": 1202,
+   "symbol_require_growth_count": 444
+  },
+  {
+   "symbol_name": "어센틱심볼 : 아르테리아",
+   "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDIHOF",
+   "symbol_level": 6,
+   "symbol_force": "60",
+   "symbol_growth_count": 1146,
+   "symbol_require_growth_count": 444
+  },
+  {
+   "symbol_name": "어센틱심볼 : 카르시온",
+   "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDIHOE",
+   "symbol_level": 5,
+   "symbol_force": "50",
+   "symbol_growth_count": 434,
+   "symbol_require_growth_count": 325
+  }
+ ],
+ "item": [
+  {
+   "item_equipment_part": "모자",
+   "item_equipment_slot": "모자",
+   "item_name": "에테르넬 메이지햇",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEPCOOGA",
+   "starforce": "12",
+   "potential_option_grade": "레전드리",
+   "potential_option_1": "스킬 재사용 대기시간 -2초",
+   "potential_option_2": "LUK +10%",
+   "potential_option_3": "LUK +10%",
+   "additional_potential_option_grade": "에픽",
+   "additional_potential_option_1": "방어력 +5%",
+   "additional_potential_option_2": "최대 MP +125",
+   "additional_potential_option_3": "방어력 +3%",
+   "scroll_upgrade": "9"
+  },
+  {
+   "item_equipment_part": "얼굴장식",
+   "item_equipment_slot": "얼굴장식",
+   "item_name": "트와일라이트 마크",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEPDJALG",
+   "starforce": "18",
+   "potential_option_grade": "유니크",
+   "potential_option_1": "INT +9%",
+   "potential_option_2": "INT +6%",
+   "potential_option_3": "최대 MP +6%",
+   "additional_potential_option_grade": "에픽",
+   "additional_potential_option_1": "마력 +11",
+   "additional_potential_option_2": "점프력 +6",
+   "additional_potential_option_3": "INT +2%",
+   "scroll_upgrade": "4"
+  },
+  {
+   "item_equipment_part": "눈장식",
+   "item_equipment_slot": "눈장식",
+   "item_name": "아쿠아틱 레터 눈장식",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEPAJEKD",
+   "starforce": "8",
+   "potential_option_grade": "에픽",
+   "potential_option_1": "INT +6%",
+   "potential_option_2": "INT +3%",
+   "potential_option_3": "INT +3%",
+   "additional_potential_option_grade": null,
+   "additional_potential_option_1": null,
+   "additional_potential_option_2": null,
+   "additional_potential_option_3": null,
+   "scroll_upgrade": "3"
+  },
+  {
+   "item_equipment_part": "귀고리",
+   "item_equipment_slot": "귀고리",
+   "item_name": "에스텔라 이어링",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEPBJENB",
+   "starforce": "18",
+   "potential_option_grade": "유니크",
+   "potential_option_1": "INT +9%",
+   "potential_option_2": "LUK +6%",
+   "potential_option_3": "INT +6%",
+   "additional_potential_option_grade": "에픽",
+   "additional_potential_option_1": "INT +4%",
+   "additional_potential_option_2": "최대 MP +100",
+   "additional_potential_option_3": "마력 +10",
+   "scroll_upgrade": "7"
+  },
+  {
+   "item_equipment_part": "상의",
+   "item_equipment_slot": "상의",
+   "item_name": "에테르넬 메이지로브",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEPGJDNF",
+   "starforce": "13",
+   "potential_option_grade": "유니크",
+   "potential_option_1": "올스탯 +7%",
+   "potential_option_2": "INT +7%",
+   "potential_option_3": "피격 후 무적시간 +1초",
+   "additional_potential_option_grade": "레어",
+   "additional_potential_option_1": "올스탯 +4",
+   "additional_potential_option_2": "마력 +3",
+   "additional_potential_option_3": "최대 HP +125",
+   "scroll_upgrade": "8"
+  },
+  {
+   "item_equipment_part": "하의",
+   "item_equipment_slot": "하의",
+   "item_name": "에테르넬 메이지팬츠",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEPEJFGH",
+   "starforce": "11",
+   "potential_option_grade": "레전드리",
+   "potential_option_1": "INT +13%",
+   "potential_option_2": "DEX +10%",
+   "potential_option_3": "최대 MP +10%",
+   "additional_potential_option_grade": "에픽",
+   "additional_potential_option_1": "INT +5%",
+   "additional_potential_option_2": "방어력 +150",
+   "additional_potential_option_3": "방어력 +150",
+   "scroll_upgrade": "4"
+  },
+  {
+   "item_equipment_part": "신발",
+   "item_equipment_slot": "신발",
+   "item_name": "아케인셰이드 메이지슈즈",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEPFIGLI",
+   "starforce": "0",
+   "potential_option_grade": "유니크",
+   "potential_option_1": "LUK +9%",
+   "potential_option_2": "INT +6%",
+   "potential_option_3": "LUK +6%",
+   "additional_potential_option_grade": "에픽",
+   "additional_potential_option_1": "마력 +11",
+   "additional_potential_option_2": "DEX +2%",
+   "additional_potential_option_3": "STR +2%",
+   "scroll_upgrade": "4"
+  },
+  {
+   "item_equipment_part": "장갑",
+   "item_equipment_slot": "장갑",
+   "item_name": "아케인셰이드 메이지글러브",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEPKJBHH",
+   "starforce": "12",
+   "potential_option_grade": "유니크",
+   "potential_option_1": "INT +9%",
+   "potential_option_2": "INT +6%",
+   "potential_option_3": "최대 MP +6%",
+   "additional_potential_option_grade": "에픽",
+   "additional_potential_option_1": "마력 +11",
+   "additional_potential_option_2": "방어력 +100",
+   "additional_potential_option_3": "올스탯 +3",
+   "scroll_upgrade": "6"
+  },
+  {
+   "item_equipment_part": "망토",
+   "item_equipment_slot": "망토",
+   "item_name": "아케인셰이드 메이지케이프",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEOCJOKA",
+   "starforce": "12",
+   "potential_option_grade": "레전드리",
+   "potential_option_1": "최대 MP +12%",
+   "potential_option_2": "INT +9%",
+   "potential_option_3": "최대 MP +9%",
+   "additional_potential_option_grade": "에픽",
+   "additional_potential_option_1": "마력 +11",
+   "additional_potential_option_2": "DEX +2%",
+   "additional_potential_option_3": "올스탯 +3",
+   "scroll_upgrade": "5"
+  },
+  {
+   "item_equipment_part": "마법깃펜",
+   "item_equipment_slot": "보조무기",
+   "item_name": "녹스 마법깃펜",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIANHOC",
+   "starforce": "0",
+   "potential_option_grade": "레전드리",
+   "potential_option_1": "보스 몬스터 데미지 +40%",
+   "potential_option_2": "피격 시 5% 확률로 데미지의 20% 무시",
+   "potential_option_3": "보스 몬스터 데미지 +30%",
+   "additional_potential_option_grade": "유니크",
+   "additional_potential_option_1": "마력 +9%",
+   "additional_potential_option_2": "공격 시 3% 확률로 47의 HP 회복",
+   "additional_potential_option_3": "올스탯 +3%",
+   "scroll_upgrade": "0"
+  },
+  {
+   "item_equipment_part": "카르타",
+   "item_equipment_slot": "무기",
+   "item_name": "아케인셰이드 디키오",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KENDNHMD",
+   "starforce": "17",
+   "potential_option_grade": "유니크",
+   "potential_option_1": "보스 몬스터 데미지 +30%",
+   "potential_option_2": "마력 +6%",
+   "potential_option_3": "LUK +9%",
+   "additional_potential_option_grade": "에픽",
+   "additional_potential_option_1": "마력 +6%",
+   "additional_potential_option_2": "올스탯 +5",
+   "additional_potential_option_3": "최대 HP +100",
+   "scroll_upgrade": "0"
+  },
+  {
+   "item_equipment_part": "반지",
+   "item_equipment_slot": "반지1",
+   "item_name": "테네브리스 원정대 반지",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEODPEOG",
+   "starforce": "0",
+   "potential_option_grade": "에픽",
+   "potential_option_1": "INT +6%",
+   "potential_option_2": "LUK +3%",
+   "potential_option_3": "INT +3%",
+   "additional_potential_option_grade": "레어",
+   "additional_potential_option_1": "마력 +10",
+   "additional_potential_option_2": "최대 HP +60",
+   "additional_potential_option_3": "방어력 +60",
+   "scroll_upgrade": "3"
+  },
+  {
+   "item_equipment_part": "반지",
+   "item_equipment_slot": "반지2",
+   "item_name": "이터널 플레임 링",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEODPEMF",
+   "starforce": "0",
+   "potential_option_grade": "레전드리",
+   "potential_option_1": "INT +12%",
+   "potential_option_2": "INT +9%",
+   "potential_option_3": "STR +9%",
+   "additional_potential_option_grade": "레어",
+   "additional_potential_option_1": "마력 +10",
+   "additional_potential_option_2": "LUK +10",
+   "additional_potential_option_3": "마력 +3",
+   "scroll_upgrade": "0"
+  },
+  {
+   "item_equipment_part": "반지",
+   "item_equipment_slot": "반지3",
+   "item_name": "글로리온 링 : 슈프림",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEODPEPH",
+   "starforce": "0",
+   "potential_option_grade": "레전드리",
+   "potential_option_1": "INT +12%",
+   "potential_option_2": "최대 MP +9%",
+   "potential_option_3": "INT +9%",
+   "additional_potential_option_grade": "에픽",
+   "additional_potential_option_1": "마력 +11",
+   "additional_potential_option_2": "점프력 +6",
+   "additional_potential_option_3": "DEX +10",
+   "scroll_upgrade": "0"
+  },
+  {
+   "item_equipment_part": "반지",
+   "item_equipment_slot": "반지4",
+   "item_name": "어센던트 펄스 링",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEODPENE",
+   "starforce": "18",
+   "potential_option_grade": "레전드리",
+   "potential_option_1": "메소 획득량 +20%",
+   "potential_option_2": "INT +12%",
+   "potential_option_3": "STR +9%",
+   "additional_potential_option_grade": "에픽",
+   "additional_potential_option_1": "INT +14",
+   "additional_potential_option_2": "마력 +10",
+   "additional_potential_option_3": "최대 HP +100",
+   "scroll_upgrade": "0"
+  },
+  {
+   "item_equipment_part": "펜던트",
+   "item_equipment_slot": "펜던트",
+   "item_name": "정령의 펜던트",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEOAJENF",
+   "starforce": "0",
+   "potential_option_grade": null,
+   "potential_option_1": null,
+   "potential_option_2": null,
+   "potential_option_3": null,
+   "additional_potential_option_grade": null,
+   "additional_potential_option_1": null,
+   "additional_potential_option_2": null,
+   "additional_potential_option_3": null,
+   "scroll_upgrade": "0"
+  },
+  {
+   "item_equipment_part": "훈장",
+   "item_equipment_slot": "훈장",
+   "item_name": "카오스 벨룸 킬러",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEOGJOOE",
+   "starforce": "0",
+   "potential_option_grade": null,
+   "potential_option_1": null,
+   "potential_option_2": null,
+   "potential_option_3": null,
+   "additional_potential_option_grade": null,
+   "additional_potential_option_1": null,
+   "additional_potential_option_2": null,
+   "additional_potential_option_3": null,
+   "scroll_upgrade": "0"
+  },
+  {
+   "item_equipment_part": "벨트",
+   "item_equipment_slot": "벨트",
+   "item_name": "골든 클로버 벨트",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEOBJEMH",
+   "starforce": "15",
+   "potential_option_grade": "에픽",
+   "potential_option_1": "INT +6%",
+   "potential_option_2": "INT +3%",
+   "potential_option_3": "INT +3%",
+   "additional_potential_option_grade": null,
+   "additional_potential_option_1": null,
+   "additional_potential_option_2": null,
+   "additional_potential_option_3": null,
+   "scroll_upgrade": "3"
+  },
+  {
+   "item_equipment_part": "어깨장식",
+   "item_equipment_slot": "어깨장식",
+   "item_name": "아케인셰이드 메이지숄더",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEOHJGHG",
+   "starforce": "12",
+   "potential_option_grade": "유니크",
+   "potential_option_1": "INT +9%",
+   "potential_option_2": "피격 시 30% 확률로 51의 데미지 무시",
+   "potential_option_3": "최대 MP +6%",
+   "additional_potential_option_grade": "에픽",
+   "additional_potential_option_1": "마력 +11",
+   "additional_potential_option_2": "방어력 +100",
+   "additional_potential_option_3": "공격력 +10",
+   "scroll_upgrade": "2"
+  },
+  {
+   "item_equipment_part": "포켓 아이템",
+   "item_equipment_slot": "포켓 아이템",
+   "item_name": "핑크빛 성배",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEOEJHME",
+   "starforce": "0",
+   "potential_option_grade": null,
+   "potential_option_1": null,
+   "potential_option_2": null,
+   "potential_option_3": null,
+   "additional_potential_option_grade": null,
+   "additional_potential_option_1": null,
+   "additional_potential_option_2": null,
+   "additional_potential_option_3": null,
+   "scroll_upgrade": "0"
+  },
+  {
+   "item_equipment_part": "기계 심장",
+   "item_equipment_slot": "기계 심장",
+   "item_name": "페어리 하트",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEJFJHJI",
+   "starforce": "8",
+   "potential_option_grade": "유니크",
+   "potential_option_1": "INT +9%",
+   "potential_option_2": "LUK +9%",
+   "potential_option_3": "INT +6%",
+   "additional_potential_option_grade": "에픽",
+   "additional_potential_option_1": "INT +4%",
+   "additional_potential_option_2": "마력 +10",
+   "additional_potential_option_3": "INT +14",
+   "scroll_upgrade": "10"
+  },
+  {
+   "item_equipment_part": "뱃지",
+   "item_equipment_slot": "뱃지",
+   "item_name": "크리스탈 웬투스 뱃지",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEOKJEOF",
+   "starforce": "0",
+   "potential_option_grade": null,
+   "potential_option_1": null,
+   "potential_option_2": null,
+   "potential_option_3": null,
+   "additional_potential_option_grade": null,
+   "additional_potential_option_1": null,
+   "additional_potential_option_2": null,
+   "additional_potential_option_3": null,
+   "scroll_upgrade": "0"
+  },
+  {
+   "item_equipment_part": "엠블렘",
+   "item_equipment_slot": "엠블렘",
+   "item_name": "골드 서머너 엠블렘",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEOLLCJI",
+   "starforce": "0",
+   "potential_option_grade": "레전드리",
+   "potential_option_1": "몬스터 방어율 무시 +35%",
+   "potential_option_2": "STR +9%",
+   "potential_option_3": "마력 +9%",
+   "additional_potential_option_grade": "유니크",
+   "additional_potential_option_1": "마력 +9%",
+   "additional_potential_option_2": "몬스터 방어율 무시 +3%",
+   "additional_potential_option_3": "몬스터 방어율 무시 +3%",
+   "scroll_upgrade": "0"
+  },
+  {
+   "item_equipment_part": "펜던트",
+   "item_equipment_slot": "펜던트2",
+   "item_name": "그리드 펜던트",
+   "item_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEOAJFPI",
+   "starforce": "5",
+   "potential_option_grade": "에픽",
+   "potential_option_1": "최대 HP +6%",
+   "potential_option_2": "DEX +10",
+   "potential_option_3": "STR +10",
+   "additional_potential_option_grade": null,
+   "additional_potential_option_1": null,
+   "additional_potential_option_2": null,
+   "additional_potential_option_3": null,
+   "scroll_upgrade": "0"
+  }
+ ],
+ "set_effect": [
+  {
+   "name": "여명의 보스 세트",
+   "count": 2
+  },
+  {
+   "name": "에테르넬 세트(마법사)",
+   "count": 3
+  },
+  {
+   "name": "삼앵삼색 세트",
+   "count": 2
+  },
+  {
+   "name": "달콤한 정령",
+   "count": 1
+  },
+  {
+   "name": "보스 장신구 세트",
+   "count": 4
+  },
+  {
+   "name": "아케인셰이드 세트(마법사)",
+   "count": 5
+  }
+ ],
+ "dojang": {
+  "date": null,
+  "character_class": "레테",
+  "world_name": "스카니아",
+  "dojang_best_floor": 50,
+  "date_dojang_record": "2026-09-23T00:00+09:00",
+  "dojang_best_time": 529
+ },
+ "union": {
+  "date": null,
+  "union_level": 8551,
+  "union_grade": "그랜드 마스터 유니온 2",
+  "union_artifact_level": 37,
+  "union_artifact_exp": 2330,
+  "union_artifact_point": 14400
+ },
+ "collected_at": "2026-11-27T00:17:11.537622+09:00",
+ "errors": []
+}

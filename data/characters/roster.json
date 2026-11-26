@@ -1,0 +1,323 @@
+{
+ "collected_at": "2026-11-27T00:17:11.537622+09:00",
+ "characters": [
+  {
+   "character_name": "loss기억",
+   "world_name": "스카니아",
+   "character_class": "레테",
+   "character_level": 286
+  },
+  {
+   "character_name": "실피드군주",
+   "world_name": "스카니아",
+   "character_class": "메르세데스",
+   "character_level": 260
+  },
+  {
+   "character_name": "SecCharacter",
+   "world_name": "스카니아",
+   "character_class": "은월",
+   "character_level": 203
+  },
+  {
+   "character_name": "hw0023",
+   "world_name": "스카니아",
+   "character_class": "칼리",
+   "character_level": 202
+  },
+  {
+   "character_name": "벌래들의모임",
+   "world_name": "스카니아",
+   "character_class": "카데나",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0001",
+   "world_name": "스카니아",
+   "character_class": "나이트로드",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0002",
+   "world_name": "스카니아",
+   "character_class": "신궁",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0003",
+   "world_name": "스카니아",
+   "character_class": "데몬어벤져",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0004",
+   "world_name": "스카니아",
+   "character_class": "팬텀",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0005",
+   "world_name": "스카니아",
+   "character_class": "와일드헌터",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0006",
+   "world_name": "스카니아",
+   "character_class": "메카닉",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0007",
+   "world_name": "스카니아",
+   "character_class": "블래스터",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0008",
+   "world_name": "스카니아",
+   "character_class": "에반",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0009",
+   "world_name": "스카니아",
+   "character_class": "듀어러",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0010",
+   "world_name": "스카니아",
+   "character_class": "키네시스",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0011",
+   "world_name": "스카니아",
+   "character_class": "카인",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0012",
+   "world_name": "스카니아",
+   "character_class": "일리움",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0014",
+   "world_name": "스카니아",
+   "character_class": "데몬슬레이어",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0015",
+   "world_name": "스카니아",
+   "character_class": "클레릭",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0016",
+   "world_name": "스카니아",
+   "character_class": "시프",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0017",
+   "world_name": "스카니아",
+   "character_class": "위자드(불,독)",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0018",
+   "world_name": "스카니아",
+   "character_class": "위자드(썬,콜)",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0019",
+   "world_name": "스카니아",
+   "character_class": "배틀메이지",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0020",
+   "world_name": "스카니아",
+   "character_class": "루미너스",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0021",
+   "world_name": "스카니아",
+   "character_class": "플레임위자드",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0022",
+   "world_name": "스카니아",
+   "character_class": "라라",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0024",
+   "world_name": "스카니아",
+   "character_class": "호영",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0025",
+   "world_name": "스카니아",
+   "character_class": "나이트워커",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0026",
+   "world_name": "스카니아",
+   "character_class": "팔라딘",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0029",
+   "world_name": "스카니아",
+   "character_class": "캐논슈터",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0030",
+   "world_name": "스카니아",
+   "character_class": "스트라이커",
+   "character_level": 200
+  },
+  {
+   "character_name": "테라공간",
+   "world_name": "스카니아",
+   "character_class": "제로",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0034",
+   "world_name": "스카니아",
+   "character_class": "엔젤릭버스터",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0035",
+   "world_name": "스카니아",
+   "character_class": "제논",
+   "character_level": 200
+  },
+  {
+   "character_name": "시손금시치은",
+   "world_name": "스카니아",
+   "character_class": "패스파인더",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0036",
+   "world_name": "스카니아",
+   "character_class": "건슬링거",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0037",
+   "world_name": "스카니아",
+   "character_class": "아크",
+   "character_level": 200
+  },
+  {
+   "character_name": "hw0038",
+   "world_name": "스카니아",
+   "character_class": "아란",
+   "character_level": 200
+  },
+  {
+   "character_name": "화산youE설",
+   "world_name": "스카니아",
+   "character_class": "렌",
+   "character_level": 200
+  },
+  {
+   "character_name": "밖효원",
+   "world_name": "스카니아",
+   "character_class": "소울마스터",
+   "character_level": 200
+  },
+  {
+   "character_name": "AegisLong",
+   "world_name": "스카니아",
+   "character_class": "미하일",
+   "character_level": 200
+  },
+  {
+   "character_name": "메운닭발",
+   "world_name": "스카니아",
+   "character_class": "스피어맨",
+   "character_level": 200
+  },
+  {
+   "character_name": "GORYEO가즈아",
+   "world_name": "루나",
+   "character_class": "아란",
+   "character_level": 183
+  },
+  {
+   "character_name": "GORYEO수련생",
+   "world_name": "루나",
+   "character_class": "은월",
+   "character_level": 157
+  },
+  {
+   "character_name": "GORYE싸이코",
+   "world_name": "루나",
+   "character_class": "아크메이지(썬,콜)",
+   "character_level": 142
+  },
+  {
+   "character_name": "제논재논111",
+   "world_name": "루나",
+   "character_class": "제논",
+   "character_level": 137
+  },
+  {
+   "character_name": "hw0028",
+   "world_name": "스카니아",
+   "character_class": "카이저",
+   "character_level": 136
+  },
+  {
+   "character_name": "이곡동모지리",
+   "world_name": "루나",
+   "character_class": "데몬어벤져",
+   "character_level": 135
+  },
+  {
+   "character_name": "GORYEO수년생",
+   "world_name": "루나",
+   "character_class": "비숍",
+   "character_level": 106
+  },
+  {
+   "character_name": "hw0027",
+   "world_name": "스카니아",
+   "character_class": "파이터",
+   "character_level": 30
+  },
+  {
+   "character_name": "hw0031",
+   "world_name": "스카니아",
+   "character_class": "아델",
+   "character_level": 30
+  },
+  {
+   "character_name": "hw0032",
+   "world_name": "스카니아",
+   "character_class": "헌터",
+   "character_level": 30
+  },
+  {
+   "character_name": "hw0033",
+   "world_name": "스카니아",
+   "character_class": "윈드브레이커",
+   "character_level": 30
+  }
+ ]
+}
