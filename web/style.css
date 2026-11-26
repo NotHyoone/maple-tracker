@@ -59,3 +59,12 @@ td img{width:28px;height:28px}
 .goal-form label{display:flex;flex-direction:column;gap:4px;margin:8px 0;font-size:13px;color:var(--mut)}
 .goal-form label[hidden]{display:none}
 .goal-form select,.goal-form input{font:inherit;font-size:16px;color:var(--fg);background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:8px 10px;width:100%}
+.price-card summary{display:flex;justify-content:space-between;align-items:baseline;gap:8px;cursor:pointer;list-style:none}
+.price-card summary::-webkit-details-marker{display:none}
+.price-card summary h2{margin:0}
+.price-card label{display:flex;flex-direction:column;gap:4px;margin:10px 0;font-size:13px;color:var(--mut)}
+.price-card input{font:inherit;font-size:16px;color:var(--fg);background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:8px 10px;width:100%}
+.meso-line{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:14px}
+.meso-line b{color:var(--acc)}
+.summary .big{font-size:22px;font-weight:700;color:var(--acc)}
+.sub.err{color:var(--warn)}
