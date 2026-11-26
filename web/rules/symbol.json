@@ -1,0 +1,23 @@
+{
+  "_doc": "심볼 수치표. growth: 레벨 n에서 n+1로 올릴 때 필요한 성장치. formula는 'a*n^2+b*n+c' 계수. cost_meso: 레벨 n→n+1 강화 메소(지역별), 확인 전에는 null.",
+  "kinds": {
+    "아케인심볼": {
+      "max_level": 20,
+      "growth": {"a": 1, "b": 0, "c": 11},
+      "growth_verified": "2026-11-27 넥슨 Open API symbol_require_growth_count 대조 (Lv.3=20, Lv.19=372, Lv.20=411)",
+      "cost_meso": null
+    },
+    "어센틱심볼": {
+      "max_level": 11,
+      "growth": {"a": 9, "b": 20, "c": 0},
+      "growth_verified": "2026-11-27 넥슨 Open API symbol_require_growth_count 대조 (Lv.5=325, Lv.6=444, Lv.8=736)",
+      "cost_meso": null
+    },
+    "그랜드 어센틱심볼": {
+      "max_level": 11,
+      "growth": null,
+      "growth_verified": null,
+      "cost_meso": null
+    }
+  }
+}

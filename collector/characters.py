@@ -104,6 +104,28 @@ def snapshot(c: dict, today: str) -> dict:
     }
 
 
+OBSERVED_EXP = DATA / "observed_exp.json"
+MAX_EXTRA_PROBES = 8  # 실행당 추가로 조회할 부캐 수 (API 호출 한도 보호)
+
+
+def observe_exp(observed: dict, basic: dict, today: str) -> None:
+    """경험치와 경험치%로 그 레벨의 필요 경험치를 역산해 기록합니다.
+    %가 소수점 3자리까지라 %가 높을수록 정확하므로, 같은 레벨이면 %가 더 높은 측정을 남깁니다."""
+    lv, exp = basic.get("character_level"), basic.get("character_exp")
+    try:
+        rate = float(basic.get("character_exp_rate") or 0)
+    except ValueError:
+        return
+    if not lv or exp is None or rate < 1 or lv >= 300:
+        return
+    key = str(lv)
+    if key in observed and observed[key]["rate"] >= rate:
+        return
+    observed[key] = {"required": round(exp / (rate / 100)), "rate": rate, "date": today,
+                     # 경험치%가 0.0005 반올림되어 생기는 최대 상대 오차
+                     "max_error": round(0.0005 / rate, 7)}
+
+
 def collect(client: Client, cfg: dict, roster_enabled: bool = True) -> dict:
     now = now_kst()
     today = now.date().isoformat()
@@ -134,6 +156,20 @@ def collect(client: Client, cfg: dict, roster_enabled: bool = True) -> dict:
         c["history"] = history
         results.append(c)
         print(f"[characters] {name} Lv.{c['basic'].get('character_level')} 저장 (오류 {len(errors)}건)")
+
+    # 레벨별 필요 경험치 실측: 상세 수집 캐릭터 + 아직 측정 안 된 레벨의 부캐 몇 명
+    observed = read_json(OBSERVED_EXP, {})
+    for c in results:
+        observe_exp(observed, c["basic"], today)
+    tracked = {t["ocid"] for t in targets}
+    probes = [r for r in roster if r["ocid"] not in tracked and str(r["character_level"]) not in observed
+              and r["character_level"] < 300]
+    for r in probes[:MAX_EXTRA_PROBES]:
+        try:
+            observe_exp(observed, client.get("character/basic", ocid=r["ocid"]), today)
+        except NexonError:
+            pass
+    write_json(OBSERVED_EXP, dict(sorted(observed.items(), key=lambda kv: int(kv[0]))))
 
     public_roster = [{k: v for k, v in r.items() if k != "ocid"} for r in roster] if roster_enabled else []
     write_json(CHAR_DIR / "roster.json", {"collected_at": now.isoformat(), "characters": public_roster})

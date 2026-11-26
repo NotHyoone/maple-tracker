@@ -7,7 +7,7 @@ from __future__ import annotations
 import json
 import shutil
 
-from .util import ROOT, now_kst
+from .util import DATA, ROOT, now_kst, read_json
 
 WEB = ROOT / "web"
 SITE = ROOT / "site"
@@ -27,6 +27,7 @@ def build(title: str, events: list[dict], updates: list[dict], characters: list[
         "roster": roster,
         "characters": characters,
         "guides": guides,
+        "observed_exp": read_json(DATA / "observed_exp.json", {}),
     }
     out = SITE / "data" / "app.json"
     out.parent.mkdir(parents=True, exist_ok=True)

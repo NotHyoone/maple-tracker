@@ -1,0 +1,12 @@
+{
+  "_doc": "HEXA 코어 강화 재료. cores[코어 종류] = 길이 30 배열, i번째 = 레벨 i→i+1(0→1은 활성화)에 필요한 {sol_erda, fragment}. 공식 자료로 확인 전에는 null.",
+  "max_level": 30,
+  "source": null,
+  "checked": null,
+  "cores": {
+    "스킬 코어": null,
+    "마스터리 코어": null,
+    "강화 코어": null,
+    "공용 코어": null
+  }
+}

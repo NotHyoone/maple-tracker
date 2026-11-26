@@ -1,0 +1,7 @@
+{
+  "_doc": "레벨 n→n+1 필요 경험치(정확값). 공식 표로 확인한 값만 넣습니다. 비어 있는 레벨은 수집기가 실측한 근사값(data/observed_exp.json)으로 보완합니다.",
+  "max_level": 300,
+  "source": null,
+  "checked": null,
+  "exp": {}
+}

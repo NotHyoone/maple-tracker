@@ -52,3 +52,10 @@ td img{width:28px;height:28px}
 .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
 .err{color:var(--warn)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.gpane{display:none}.gpane.on{display:block}
+.goal-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.btn.small{padding:3px 10px;font-size:12px}
+.good{color:var(--good);font-weight:600}
+.goal-form label{display:flex;flex-direction:column;gap:4px;margin:8px 0;font-size:13px;color:var(--mut)}
+.goal-form label[hidden]{display:none}
+.goal-form select,.goal-form input{font:inherit;font-size:16px;color:var(--fg);background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:8px 10px;width:100%}

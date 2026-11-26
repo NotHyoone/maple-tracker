@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { esc, fmtNum, fmtDate, daysLeft, leftBadge, isEndingSoon, sparkPoints } from "../web/js/format.js";
+import { esc, fmtNum, fmtInt, fmtDate, daysLeft, leftBadge, isEndingSoon, sparkPoints } from "../web/js/format.js";
 
 const NOW = Date.parse("2026-11-27T12:00+09:00");
 
@@ -13,8 +13,15 @@ test("fmtNum 억/만 단위", () => {
   assert.equal(fmtNum("2436000000"), "24억 3,600만");
   assert.equal(fmtNum(123456), "12만");
   assert.equal(fmtNum(999), "999");
+  assert.equal(fmtNum(109463084746746), "109조 4,630억");
+  assert.equal(fmtNum(2e12), "2조");
   assert.equal(fmtNum(undefined), "-");
   assert.equal(fmtNum("abc"), "-");
+});
+
+test("fmtInt는 반올림 없이 정확한 개수", () => {
+  assert.equal(fmtInt(10573), "10,573");
+  assert.equal(fmtInt(null), "-");
 });
 
 test("fmtDate는 기기 시간대와 무관하게 KST 문자열 그대로", () => {
