@@ -153,7 +153,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "11"
+   "scroll_upgrade": "11",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 150
   },
   {
    "item_equipment_part": "얼굴장식",
@@ -169,7 +171,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 110
   },
   {
    "item_equipment_part": "눈장식",
@@ -185,7 +189,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 100
   },
   {
    "item_equipment_part": "귀고리",
@@ -201,7 +207,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 130
   },
   {
    "item_equipment_part": "상의",
@@ -217,7 +225,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "7"
+   "scroll_upgrade": "7",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 150
   },
   {
    "item_equipment_part": "하의",
@@ -233,7 +243,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "7"
+   "scroll_upgrade": "7",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 150
   },
   {
    "item_equipment_part": "신발",
@@ -249,7 +261,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 160
   },
   {
    "item_equipment_part": "장갑",
@@ -265,7 +279,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 160
   },
   {
    "item_equipment_part": "망토",
@@ -281,7 +297,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 160
   },
   {
    "item_equipment_part": "마법화살",
@@ -297,7 +315,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 100
   },
   {
    "item_equipment_part": "듀얼 보우건",
@@ -313,7 +333,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "8"
+   "scroll_upgrade": "8",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 150
   },
   {
    "item_equipment_part": "반지",
@@ -329,7 +351,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 110
   },
   {
    "item_equipment_part": "반지",
@@ -345,7 +369,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 160
   },
   {
    "item_equipment_part": "반지",
@@ -361,7 +387,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 120
   },
   {
    "item_equipment_part": "반지",
@@ -377,7 +405,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 120
   },
   {
    "item_equipment_part": "펜던트",
@@ -393,7 +423,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "5"
+   "scroll_upgrade": "5",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 140
   },
   {
    "item_equipment_part": "훈장",
@@ -409,7 +441,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 200
   },
   {
    "item_equipment_part": "벨트",
@@ -425,7 +459,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 140
   },
   {
    "item_equipment_part": "어깨장식",
@@ -441,7 +477,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 160
   },
   {
    "item_equipment_part": "포켓 아이템",
@@ -457,7 +495,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 140
   },
   {
    "item_equipment_part": "뱃지",
@@ -473,7 +513,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 130
   },
   {
    "item_equipment_part": "엠블렘",
@@ -489,7 +531,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 100
   }
  ],
  "set_effect": [
@@ -526,6 +570,6 @@
   "union_artifact_exp": 6830,
   "union_artifact_point": 14200
  },
- "collected_at": "2026-11-27T00:43:12.602885+09:00",
+ "collected_at": "2026-11-27T01:04:16.247231+09:00",
  "errors": []
 }

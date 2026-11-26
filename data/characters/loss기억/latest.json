@@ -360,7 +360,9 @@
    "additional_potential_option_1": "방어력 +5%",
    "additional_potential_option_2": "최대 MP +125",
    "additional_potential_option_3": "방어력 +3%",
-   "scroll_upgrade": "9"
+   "scroll_upgrade": "9",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 250
   },
   {
    "item_equipment_part": "얼굴장식",
@@ -376,7 +378,9 @@
    "additional_potential_option_1": "마력 +11",
    "additional_potential_option_2": "점프력 +6",
    "additional_potential_option_3": "INT +2%",
-   "scroll_upgrade": "4"
+   "scroll_upgrade": "4",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 140
   },
   {
    "item_equipment_part": "눈장식",
@@ -392,7 +396,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "3"
+   "scroll_upgrade": "3",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 100
   },
   {
    "item_equipment_part": "귀고리",
@@ -408,7 +414,9 @@
    "additional_potential_option_1": "INT +4%",
    "additional_potential_option_2": "최대 MP +100",
    "additional_potential_option_3": "마력 +10",
-   "scroll_upgrade": "7"
+   "scroll_upgrade": "7",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 160
   },
   {
    "item_equipment_part": "상의",
@@ -424,7 +432,9 @@
    "additional_potential_option_1": "올스탯 +4",
    "additional_potential_option_2": "마력 +3",
    "additional_potential_option_3": "최대 HP +125",
-   "scroll_upgrade": "8"
+   "scroll_upgrade": "8",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 250
   },
   {
    "item_equipment_part": "하의",
@@ -440,7 +450,9 @@
    "additional_potential_option_1": "INT +5%",
    "additional_potential_option_2": "방어력 +150",
    "additional_potential_option_3": "방어력 +150",
-   "scroll_upgrade": "4"
+   "scroll_upgrade": "4",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 250
   },
   {
    "item_equipment_part": "신발",
@@ -456,7 +468,9 @@
    "additional_potential_option_1": "마력 +11",
    "additional_potential_option_2": "DEX +2%",
    "additional_potential_option_3": "STR +2%",
-   "scroll_upgrade": "4"
+   "scroll_upgrade": "4",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 200
   },
   {
    "item_equipment_part": "장갑",
@@ -472,7 +486,9 @@
    "additional_potential_option_1": "마력 +11",
    "additional_potential_option_2": "방어력 +100",
    "additional_potential_option_3": "올스탯 +3",
-   "scroll_upgrade": "6"
+   "scroll_upgrade": "6",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 200
   },
   {
    "item_equipment_part": "망토",
@@ -488,7 +504,9 @@
    "additional_potential_option_1": "마력 +11",
    "additional_potential_option_2": "DEX +2%",
    "additional_potential_option_3": "올스탯 +3",
-   "scroll_upgrade": "5"
+   "scroll_upgrade": "5",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 200
   },
   {
    "item_equipment_part": "마법깃펜",
@@ -504,7 +522,9 @@
    "additional_potential_option_1": "마력 +9%",
    "additional_potential_option_2": "공격 시 3% 확률로 47의 HP 회복",
    "additional_potential_option_3": "올스탯 +3%",
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 100
   },
   {
    "item_equipment_part": "카르타",
@@ -520,7 +540,9 @@
    "additional_potential_option_1": "마력 +6%",
    "additional_potential_option_2": "올스탯 +5",
    "additional_potential_option_3": "최대 HP +100",
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 200
   },
   {
    "item_equipment_part": "반지",
@@ -536,7 +558,9 @@
    "additional_potential_option_1": "마력 +10",
    "additional_potential_option_2": "최대 HP +60",
    "additional_potential_option_3": "방어력 +60",
-   "scroll_upgrade": "3"
+   "scroll_upgrade": "3",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 120
   },
   {
    "item_equipment_part": "반지",
@@ -552,7 +576,9 @@
    "additional_potential_option_1": "마력 +10",
    "additional_potential_option_2": "LUK +10",
    "additional_potential_option_3": "마력 +3",
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 120
   },
   {
    "item_equipment_part": "반지",
@@ -568,7 +594,9 @@
    "additional_potential_option_1": "마력 +11",
    "additional_potential_option_2": "점프력 +6",
    "additional_potential_option_3": "DEX +10",
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 120
   },
   {
    "item_equipment_part": "반지",
@@ -584,7 +612,9 @@
    "additional_potential_option_1": "INT +14",
    "additional_potential_option_2": "마력 +10",
    "additional_potential_option_3": "최대 HP +100",
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 130
   },
   {
    "item_equipment_part": "펜던트",
@@ -600,7 +630,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 0
   },
   {
    "item_equipment_part": "훈장",
@@ -616,7 +648,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 0
   },
   {
    "item_equipment_part": "벨트",
@@ -632,7 +666,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "3"
+   "scroll_upgrade": "3",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 140
   },
   {
    "item_equipment_part": "어깨장식",
@@ -648,7 +684,9 @@
    "additional_potential_option_1": "마력 +11",
    "additional_potential_option_2": "방어력 +100",
    "additional_potential_option_3": "공격력 +10",
-   "scroll_upgrade": "2"
+   "scroll_upgrade": "2",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 200
   },
   {
    "item_equipment_part": "포켓 아이템",
@@ -664,7 +702,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 140
   },
   {
    "item_equipment_part": "기계 심장",
@@ -680,7 +720,9 @@
    "additional_potential_option_1": "INT +4%",
    "additional_potential_option_2": "마력 +10",
    "additional_potential_option_3": "INT +14",
-   "scroll_upgrade": "10"
+   "scroll_upgrade": "10",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 100
   },
   {
    "item_equipment_part": "뱃지",
@@ -696,7 +738,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 130
   },
   {
    "item_equipment_part": "엠블렘",
@@ -712,7 +756,9 @@
    "additional_potential_option_1": "마력 +9%",
    "additional_potential_option_2": "몬스터 방어율 무시 +3%",
    "additional_potential_option_3": "몬스터 방어율 무시 +3%",
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 100
   },
   {
    "item_equipment_part": "펜던트",
@@ -728,7 +774,9 @@
    "additional_potential_option_1": null,
    "additional_potential_option_2": null,
    "additional_potential_option_3": null,
-   "scroll_upgrade": "0"
+   "scroll_upgrade": "0",
+   "starforce_scroll_flag": "미사용",
+   "item_level": 75
   }
  ],
  "set_effect": [
@@ -773,6 +821,6 @@
   "union_artifact_exp": 2330,
   "union_artifact_point": 14400
  },
- "collected_at": "2026-11-27T00:43:12.602885+09:00",
+ "collected_at": "2026-11-27T01:04:16.247231+09:00",
  "errors": []
 }
