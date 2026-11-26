@@ -121,6 +121,7 @@ export function potentialLuck(history, meta, { since = null } = {}) {
 /** 0~1 운 백분위 → 사람이 읽는 문장 */
 export function luckText(p) {
   if (p == null) return "표본이 적어 판단 보류";
+  if (p > 0.4 && p < 0.6) return "기댓값과 비슷한 평균 수준";
   if (p >= 0.5) return `상위 ${Math.max(1, Math.round((1 - p) * 100))}% 수준으로 운이 좋음`;
   return `하위 ${Math.max(1, Math.round(p * 100))}% 수준으로 운이 나쁨`;
 }

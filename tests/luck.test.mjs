@@ -39,6 +39,7 @@ test("스타포스: 성공이 많으면 운 좋음, 파괴가 많으면 운 나�
   assert.ok(r.destroyLuck < 0.01, String(r.destroyLuck)); // 기대 약 57회
   assert.match(luckText(r.successLuck), /상위/);
   assert.match(luckText(r.destroyLuck), /하위/);
+  assert.equal(luckText(0.5), "기댓값과 비슷한 평균 수준");
 });
 
 test("잠재능력: 천장 확정·미라클 제외, 재설정 메소 합계", () => {
