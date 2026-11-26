@@ -7,9 +7,19 @@ export function fmtNum(v) {
   const n = Math.trunc(Number(String(v ?? "").replace(/,/g, "")));
   if (v == null || v === "" || !Number.isFinite(n)) return "-";
   const k = (x) => x.toLocaleString("ko-KR");
+  if (n >= 1e12) {
+    const eok = Math.floor((n % 1e12) / 1e8);
+    return `${k(Math.floor(n / 1e12))}조${eok ? ` ${k(eok)}억` : ""}`;
+  }
   if (n >= 1e8) return `${Math.floor(n / 1e8)}억 ${k(Math.floor((n % 1e8) / 1e4))}만`;
   if (n >= 1e4) return `${k(Math.floor(n / 1e4))}만`;
   return k(n);
+}
+
+/** 개수처럼 정확히 보여야 하는 정수: 10573 → "10,573" */
+export function fmtInt(v) {
+  const n = Math.round(Number(v));
+  return v == null || !Number.isFinite(n) ? "-" : n.toLocaleString("ko-KR");
 }
 
 // 넥슨 API 시각은 이미 KST("2026-11-26T10:00+09:00")이므로 문자열에서 바로 꺼냄

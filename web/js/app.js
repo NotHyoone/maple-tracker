@@ -4,13 +4,21 @@ import * as store from "./store.js";
 import {
   characterPane, eventCard, endingSoonCard, rosterCard, updatesCard, backupCard,
 } from "./render.js";
+import { renderGoalsTab } from "./goals.js";
 
 const $ = (sel, root = document) => root.querySelector(sel);
 
-async function loadData() {
-  const res = await fetch("data/app.json", { cache: "no-cache" });
-  if (!res.ok) throw new Error(`데이터를 불러오지 못했습니다 (HTTP ${res.status})`);
+async function getJSON(url) {
+  const res = await fetch(url, { cache: "no-cache" });
+  if (!res.ok) throw new Error(`데이터를 불러오지 못했습니다 (${url}, HTTP ${res.status})`);
   return res.json();
+}
+
+async function loadData() {
+  const [app, level, hexa, symbol] = await Promise.all(
+    ["data/app.json", "rules/level.json", "rules/hexa.json", "rules/symbol.json"].map(getJSON));
+  app.rules = { level, hexa, symbol };
+  return app;
 }
 
 function setupTabs(group, panes, key) {
@@ -22,7 +30,8 @@ function setupTabs(group, panes, key) {
     store.save(key, id);
   };
   btns.forEach((b) => b.addEventListener("click", () => show(b.dataset.t)));
-  show(store.load(key, btns[0]?.dataset.t));
+  const saved = store.load(key, null);
+  show(btns.some((b) => b.dataset.t === saved) ? saved : btns[0]?.dataset.t);
 }
 
 function setupBackup() {
@@ -62,6 +71,7 @@ function render(d) {
 
   $("#tabs").innerHTML =
     '<button data-t="t-char">내 캐릭터</button>' +
+    '<button data-t="t-goal">목표</button>' +
     `<button data-t="t-event">이벤트 (${d.events.length})</button>` +
     '<button data-t="t-more">계정·설정</button>';
 
@@ -71,9 +81,11 @@ function render(d) {
 
   $("#app").innerHTML = `
 <section id="t-char"><div class="charsel">${sel}</div>${panes || '<p class="muted">수집된 캐릭터가 없습니다.</p>'}</section>
+<section id="t-goal"></section>
 <section id="t-event">${endingSoonCard(d.events, now)}${d.events.map((ev) => eventCard(ev, now)).join("") || '<p class="muted">진행 중인 이벤트가 없습니다.</p>'}</section>
 <section id="t-more">${rosterCard(d.roster)}${updatesCard(d.updates)}${backupCard(store.available())}<p class="muted">Data based on NEXON Open API</p></section>`;
 
+  renderGoalsTab($("#t-goal"), { chars, rules: d.rules, observed: d.observed_exp, setupTabs });
   setupTabs($("#tabs"), [...document.querySelectorAll("main > section")], "tab:main");
   setupTabs($(".charsel"), [...document.querySelectorAll(".pane")], "tab:character");
   setupBackup();
