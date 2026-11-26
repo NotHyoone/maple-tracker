@@ -15,6 +15,7 @@ test("fmtNum 억/만 단위", () => {
   assert.equal(fmtNum(999), "999");
   assert.equal(fmtNum(109463084746746), "109조 4,630억");
   assert.equal(fmtNum(2e12), "2조");
+  assert.equal(fmtNum(1e9), "10억");
   assert.equal(fmtNum(undefined), "-");
   assert.equal(fmtNum("abc"), "-");
 });

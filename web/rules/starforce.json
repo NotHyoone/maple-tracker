@@ -1,0 +1,220 @@
+{
+ "_doc": "스타포스 수치. probs[n] = n성→n+1성 기본 확률(스타캐치 전). 실패 = 1 - success - destroy (15성 이상 실패 시 하락 없음).",
+ "probs": [
+  {
+   "success": 0.95,
+   "destroy": 0
+  },
+  {
+   "success": 0.9,
+   "destroy": 0
+  },
+  {
+   "success": 0.85,
+   "destroy": 0
+  },
+  {
+   "success": 0.85,
+   "destroy": 0
+  },
+  {
+   "success": 0.8,
+   "destroy": 0
+  },
+  {
+   "success": 0.75,
+   "destroy": 0
+  },
+  {
+   "success": 0.7,
+   "destroy": 0
+  },
+  {
+   "success": 0.65,
+   "destroy": 0
+  },
+  {
+   "success": 0.6,
+   "destroy": 0
+  },
+  {
+   "success": 0.55,
+   "destroy": 0
+  },
+  {
+   "success": 0.5,
+   "destroy": 0
+  },
+  {
+   "success": 0.45,
+   "destroy": 0
+  },
+  {
+   "success": 0.4,
+   "destroy": 0
+  },
+  {
+   "success": 0.35,
+   "destroy": 0
+  },
+  {
+   "success": 0.3,
+   "destroy": 0
+  },
+  {
+   "success": 0.3,
+   "destroy": 0.021
+  },
+  {
+   "success": 0.3,
+   "destroy": 0.021
+  },
+  {
+   "success": 0.15,
+   "destroy": 0.068
+  },
+  {
+   "success": 0.15,
+   "destroy": 0.068
+  },
+  {
+   "success": 0.15,
+   "destroy": 0.085
+  },
+  {
+   "success": 0.3,
+   "destroy": 0.105
+  },
+  {
+   "success": 0.15,
+   "destroy": 0.1275
+  },
+  {
+   "success": 0.15,
+   "destroy": 0.17
+  },
+  {
+   "success": 0.1,
+   "destroy": 0.18
+  },
+  {
+   "success": 0.1,
+   "destroy": 0.18
+  },
+  {
+   "success": 0.1,
+   "destroy": 0.18
+  },
+  {
+   "success": 0.07,
+   "destroy": 0.18600000000000003
+  },
+  {
+   "success": 0.05,
+   "destroy": 0.19
+  },
+  {
+   "success": 0.03,
+   "destroy": 0.19399999999999998
+  },
+  {
+   "success": 0.01,
+   "destroy": 0.198
+  }
+ ],
+ "probs_source": {
+  "15-29": "넥슨 테스트월드 업데이트 '스타포스 개편' 공식 표 (maplestory.nexon.com/testworld/news/update/88)",
+  "0-14": "devcomma 스타포스 계산기 표 (출처 1곳)"
+ },
+ "starcatch": {
+  "success_multiplier": 1.05,
+  "rule": "성공 확률 ×1.05, 남은 확률은 유지:파괴 기존 비율대로 (넥슨 공지 133192의 15성 예시 31.5/66.45/2.06 및 인벤 2304/43522와 일치)"
+ },
+ "cost": {
+  "formula": "n<=9: 100*round(10 + L^3*(n+1)/2500), n>=10: 100*round(10 + L^3*(n+1)^2.7/divisor[n])",
+  "low_divisor": 2500,
+  "divisors": {
+   "10": 40000,
+   "11": 22000,
+   "12": 15000,
+   "13": 11000,
+   "14": 7500,
+   "17": 15000,
+   "18": 7000,
+   "19": 4500,
+   "21": 12500
+  },
+  "default_divisor": 20000,
+  "source": "devcomma 계산기 코드. 15성 이상 제수(17→18:150, 18→19:70, 19→20:45, 21→22:125, 나머지 200; ×100 단위)는 인벤 5974/4775145 테섭 분석과 일치. 10~14성 제수는 출처 1곳"
+ },
+ "discounts": {
+  "mvp_and_pcroom_below_star": 17,
+  "pcroom": 0.05
+ },
+ "safeguard": {
+  "stars": [
+   15,
+   16,
+   17
+  ],
+  "extra_cost_multiplier": 2,
+  "source": "넥슨 테스트월드 '스타포스 개편': 파괴 방지 비용 기본 메소의 200%, 17성에도 적용 가능"
+ },
+ "max_star_by_level": [
+  [
+   94,
+   5
+  ],
+  [
+   107,
+   8
+  ],
+  [
+   117,
+   10
+  ],
+  [
+   127,
+   15
+  ],
+  [
+   137,
+   20
+  ],
+  [
+   9999,
+   30
+  ]
+ ],
+ "max_star_source": "138레벨 이상 30성은 넥슨 공식, 그 아래 구간은 devcomma 계산기 (출처 1곳)",
+ "trace": {
+  "min_star": 15,
+  "cap_star": 22,
+  "items_needed": [
+   [
+    18,
+    1
+   ],
+   [
+    20,
+    2
+   ],
+   [
+    21,
+    3
+   ],
+   [
+    99,
+    4
+   ]
+  ],
+  "source": "devcomma 계산기: 파괴 시 min(성,22)성 흔적, 같은 장비 1~4개로 복구 후 재도전 (출처 1곳)"
+ },
+ "events": {
+  "cost30": "강화 비용 30% 할인 (파괴 방지 추가 비용은 할인 안 됨)",
+  "destroy30": "21성 이하 파괴 확률 30% 감소 (넥슨 공식: 썬데이 효과)",
+  "fiveTenFifteen": "5, 10, 15성 강화 성공 확률 100%",
+  "onePlusOne": "10성 이하 강화 성공 시 1단계 추가 상승"
+ },
+ "checked": "2026-11-27"
+}

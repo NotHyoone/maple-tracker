@@ -15,9 +15,9 @@ async function getJSON(url) {
 }
 
 async function loadData() {
-  const [app, level, hexa, symbol] = await Promise.all(
-    ["data/app.json", "rules/level.json", "rules/hexa.json", "rules/symbol.json"].map(getJSON));
-  app.rules = { level, hexa, symbol };
+  const [app, level, hexa, symbol, starforce] = await Promise.all(
+    ["data/app.json", "rules/level.json", "rules/hexa.json", "rules/symbol.json", "rules/starforce.json"].map(getJSON));
+  app.rules = { level, hexa, symbol, starforce };
   return app;
 }
 
@@ -85,7 +85,7 @@ function render(d) {
 <section id="t-event">${endingSoonCard(d.events, now)}${d.events.map((ev) => eventCard(ev, now)).join("") || '<p class="muted">진행 중인 이벤트가 없습니다.</p>'}</section>
 <section id="t-more">${rosterCard(d.roster)}${updatesCard(d.updates)}${backupCard(store.available())}<p class="muted">Data based on NEXON Open API</p></section>`;
 
-  renderGoalsTab($("#t-goal"), { chars, rules: d.rules, observed: d.observed_exp, setupTabs });
+  renderGoalsTab($("#t-goal"), { chars, rules: d.rules, observed: d.observed_exp, events: d.events, setupTabs });
   setupTabs($("#tabs"), [...document.querySelectorAll("main > section")], "tab:main");
   setupTabs($(".charsel"), [...document.querySelectorAll(".pane")], "tab:character");
   setupBackup();
