@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { buildExpTable, remainingExp, dailyExpGain } from "../web/js/calc/level.js";
 import { growthReq, symbolGoal, daysFor, parseSymbolName } from "../web/js/calc/symbol.js";
-import { hexaCost, hexaGoal, hasTable } from "../web/js/calc/hexa.js";
+import { hexaCost, hexaGoal } from "../web/js/calc/hexa.js";
 
 const symbolRules = JSON.parse(readFileSync(new URL("../web/rules/symbol.json", import.meta.url)));
 const hexaRules = JSON.parse(readFileSync(new URL("../web/rules/hexa.json", import.meta.url)));
@@ -21,7 +21,12 @@ test("symbolGoal: 모아둔 성장치 차감, 최대 레벨 제한, 메소 미�
   const r = symbolGoal(symbolRules, { symbol_name: "어센틱심볼 : 세르니움", symbol_level: 8, symbol_growth_count: 1710 }, 11);
   // 8→9: 736, 9→10: 909, 10→11: 1100 → 2745 - 1710
   assert.equal(r.growth, 2745 - 1710);
-  assert.equal(r.meso, null);
+  const c = symbolRules.kinds["어센틱심볼"].cost_meso["세르니움"];
+  assert.equal(r.meso, c[7] + c[8] + c[9]); // Lv.8→9, 9→10, 10→11
+  // 그랜드 어센틱: 메소는 있지만 성장치 공식은 미확인
+  const g = symbolGoal(symbolRules, { symbol_name: "그랜드 어센틱심볼 : 탈라하트", symbol_level: 1, symbol_growth_count: 0 }, 3);
+  assert.equal(g.growth, null);
+  assert.equal(g.meso, 113600000 + 293300000);
   const capped = symbolGoal(symbolRules, { symbol_name: "아케인심볼 : 레헬른", symbol_level: 19, symbol_growth_count: 0 }, 25);
   assert.equal(capped.growth, 372); // 20에서 멈춤
   assert.equal(symbolGoal(symbolRules, { symbol_name: "아케인심볼 : 레헬른", symbol_level: 20 }, 20).done, true);
@@ -50,17 +55,26 @@ test("dailyExpGain: 레벨업 포함 기록", () => {
   assert.equal(dailyExpGain([{ date: "2026-11-01", level: 249, exp: 1 }, { date: "2026-11-02", level: 250, exp: 1 }], table), null);
 });
 
-test("HEXA: 표가 없으면 null, 있으면 구간 합계", () => {
-  assert.equal(hasTable(hexaRules, "스킬 코어"), hexaRules.cores["스킬 코어"] != null);
-  const fake = { max_level: 3, cores: { A: [{ sol_erda: 5, fragment: 100 }, { sol_erda: 1, fragment: 30 }, { sol_erda: 2, fragment: 40 }] } };
-  assert.deepEqual(hexaCost(fake, "A", 1, 3), { sol_erda: 3, fragment: 70 });
-  assert.deepEqual(hexaCost(fake, "A", 0, 99), { sol_erda: 8, fragment: 170 });
-  assert.equal(hexaCost(fake, "B", 0, 1), null);
+test("HEXA: 이름별 표 우선, 없으면 종류별, 둘 다 없으면 null", () => {
+  const fake = { max_level: 3,
+    cores: { A: [{ sol_erda: 5, fragment: 100 }, { sol_erda: 1, fragment: 30 }, { sol_erda: 2, fragment: 40 }], B: null },
+    cores_by_name: { special: { table: [{ sol_erda: 9, fragment: 9 }, { sol_erda: 9, fragment: 9 }, { sol_erda: 9, fragment: 9 }], source: "s" } } };
+  assert.deepEqual(hexaCost(fake, { name: "x", type: "A" }, 1, 3), { sol_erda: 3, fragment: 70, source: null });
+  assert.equal(hexaCost(fake, { name: "special", type: "B" }, 0, 1).sol_erda, 9);
+  assert.equal(hexaCost(fake, { name: "y", type: "B" }, 0, 1), null);
   const g = hexaGoal(fake, [{ hexa_core_type: "A", hexa_core_level: 1, hexa_core_name: "x" },
-    { hexa_core_type: "A", hexa_core_level: 3, hexa_core_name: "y" }], 3);
-  assert.equal(g.rows.length, 1);
-  assert.deepEqual(g.total, { sol_erda: 3, fragment: 70 });
-  const g2 = hexaGoal(fake, [{ hexa_core_type: "B", hexa_core_level: 0, hexa_core_name: "z" }], 2);
-  assert.equal(g2.total, null);
-  assert.deepEqual(g2.unknownTypes, ["B"]);
+    { hexa_core_type: "A", hexa_core_level: 3, hexa_core_name: "done" },
+    { hexa_core_type: "B", hexa_core_level: 0, hexa_core_name: "y" }], 3);
+  assert.equal(g.rows.length, 2);
+  assert.equal(g.total, null);
+  assert.deepEqual(g.partial, { sol_erda: 3, fragment: 70 });
+  assert.deepEqual(g.unknownTypes, ["B"]);
 });
+
+test("HEXA 실제 표: 솔 야누스 누적값이 출처 페이지와 일치", () => {
+  assert.deepEqual(hexaCost(hexaRules, { name: "솔 야누스", type: "공용 코어" }, 0, 30).sol_erda, 208);
+  assert.deepEqual(hexaCost(hexaRules, { name: "솔 야누스", type: "공용 코어" }, 0, 20).fragment, 2916);
+  assert.equal(hasRealTable("스킬 코어"), false);
+});
+
+function hasRealTable(type) { return hexaCost(hexaRules, { name: "?", type }, 0, 1) != null; }

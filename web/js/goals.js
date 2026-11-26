@@ -34,7 +34,7 @@ function levelResult(goal, c, ctx) {
   if (Number(goal.target) <= b.character_level) return `${head}<p class="good">달성했습니다 🎉</p>`;
   if (r.remaining == null) {
     return `${head}<p class="muted">필요 경험치를 아직 모르는 레벨이 있어 계산할 수 없습니다: Lv.${esc(rangeText(r.missing))}<br>` +
-      "계정의 캐릭터가 이 레벨을 지나가면 자동으로 측정되어 채워집니다.</p>";
+      "</p>";
   }
   const perDay = dailyExpGain(c.history, table);
   const days = perDay > 0 ? Math.ceil(r.remaining / perDay) : null;
@@ -55,11 +55,15 @@ function hexaResult(goal, c, ctx) {
   if (!g.rows.length) return `${head}<p class="good">달성했습니다 🎉</p>`;
   const list = '<ul class="list">' + g.rows.map((r) =>
     `<li><span>${esc(r.name)}<br><span class="sub">${esc(r.type)}</span></span><span class="r">Lv.${r.from} → ${esc(goal.target)}` +
-    (r.cost ? `<br>솔 에르다 ${fmtInt(r.cost.sol_erda)} · 조각 ${fmtInt(r.cost.fragment)}` : "") + "</span></li>").join("") + "</ul>";
-  const total = g.total
-    ? `<div class="kv"><div><span>솔 에르다</span><b>${fmtInt(g.total.sol_erda)}개</b></div><div><span>솔 에르다 조각</span><b>${fmtInt(g.total.fragment)}개</b></div></div>`
-    : `<p class="muted">재료표가 아직 확인되지 않아(${esc(g.unknownTypes.join(", "))}) 필요 재료를 계산할 수 없습니다.</p>`;
-  return head + total + list;
+    (r.cost ? `<br>솔 에르다 ${fmtInt(r.cost.sol_erda)} · 조각 ${fmtInt(r.cost.fragment)}` : '<br><span class="sub">재료표 미확인</span>') + "</span></li>").join("") + "</ul>";
+  const kv = (t) => `<div class="kv"><div><span>솔 에르다</span><b>${fmtInt(t.sol_erda)}개</b></div><div><span>솔 에르다 조각</span><b>${fmtInt(t.fragment)}개</b></div></div>`;
+  let total;
+  if (g.total) total = kv(g.total);
+  else if (g.partial) total = '<p class="muted">재료표가 있는 코어만 합친 값입니다.</p>' + kv(g.partial) +
+    `<p class="muted">재료표를 확인하지 못한 코어 ${g.rows.filter((r) => !r.cost).length}개(아래 목록에서 재료가 비어 있는 코어)는 빠져 있습니다.</p>`;
+  else total = `<p class="muted">재료표를 아직 확인하지 못해(${esc(g.unknownTypes.join(", "))}) 필요 재료를 계산할 수 없습니다. 패치로 요구량이 여러 번 바뀌어 확인된 최신 표만 넣고 있습니다.</p>`;
+  const src = g.sources.length ? `<p class="muted">재료표 출처: ${esc(g.sources.join(" / "))}</p>` : "";
+  return head + total + list + src;
 }
 
 function symbolResult(goal, c, ctx) {
@@ -67,9 +71,10 @@ function symbolResult(goal, c, ctx) {
   const rows = syms.map((s) => ({ s, r: symbolGoal(ctx.rules.symbol, s, goal.target) })).filter((x) => !x.r.done);
   const head = `${esc(goal.symbol === "*" ? "모든 심볼" : goal.symbol)} → <b>Lv.${esc(goal.target)}</b> <span class="sub">(최대 레벨을 넘으면 최대까지)</span>`;
   if (!rows.length) return `${head}<p class="good">달성했습니다 🎉</p>`;
-  const perDay = Number(goal.perDay) || 0;
+  // 하루 획득량: 직접 입력값 > 공식 일일 퀘스트 지급량
+  const dailyOf = (r) => Number(goal.perDay) || ctx.rules.symbol?.kinds?.[r.kind]?.daily?.[r.region] || 0;
   const list = '<ul class="list">' + rows.map(({ s, r }) => {
-    const days = daysFor(r.growth, perDay);
+    const days = daysFor(r.growth, dailyOf(r));
     return `<li><span>${esc(r.region || s.symbol_name)}<br><span class="sub">${esc(r.kind)} Lv.${esc(s.symbol_level)}</span></span><span class="r">` +
       (r.growth == null ? "성장치표 미확인" : `성장치 ${fmtInt(r.growth)} 더 필요${days != null ? `<br>약 ${days}일` : ""}`) +
       (r.meso != null ? `<br>${fmtNum(r.meso)} 메소` : "") + "</span></li>";
@@ -79,7 +84,9 @@ function symbolResult(goal, c, ctx) {
   const mesoUnknown = rows.some((x) => x.r.meso == null);
   return head + `<div class="kv"><div><span>더 모아야 할 성장치 합계</span><b>${fmtInt(totalGrowth)}</b></div>` +
     `<div><span>강화 메소</span><b>${mesoUnknown ? "비용표 미확인" : fmtNum(rows.reduce((a, x) => a + x.r.meso, 0))}</b></div></div>` +
-    (perDay ? "" : '<p class="muted">하루 획득량을 입력하면 지역별 예상 기간을 계산합니다.</p>') + list;
+    (rows.some(({ r }) => r.growth != null && !dailyOf(r)) ? '<p class="muted">하루 획득량을 모르는 심볼은 목표에 하루 획득량을 입력하면 예상 기간을 계산합니다.</p>' : "") +
+    (Number(goal.perDay) ? `<p class="muted">하루 ${fmtInt(goal.perDay)}개 기준</p>` : '<p class="muted">예상 기간은 일일 퀘스트 지급량(공식 가이드) 기준이며 주간 컨텐츠 등은 빠져 있습니다.</p>') +
+    list + '<p class="muted">강화 메소 출처: 인벤 심볼 강화표(아케인은 계산기 공식과 교차 확인)</p>';
 }
 
 const RESULT = { level: levelResult, hexa: hexaResult, symbol: symbolResult };
@@ -105,7 +112,7 @@ function addForm(c, i) {
 <label data-for="hexa" hidden>코어 <select name="core"><option value="*">모든 코어</option>${coreOpts}</select></label>
 <label data-for="symbol" hidden>심볼 <select name="symbol"><option value="*">모든 심볼</option>${symOpts}</select></label>
 <label>목표 레벨 <input name="target" type="number" inputmode="numeric" min="1" max="300" required></label>
-<label data-for="symbol" hidden>하루 획득량(선택) <input name="perDay" type="number" inputmode="numeric" min="0" placeholder="예: 20"></label>
+<label data-for="symbol" hidden>하루 획득량(선택, 비우면 일일 퀘스트 기준) <input name="perDay" type="number" inputmode="numeric" min="0" placeholder="예: 20"></label>
 <div class="row"><button class="btn primary" type="submit">추가</button></div></form>`;
 }
 

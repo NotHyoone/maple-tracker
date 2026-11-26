@@ -1,12 +1,139 @@
 {
-  "_doc": "HEXA 코어 강화 재료. cores[코어 종류] = 길이 30 배열, i번째 = 레벨 i→i+1(0→1은 활성화)에 필요한 {sol_erda, fragment}. 공식 자료로 확인 전에는 null.",
-  "max_level": 30,
-  "source": null,
-  "checked": null,
-  "cores": {
-    "스킬 코어": null,
-    "마스터리 코어": null,
-    "강화 코어": null,
-    "공용 코어": null
+ "_doc": "HEXA 코어 강화 재료. 표[i] = 레벨 i→i+1(0→1은 활성화)에 필요한 {sol_erda, fragment}. cores_by_name(코어 이름별)이 cores(종류별)보다 우선. 확인 전에는 null.",
+ "max_level": 30,
+ "cores": {
+  "스킬 코어": null,
+  "마스터리 코어": null,
+  "강화 코어": null,
+  "공용 코어": null
+ },
+ "cores_note": "스킬·마스터리·강화 코어는 여러 차례 패치로 요구량이 바뀌어 현재 기준 표를 확인하지 못함",
+ "cores_by_name": {
+  "솔 야누스": {
+   "table": [
+    {
+     "sol_erda": 7,
+     "fragment": 125
+    },
+    {
+     "sol_erda": 2,
+     "fragment": 38
+    },
+    {
+     "sol_erda": 2,
+     "fragment": 44
+    },
+    {
+     "sol_erda": 2,
+     "fragment": 50
+    },
+    {
+     "sol_erda": 3,
+     "fragment": 57
+    },
+    {
+     "sol_erda": 3,
+     "fragment": 63
+    },
+    {
+     "sol_erda": 3,
+     "fragment": 69
+    },
+    {
+     "sol_erda": 5,
+     "fragment": 75
+    },
+    {
+     "sol_erda": 5,
+     "fragment": 82
+    },
+    {
+     "sol_erda": 14,
+     "fragment": 300
+    },
+    {
+     "sol_erda": 5,
+     "fragment": 110
+    },
+    {
+     "sol_erda": 5,
+     "fragment": 124
+    },
+    {
+     "sol_erda": 6,
+     "fragment": 138
+    },
+    {
+     "sol_erda": 6,
+     "fragment": 152
+    },
+    {
+     "sol_erda": 6,
+     "fragment": 165
+    },
+    {
+     "sol_erda": 6,
+     "fragment": 179
+    },
+    {
+     "sol_erda": 6,
+     "fragment": 193
+    },
+    {
+     "sol_erda": 6,
+     "fragment": 207
+    },
+    {
+     "sol_erda": 7,
+     "fragment": 220
+    },
+    {
+     "sol_erda": 17,
+     "fragment": 525
+    },
+    {
+     "sol_erda": 7,
+     "fragment": 234
+    },
+    {
+     "sol_erda": 7,
+     "fragment": 248
+    },
+    {
+     "sol_erda": 7,
+     "fragment": 262
+    },
+    {
+     "sol_erda": 7,
+     "fragment": 275
+    },
+    {
+     "sol_erda": 7,
+     "fragment": 289
+    },
+    {
+     "sol_erda": 9,
+     "fragment": 303
+    },
+    {
+     "sol_erda": 9,
+     "fragment": 317
+    },
+    {
+     "sol_erda": 9,
+     "fragment": 330
+    },
+    {
+     "sol_erda": 10,
+     "fragment": 344
+    },
+    {
+     "sol_erda": 20,
+     "fragment": 750
+    }
+   ],
+   "source": "tools.devcomma.com/calculators/maple-sol-janus (출처 1곳, 교차 검증 안 됨)",
+   "checked": "2026-11-27 계산기 표의 누적값(0→30: 208/6,268, 0→20: 116/2,916)과 일치"
   }
+ }
 }
