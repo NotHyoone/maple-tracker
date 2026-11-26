@@ -35,8 +35,9 @@ if ! grep -qi "chatgpt" <<<"$STATUS"; then
 fi
 
 # 3) ChatGPT 로그인만 강제하고 비대화식으로 실행한다.
+#    stdin을 /dev/null로 막아 추가 입력 대기로 멈추지 않게 한다.
 exec codex exec \
   -c 'forced_login_method="chatgpt"' \
   --sandbox "$SANDBOX" \
   --skip-git-repo-check \
-  "$*"
+  "$*" < /dev/null
