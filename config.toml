@@ -17,5 +17,16 @@ enabled = true
 # 과거 기록을 실행마다 며칠씩 채울지 (개발용 API 키는 하루 호출 수 제한이 있어 나눠서 채웁니다)
 backfill_days_per_run = 45
 
+[notify]
+# 디스코드 알림. 웹훅 주소는 GitHub Secret 'DISCORD_WEBHOOK_URL'에 등록합니다 (없으면 알림만 건너뜀)
+discord = true
+# 종료 며칠 전에 알릴지
+ending_days = [3, 1]
+# 새로 시작한 이벤트도 알릴지
+new_events = true
+# 알림에 붙일 멘션 (예: "@here"), 비우면 멘션 없음
+mention = ""
+
 [site]
 title = "메이플 트래커"
+url = "https://nothyoone.github.io/maple-tracker/"

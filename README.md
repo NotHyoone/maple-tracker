@@ -37,6 +37,16 @@ GitHub Actions (매일 08:17 / 14:17 / 22:17 KST)
 3. **수집할 캐릭터**: `config.toml` 의 `names` 수정 (비우면 레벨 상위 `auto_top`명 자동)
 4. 첫 실행: `Actions → 메이플 정보 수집 → Run workflow`
 
+## 디스코드 알림
+
+종료 3일 전·1일 전 이벤트와 새로 시작한 이벤트를 디스코드로 알려줍니다. 알림에는 기간, 주요 보상,
+성장 가이드 기준으로 "챙기면 좋은 캐릭터"가 함께 들어갑니다. 같은 알림은 다시 보내지 않습니다(`data/notify_state.json`).
+
+1. 디스코드 채널 설정 → 연동 → 웹후크 → 새 웹후크 → 웹후크 URL 복사
+2. 저장소 `Settings → Secrets and variables → Actions → New repository secret`
+   - Name: `DISCORD_WEBHOOK_URL`, Secret: 복사한 URL
+3. 알림 기준·멘션은 `config.toml`의 `[notify]`에서 바꿉니다.
+
 ## 로컬 실행
 
 ```bash

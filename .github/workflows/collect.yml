@@ -37,6 +37,7 @@ jobs:
       - name: 넥슨 Open API 수집 + 페이지 생성
         env:
           NEXON_API_KEY: ${{ secrets.NEXON_API_KEY }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python -m collector.main
 
       - name: 수집 데이터 커밋

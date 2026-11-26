@@ -7,7 +7,7 @@ from __future__ import annotations
 import sys
 import tomllib
 
-from . import characters, events, growth, history, site
+from . import characters, events, growth, history, notify, site
 from .nexon import Client
 from .util import DATA, ROOT, read_json, safe_name, write_json
 
@@ -52,6 +52,11 @@ def main(argv: list[str]) -> int:
     write_json(DATA / "guide.json", {safe_name(k): v for k, v in guides.items()})
     collected_at = read_json(DATA / "events" / "current.json", {}).get("collected_at")
     site.build(cfg.get("site", {}).get("title", "메이플 트래커"), ev, upd, chars, roster, guides, collected_at)
+    if "--site-only" not in argv:
+        try:
+            notify.notify(ev, guides, cfg.get("notify", {}), cfg.get("site", {}).get("url"))
+        except Exception as err:  # noqa: BLE001 - 알림 실패가 수집·배포를 막지 않도록
+            print(f"[notify] 알림 중단: {err}")
     return 0
 
 
