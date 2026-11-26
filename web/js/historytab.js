@@ -16,7 +16,7 @@ function statusCard(state, history) {
   if (!state?.oldest) {
     return '<div class="card"><h2>사용 기록</h2><p class="muted">아직 수집된 기록이 없습니다. 다음 자동 수집 때부터 스타포스·큐브·메소 재설정 기록을 모읍니다.</p></div>';
   }
-  return `<div class="card"><h2>사용 기록</h2><p class="muted">${esc(state.oldest)}부터 집계됨${state.complete ? " (전체 기간 완료)" : " — 과거 기록은 수집할 때마다 45일씩 더 채웁니다"}. ` +
+  return `<div class="card"><h2>사용 기록</h2><p class="muted">${esc(state.oldest)}부터 집계됨${state.complete ? " (전체 기간 완료)" : " — 과거 기록은 수집할 때마다 20일씩 더 채웁니다"}. ` +
     `기록이 있는 날 ${fmtInt(days.length)}일. 공개 저장소라 원본 기록이 아닌 집계 숫자만 저장합니다.</p></div>`;
 }
 

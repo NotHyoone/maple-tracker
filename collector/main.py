@@ -8,7 +8,7 @@ import sys
 import tomllib
 
 from . import characters, events, growth, history, notify, site
-from .nexon import Client
+from .nexon import Client, NexonError
 from .util import DATA, ROOT, read_json, safe_name, write_json
 
 
@@ -31,18 +31,27 @@ def load_saved() -> tuple[list, list, list, list]:
 
 def main(argv: list[str]) -> int:
     cfg = load_config()
-    if "--site-only" in argv:
-        ev, upd, chars, roster = load_saved()
-    else:
+    saved = load_saved()
+    ev, upd, chars, roster = saved
+    if "--site-only" not in argv:
         client = Client()
-        e = events.collect(client)
-        ch = characters.collect(client, cfg.get("characters", {}), cfg.get("roster", {}).get("enabled", True))
-        ev, upd, chars, roster = e["events"], e["updates"], ch["characters"], ch["roster"]
+        # 각 단계가 실패해도(호출 한도 초과 등) 이전에 저장한 데이터로 페이지를 만들어 배포는 계속합니다
         try:
-            history.collect(client, cfg.get("history", {}))
-        except Exception as err:  # noqa: BLE001 - 기록 수집 실패가 다른 수집을 막지 않도록
-            print(f"[history] 수집 중단: {err}")
-        print(f"[main] API 호출 {client.calls}회")
+            e = events.collect(client)
+            ev, upd = e["events"], e["updates"]
+        except NexonError as err:
+            print(f"[events] 수집 실패, 저장된 이벤트 사용: {err}")
+        try:
+            ch = characters.collect(client, cfg.get("characters", {}), cfg.get("roster", {}).get("enabled", True))
+            chars, roster = ch["characters"], ch["roster"]
+        except NexonError as err:
+            print(f"[characters] 수집 실패, 저장된 캐릭터 정보 사용: {err}")
+        if not client.quota_exceeded:
+            try:
+                history.collect(client, cfg.get("history", {}))
+            except Exception as err:  # noqa: BLE001 - 기록 수집 실패가 다른 수집을 막지 않도록
+                print(f"[history] 수집 중단: {err}")
+        print(f"[main] API 호출 {client.calls}회{' (호출 한도 초과로 일부 수집 생략)' if client.quota_exceeded else ''}")
 
     # config 순서대로 정렬
     order = {n: i for i, n in enumerate(cfg.get("characters", {}).get("names") or [])}

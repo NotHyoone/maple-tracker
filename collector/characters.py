@@ -1,7 +1,7 @@
 """내 캐릭터 정보 수집 + 일별 기록."""
 from __future__ import annotations
 
-from .nexon import Client, NexonError
+from .nexon import Client, NexonError, NexonQuotaError
 from .util import DATA, now_kst, read_json, safe_name, write_json
 
 CHAR_DIR = DATA / "characters"
@@ -138,6 +138,8 @@ def collect(client: Client, cfg: dict, roster_enabled: bool = True) -> dict:
         for key, path in ENDPOINTS.items():
             try:
                 raw[key] = client.get(path, ocid=t["ocid"])
+            except NexonQuotaError:
+                raise  # 한도 초과면 불완전한 데이터로 덮어쓰지 않도록 전체 중단
             except NexonError as err:
                 errors.append(f"{key}: {err}")
         if "basic" not in raw:
@@ -167,6 +169,8 @@ def collect(client: Client, cfg: dict, roster_enabled: bool = True) -> dict:
     for r in probes[:MAX_EXTRA_PROBES]:
         try:
             observe_exp(observed, client.get("character/basic", ocid=r["ocid"]), today)
+        except NexonQuotaError:
+            break
         except NexonError:
             pass
     write_json(OBSERVED_EXP, dict(sorted(observed.items(), key=lambda kv: int(kv[0]))))

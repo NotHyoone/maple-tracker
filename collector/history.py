@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from datetime import date, timedelta
 
-from .nexon import Client, NexonError
+from .nexon import Client, NexonError, NexonQuotaError
 from .util import DATA, now_kst, read_json, write_json
 
 HIST_DIR = DATA / "history"
@@ -195,7 +195,7 @@ def save_day(day: date, agg: dict) -> None:
 def collect(client: Client, cfg: dict) -> dict:
     if not cfg.get("enabled", True):
         return {}
-    per_run = int(cfg.get("backfill_days_per_run", 45))
+    per_run = int(cfg.get("backfill_days_per_run", 20))
     yesterday = now_kst().date() - timedelta(days=1)
     state = read_json(STATE, {})
     oldest = date.fromisoformat(state["oldest"]) if state.get("oldest") else None
@@ -209,6 +209,9 @@ def collect(client: Client, cfg: dict) -> dict:
     for day in days:
         try:
             agg = aggregate(fetch_day(client, day))
+        except NexonQuotaError as err:
+            print(f"[history] 호출 한도 초과로 중단: {err}")
+            break
         except NexonError as err:
             errors += 1
             print(f"[history] {day} 조회 실패: {err}")

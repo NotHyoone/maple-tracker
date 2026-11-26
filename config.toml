@@ -15,7 +15,7 @@ enabled = true
 # 스타포스·큐브·메소 잠재능력 재설정 사용 기록 수집 (집계 숫자만 저장)
 enabled = true
 # 과거 기록을 실행마다 며칠씩 채울지 (개발용 API 키는 하루 호출 수 제한이 있어 나눠서 채웁니다)
-backfill_days_per_run = 45
+backfill_days_per_run = 20
 
 [notify]
 # 디스코드 알림. 웹훅 주소는 GitHub Secret 'DISCORD_WEBHOOK_URL'에 등록합니다 (없으면 알림만 건너뜀)

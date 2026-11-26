@@ -16,6 +16,10 @@ class NexonError(Exception):
     pass
 
 
+class NexonQuotaError(NexonError):
+    """하루 호출 한도 초과 (HTTP 429 + OPENAPI00007). 한도가 풀릴 때까지 더 호출해도 소용없음"""
+
+
 class Client:
     def __init__(self, api_key: str | None = None, min_interval: float = 0.25):
         self.api_key = api_key or os.environ.get("NEXON_API_KEY", "").strip()
@@ -27,6 +31,7 @@ class Client:
         self.min_interval = min_interval  # 개발용 키는 초당 호출 수가 제한됩니다
         self._last_call = 0.0
         self.calls = 0
+        self.quota_exceeded = False
 
     def get(self, path: str, **params) -> dict:
         params = {k: v for k, v in params.items() if v is not None}
@@ -38,6 +43,8 @@ class Client:
             "accept": "application/json",
             "user-agent": "maple-tracker",
         }
+        if self.quota_exceeded:
+            raise NexonQuotaError(f"{path}: 오늘 호출 한도를 이미 넘었습니다")
         for attempt in range(4):
             wait = self.min_interval - (time.monotonic() - self._last_call)
             if wait > 0:
@@ -50,6 +57,13 @@ class Client:
                     return json.load(resp)
             except urllib.error.HTTPError as e:
                 body = e.read().decode("utf-8", "replace")
+                # 초당 제한일 수도 있어 한 번만 잠깐 기다렸다가 다시 시도하고, 그래도 같으면 한도 초과로 판단
+                if e.code == 429 and "OPENAPI00007" in body:
+                    if attempt == 0:
+                        time.sleep(3)
+                        continue
+                    self.quota_exceeded = True
+                    raise NexonQuotaError(f"HTTP 429 {path}: 호출 한도 초과") from None
                 if e.code in RETRY_STATUS and attempt < 3:
                     time.sleep(1.5 * 2**attempt)
                     continue

@@ -4,7 +4,7 @@ from __future__ import annotations
 import html
 import re
 
-from .nexon import Client, NexonError
+from .nexon import Client, NexonError, NexonQuotaError
 from .util import DATA, now_kst, parse_dt, read_json, write_json
 
 EVENT_DIR = DATA / "events"
@@ -49,6 +49,8 @@ def collect(client: Client) -> dict:
                     "text": html_to_text(d.get("contents", "")),
                 }
                 write_json(cache, detail)
+            except NexonQuotaError:
+                raise
             except NexonError as err:
                 print(f"[events] 상세 조회 실패 {nid}: {err}")
                 detail = {"text": ""}
@@ -74,6 +76,8 @@ def collect(client: Client) -> dict:
     # 업데이트 공지(패치노트)는 제목만
     try:
         updates = client.get("notice-update").get("update_notice", [])[:10]
+    except NexonQuotaError:
+        raise
     except NexonError as err:
         print(f"[events] 업데이트 공지 조회 실패: {err}")
         updates = read_json(EVENT_DIR / "updates.json", [])
