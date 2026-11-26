@@ -5,38 +5,7 @@
    "exp_rate": 85.996,
    "exp_per_day": null,
    "days_to_next": null,
-   "symbol_todo": [
-    {
-     "name": "어센틱심볼 : 세르니움",
-     "level": 8,
-     "max": 11
-    },
-    {
-     "name": "어센틱심볼 : 아르크스",
-     "level": 6,
-     "max": 11
-    },
-    {
-     "name": "어센틱심볼 : 오디움",
-     "level": 6,
-     "max": 11
-    },
-    {
-     "name": "어센틱심볼 : 도원경",
-     "level": 6,
-     "max": 11
-    },
-    {
-     "name": "어센틱심볼 : 아르테리아",
-     "level": 6,
-     "max": 11
-    },
-    {
-     "name": "어센틱심볼 : 카르시온",
-     "level": 5,
-     "max": 11
-    }
-   ],
+   "symbol_todo": [],
    "hexa_avg": 6.0,
    "hexa_count": 14,
    "low_cores": [
@@ -56,8 +25,8 @@
      "hexa_core_level": 1
     }
    ],
-   "starforce_avg": 12.785714285714286,
-   "union_level": 8551
+   "starforce_avg": 0,
+   "union_level": null
   },
   "recommendations": [
    {
@@ -141,7 +110,7 @@
     "url": "https://maplestory.nexon.com/News/Event/1413",
     "score": 3,
     "category": "장비 강화",
-    "reason": "장착 장비 평균 스타포스 12.8성. 강화 할인·확률 이벤트 때 몰아서 강화하세요.",
+    "reason": "장착 장비 평균 스타포스 0.0성. 강화 할인·확률 이벤트 때 몰아서 강화하세요.",
     "rewards": [
      "크레딧 획득 방법",
      "소라의 메소샵 판매 물품",
@@ -160,259 +129,6 @@
     "reason": "본캐는 해당 없지만, 260 미만 부캐 51명을 키울 때 쓰기 좋습니다(유니온·링크 스킬).",
     "rewards": [],
     "days_left": 19.9,
-    "upcoming": false
-   }
-  ]
- },
- "실피드군주": {
-  "analysis": {
-   "level": 260,
-   "exp_rate": 7.299,
-   "exp_per_day": null,
-   "days_to_next": null,
-   "symbol_todo": [
-    {
-     "name": "아케인심볼 : 츄츄 아일랜드",
-     "level": 19,
-     "max": 20
-    },
-    {
-     "name": "어센틱심볼 : 세르니움",
-     "level": 5,
-     "max": 11
-    }
-   ],
-   "hexa_avg": 0,
-   "hexa_count": 0,
-   "low_cores": [],
-   "starforce_avg": 15.0,
-   "union_level": 8079
-  },
-  "recommendations": [
-   {
-    "notice_id": 1416,
-    "title": "메이플스토리X 블루 아카이브",
-    "url": "https://maplestory.nexon.com/News/Event/1416",
-    "score": 5,
-    "category": "헥사/6차 전직",
-    "reason": "아직 HEXA 코어가 없습니다. 6차 전직 후 솔 에르다를 모으면 성장 폭이 큽니다.",
-    "rewards": [
-     "상급 EXP 교환권",
-     "VIP 사우나 이용권",
-     "경험치 4배 쿠폰 (30분)",
-     "솔 에르다 / 솔 에르다 조각 선택권"
-    ],
-    "days_left": 19.9,
-    "upcoming": false
-   },
-   {
-    "notice_id": 1414,
-    "title": "총력전",
-    "url": "https://maplestory.nexon.com/News/Event/1414",
-    "score": 5,
-    "category": "헥사/6차 전직",
-    "reason": "아직 HEXA 코어가 없습니다. 6차 전직 후 솔 에르다를 모으면 성장 폭이 큽니다.",
-    "rewards": [
-     "경험치 4배 쿠폰 (30분)",
-     "상급 EXP 교환권",
-     "솔 에르다 / 솔 에르다 조각",
-     "솔 에르다 / 솔 에르다 조각 선택권"
-    ],
-    "days_left": 19.9,
-    "upcoming": false
-   },
-   {
-    "notice_id": 1334,
-    "title": "VIP 사우나",
-    "url": "https://maplestory.nexon.com/News/Event/1334",
-    "score": 5,
-    "category": "경험치/레벨업",
-    "reason": "Lv.260 (7.3%). 경험치 이벤트를 챙기면 레벨업이 빨라집니다.",
-    "rewards": [],
-    "days_left": 19.9,
-    "upcoming": false
-   },
-   {
-    "notice_id": 1410,
-    "title": "프리미엄PC방 접속보상 이벤트",
-    "url": "https://maplestory.nexon.com/News/Event/1410",
-    "score": 5,
-    "category": "헥사/6차 전직",
-    "reason": "아직 HEXA 코어가 없습니다. 6차 전직 후 솔 에르다를 모으면 성장 폭이 큽니다.",
-    "rewards": [
-     "프리미엄 PC방 접속 보상 이벤트",
-     "일일 누적 접속 시간 보상",
-     "주말 누적 접속 시간 보상",
-     "총 누적 접속 시간 보상"
-    ],
-    "days_left": 20.9,
-    "upcoming": false
-   },
-   {
-    "notice_id": 1411,
-    "title": "[사전예약 이벤트] - 윈터 카운트다운",
-    "url": "https://maplestory.nexon.com/News/Event/1411",
-    "score": 5,
-    "category": "헥사/6차 전직",
-    "reason": "아직 HEXA 코어가 없습니다. 6차 전직 후 솔 에르다를 모으면 성장 폭이 큽니다.",
-    "rewards": [
-     "경험치 4배 쿠폰 (30분)",
-     "VIP 사우나 이용권",
-     "상급 EXP 교환권",
-     "솔 에르다/솔 에르다 조각 선택권"
-    ],
-    "days_left": 33.9,
-    "upcoming": false
-   },
-   {
-    "notice_id": 1413,
-    "title": "소라의 24시간 편의점",
-    "url": "https://maplestory.nexon.com/News/Event/1413",
-    "score": 3,
-    "category": "장비 강화",
-    "reason": "장착 장비 평균 스타포스 15.0성. 강화 할인·확률 이벤트 때 몰아서 강화하세요.",
-    "rewards": [
-     "크레딧 획득 방법",
-     "소라의 메소샵 판매 물품",
-     "카르마 놀라운 긍정의 혼돈 주문서 100%",
-     "펫장비 능력치 이전 주문서"
-    ],
-    "days_left": 19.9,
-    "upcoming": false
-   },
-   {
-    "notice_id": 1384,
-    "title": "하이퍼 버닝 부스터를 드려요!",
-    "url": "https://maplestory.nexon.com/News/Event/1384",
-    "score": 2,
-    "category": "버닝/신규 육성",
-    "reason": "본캐는 해당 없지만, 260 미만 부캐 51명을 키울 때 쓰기 좋습니다(유니온·링크 스킬).",
-    "rewards": [],
-    "days_left": 19.9,
-    "upcoming": false
-   }
-  ]
- },
- "SecCharacter": {
-  "analysis": {
-   "level": 203,
-   "exp_rate": 27.962,
-   "exp_per_day": null,
-   "days_to_next": null,
-   "symbol_todo": [
-    {
-     "name": "아케인심볼 : 소멸의 여로",
-     "level": 3,
-     "max": 20
-    }
-   ],
-   "hexa_avg": 0,
-   "hexa_count": 0,
-   "low_cores": [],
-   "starforce_avg": 10.428571428571429,
-   "union_level": 6936
-  },
-  "recommendations": [
-   {
-    "notice_id": 1384,
-    "title": "하이퍼 버닝 부스터를 드려요!",
-    "url": "https://maplestory.nexon.com/News/Event/1384",
-    "score": 5,
-    "category": "버닝/신규 육성",
-    "reason": "Lv.203로 버닝 혜택을 받을 수 있는 구간입니다.",
-    "rewards": [],
-    "days_left": 19.9,
-    "upcoming": false
-   },
-   {
-    "notice_id": 1416,
-    "title": "메이플스토리X 블루 아카이브",
-    "url": "https://maplestory.nexon.com/News/Event/1416",
-    "score": 4,
-    "category": "경험치/레벨업",
-    "reason": "Lv.203 (28.0%). 경험치 이벤트를 챙기면 레벨업이 빨라집니다.",
-    "rewards": [
-     "상급 EXP 교환권",
-     "VIP 사우나 이용권",
-     "경험치 4배 쿠폰 (30분)",
-     "솔 에르다 / 솔 에르다 조각 선택권"
-    ],
-    "days_left": 19.9,
-    "upcoming": false
-   },
-   {
-    "notice_id": 1414,
-    "title": "총력전",
-    "url": "https://maplestory.nexon.com/News/Event/1414",
-    "score": 4,
-    "category": "경험치/레벨업",
-    "reason": "Lv.203 (28.0%). 경험치 이벤트를 챙기면 레벨업이 빨라집니다.",
-    "rewards": [
-     "경험치 4배 쿠폰 (30분)",
-     "상급 EXP 교환권",
-     "솔 에르다 / 솔 에르다 조각",
-     "솔 에르다 / 솔 에르다 조각 선택권"
-    ],
-    "days_left": 19.9,
-    "upcoming": false
-   },
-   {
-    "notice_id": 1334,
-    "title": "VIP 사우나",
-    "url": "https://maplestory.nexon.com/News/Event/1334",
-    "score": 4,
-    "category": "경험치/레벨업",
-    "reason": "Lv.203 (28.0%). 경험치 이벤트를 챙기면 레벨업이 빨라집니다.",
-    "rewards": [],
-    "days_left": 19.9,
-    "upcoming": false
-   },
-   {
-    "notice_id": 1411,
-    "title": "[사전예약 이벤트] - 윈터 카운트다운",
-    "url": "https://maplestory.nexon.com/News/Event/1411",
-    "score": 4,
-    "category": "경험치/레벨업",
-    "reason": "Lv.203 (28.0%). 경험치 이벤트를 챙기면 레벨업이 빨라집니다.",
-    "rewards": [
-     "경험치 4배 쿠폰 (30분)",
-     "VIP 사우나 이용권",
-     "상급 EXP 교환권",
-     "솔 에르다/솔 에르다 조각 선택권"
-    ],
-    "days_left": 33.9,
-    "upcoming": false
-   },
-   {
-    "notice_id": 1413,
-    "title": "소라의 24시간 편의점",
-    "url": "https://maplestory.nexon.com/News/Event/1413",
-    "score": 3,
-    "category": "장비 강화",
-    "reason": "장착 장비 평균 스타포스 10.4성. 강화 할인·확률 이벤트 때 몰아서 강화하세요.",
-    "rewards": [
-     "크레딧 획득 방법",
-     "소라의 메소샵 판매 물품",
-     "카르마 놀라운 긍정의 혼돈 주문서 100%",
-     "펫장비 능력치 이전 주문서"
-    ],
-    "days_left": 19.9,
-    "upcoming": false
-   },
-   {
-    "notice_id": 1410,
-    "title": "프리미엄PC방 접속보상 이벤트",
-    "url": "https://maplestory.nexon.com/News/Event/1410",
-    "score": 2,
-    "category": "출석/접속 보상",
-    "reason": "접속·출석만으로 받는 보상 — 손이 적게 가니 놓치지 마세요.",
-    "rewards": [
-     "프리미엄 PC방 접속 보상 이벤트",
-     "일일 누적 접속 시간 보상",
-     "탐험 코인 100개교환권 1개",
-     "탐험 코인 500개교환권 1개"
-    ],
-    "days_left": 20.9,
     "upcoming": false
    }
   ]
