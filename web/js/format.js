@@ -11,7 +11,10 @@ export function fmtNum(v) {
     const eok = Math.floor((n % 1e12) / 1e8);
     return `${k(Math.floor(n / 1e12))}조${eok ? ` ${k(eok)}억` : ""}`;
   }
-  if (n >= 1e8) return `${Math.floor(n / 1e8)}억 ${k(Math.floor((n % 1e8) / 1e4))}만`;
+  if (n >= 1e8) {
+    const man = Math.floor((n % 1e8) / 1e4);
+    return `${k(Math.floor(n / 1e8))}억${man ? ` ${k(man)}만` : ""}`;
+  }
   if (n >= 1e4) return `${k(Math.floor(n / 1e4))}만`;
   return k(n);
 }

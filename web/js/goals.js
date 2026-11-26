@@ -5,6 +5,9 @@ import { buildExpTable, remainingExp, dailyExpGain } from "./calc/level.js";
 import { symbolGoal, daysFor } from "./calc/symbol.js";
 import { hexaGoal } from "./calc/hexa.js";
 import {
+  starforceResult, starforceFormFields, readStarforceForm, runSimulations, detectStarforceEvents, starforceItems,
+} from "./sfgoal.js";
+import {
   PRICE_ITEMS, normalizePrices, priceFromInput, ageDays, isStale, fragmentsToMeso, mesoToWon, sumMeso,
 } from "./calc/prices.js";
 
@@ -12,7 +15,7 @@ const PRICE_KEY = "prices";
 export const loadPrices = () => normalizePrices(store.load(PRICE_KEY, {}));
 
 const KEY = "goals";
-const TYPES = { level: "레벨", hexa: "HEXA 코어", symbol: "심볼" };
+const TYPES = { level: "레벨", hexa: "HEXA 코어", symbol: "심볼", starforce: "스타포스" };
 
 export const loadGoals = () => store.load(KEY, []);
 const saveGoals = (g) => store.save(KEY, g);
@@ -109,7 +112,7 @@ function symbolResult(goal, c, ctx) {
   };
 }
 
-const RESULT = { level: levelResult, hexa: hexaResult, symbol: symbolResult };
+const RESULT = { level: levelResult, hexa: hexaResult, symbol: symbolResult, starforce: starforceResult };
 
 function computeGoal(goal, c, ctx) {
   try { return RESULT[goal.type](goal, c, ctx); } catch (err) {
@@ -167,7 +170,7 @@ function priceCard(prices) {
 
 // ---------- 목표 추가 폼 ----------
 
-function addForm(c, i) {
+function addForm(c, i, ctx) {
   const coreOpts = (c.hexamatrix || []).map((h) => `<option value="${esc(h.hexa_core_name)}">${esc(h.hexa_core_name)} (Lv.${esc(h.hexa_core_level)})</option>`).join("");
   const symOpts = (c.symbol || []).map((s) => `<option value="${esc(s.symbol_name)}">${esc(s.symbol_name)} (Lv.${esc(s.symbol_level)})</option>`).join("");
   return `<form class="card goal-form" data-char="${i}"><h2>목표 추가</h2>
@@ -175,10 +178,12 @@ function addForm(c, i) {
   <option value="level">레벨</option>
   ${c.hexamatrix?.length ? '<option value="hexa">HEXA 코어</option>' : ""}
   ${c.symbol?.length ? '<option value="symbol">심볼</option>' : ""}
+  ${starforceItems(c, ctx.rules.starforce).length ? '<option value="starforce">스타포스</option>' : ""}
 </select></label>
 <label data-for="hexa" hidden>코어 <select name="core"><option value="*">모든 코어</option>${coreOpts}</select></label>
 <label data-for="symbol" hidden>심볼 <select name="symbol"><option value="*">모든 심볼</option>${symOpts}</select></label>
-<label>목표 레벨 <input name="target" type="number" inputmode="numeric" min="1" max="300" required></label>
+${starforceFormFields(c, ctx.rules.starforce)}
+<label><span data-label-target>목표 레벨</span> <input name="target" type="number" inputmode="numeric" min="1" max="300" required></label>
 <label data-for="symbol" hidden>하루 획득량(선택, 비우면 일일 퀘스트 기준) <input name="perDay" type="number" inputmode="numeric" min="0" placeholder="예: 20"></label>
 <div class="row"><button class="btn primary" type="submit">추가</button></div></form>`;
 }
@@ -187,8 +192,9 @@ function syncFormFields(form) {
   const type = form.type.value;
   form.querySelectorAll("[data-for]").forEach((el) => { el.hidden = el.dataset.for !== type; });
   const c = form._char;
-  const presets = { level: c.basic.character_level + 1, hexa: 30, symbol: 20 };
+  const presets = { level: c.basic.character_level + 1, hexa: 30, symbol: 20, starforce: 22 };
   form.target.placeholder = `예: ${presets[type]}`;
+  form.querySelector("[data-label-target]").textContent = type === "starforce" ? "목표 성급" : "목표 레벨";
 }
 
 // ---------- 탭 전체 ----------
@@ -196,13 +202,16 @@ function syncFormFields(form) {
 export function renderGoalsTab(root, ctx) {
   const goals = loadGoals();
   ctx.prices = loadPrices();
+  ctx.sfEvents = detectStarforceEvents(ctx.events);
+  const simJobs = [];
   const sel = ctx.chars.map((c, i) => `<button data-t="g${i}">${esc(c.basic.character_name)}</button>`).join("");
   const panes = ctx.chars.map((c, i) => {
     const mine = goals.filter((g) => g.char === c.basic.character_name);
     const results = mine.map((g) => computeGoal(g, c, ctx));
+    results.forEach((r) => r.sim && simJobs.push(r.sim));
     return `<div class="gpane" id="g${i}">` + summaryCard(results, ctx.prices) +
       (mine.length ? mine.map((g, j) => goalCard(g, results[j], ctx.prices)).join("") : '<p class="muted card">아직 목표가 없습니다. 아래에서 추가해 보세요.</p>') +
-      addForm(c, i) + "</div>";
+      addForm(c, i, ctx) + "</div>";
   }).join("");
   root.innerHTML = `${priceCard(ctx.prices)}<div class="charsel" id="goal-sel">${sel}</div>${panes}` +
     '<p class="muted">목표는 이 브라우저에만 저장됩니다. 계정·설정 탭에서 백업할 수 있습니다.</p>';
@@ -216,6 +225,7 @@ export function renderGoalsTab(root, ctx) {
       const goal = { id: newId(), char: f._char.basic.character_name, type: f.type.value, target: Number(f.target.value) };
       if (goal.type === "hexa") goal.core = f.core.value;
       if (goal.type === "symbol") { goal.symbol = f.symbol.value; goal.perDay = Number(f.perDay.value) || 0; }
+      if (goal.type === "starforce") Object.assign(goal, readStarforceForm(f));
       saveGoals([...loadGoals(), goal]);
       renderGoalsTab(root, ctx);
     });
@@ -241,5 +251,6 @@ export function renderGoalsTab(root, ctx) {
     renderGoalsTab(root, ctx);
   }));
   ctx.setupTabs(root.querySelector("#goal-sel"), [...root.querySelectorAll(".gpane")], "tab:goalchar");
+  runSimulations(root, simJobs, ctx.rules.starforce);
 }
 
