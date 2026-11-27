@@ -1,5 +1,6 @@
 // 목표 탭의 잠재능력 목표: 장비·윗잠/에디·목표 등급·옵션 조건 → 확률, 평균 재설정 횟수, 메소
 import { esc, fmtNum, fmtInt } from "./format.js";
+import { equipmentSteps } from "./roadmap.js";
 import {
   GRADES, GRADE_KO, KINDS, tableFor, partCode, conditionProbability, makePredicate, expectedPotential, potentialQuantiles,
 } from "./calc/potential.js";
@@ -45,7 +46,7 @@ const pct = (v) => (v >= 0.9995 ? "100%" : v < 0.00001 ? "0.001% 미만" : `${(v
 export function potentialResult(goal, c, ctx) {
   const tables = ctx.rules.potential, meta = ctx.rules.potentialMeta;
   const it = (c.item || []).find((x) => x.item_equipment_slot === goal.slot);
-  if (!it) return { html: `<p class="muted">${esc(goal.slot)} 부위 장비를 찾을 수 없습니다.</p>` };
+  if (!it) return { steps: [], html: `<p class="muted">${esc(goal.slot)} 부위 장비를 찾을 수 없습니다.</p>` };
   const kind = goal.potKind || "main";
   const gradeKey = kind === "main" ? "potential_option_grade" : "additional_potential_option_grade";
   const optKeys = kind === "main" ? ["potential_option_1", "potential_option_2", "potential_option_3"]
@@ -54,17 +55,19 @@ export function potentialResult(goal, c, ctx) {
   const curLines = optKeys.map((k) => it[k]).filter(Boolean);
   const target = goal.toGrade || "legendary";
   const ko = meta.grade_names;
+  const roadmap = equipmentSteps("pot", goal.slot,
+    `${goal.slot} ${KIND_KO[kind]} ${ko[target]}${goal.cond && goal.cond !== "none" ? ` · ${condText(goal)}` : ""} 달성`, false, curGrade ? false : null);
 
   const head = `${esc(it.item_name)} <span class="sub">${esc(it.item_equipment_slot)} · Lv.${esc(it.item_level)} · ${KIND_KO[kind]}</span><br>` +
     `${curGrade ? esc(ko[curGrade]) : "잠재능력 없음"} → <b>${esc(ko[target])}</b>${goal.cond && goal.cond !== "none" ? ` + ${esc(condText(goal))}` : ""}` +
     (curLines.length ? `<p class="muted">현재: ${esc(curLines.join(" / "))}</p>` : "");
-  if (!curGrade) return { html: head + '<p class="muted">잠재능력이 없는 장비는 먼저 잠재능력을 부여해야 해서 계산하지 않습니다.</p>' };
+  if (!curGrade) return { steps: roadmap, html: head + '<p class="muted">잠재능력이 없는 장비는 먼저 잠재능력을 부여해야 해서 계산하지 않습니다.</p>' };
 
   const fromIdx = GRADES.indexOf(curGrade), toIdx = GRADES.indexOf(target);
   const cond = CONDITIONS[goal.cond]?.make?.(goal) || null;
   const predicate = cond ? makePredicate(cond) : null;
   if (fromIdx >= toIdx && (!predicate || (fromIdx === toIdx && predicate(curLines)))) {
-    return { html: `${head}<p class="good">이미 달성했습니다 🎉</p>` };
+    return { steps: [], html: `${head}<p class="good">이미 달성했습니다 🎉</p>` };
   }
 
   let optionProb = null;
@@ -72,10 +75,10 @@ export function potentialResult(goal, c, ctx) {
   if (predicate) {
     const lines = tableFor(tables, kind, optGrade, partCode(tables, it), it.item_level);
     if (!lines) {
-      return { html: head + `<p class="muted">이 장비(부위·레벨)의 ${esc(ko[optGrade])} 옵션 확률표가 없습니다. 장비를 바꿨다면 <code>python -m collector.fetch_potential</code>을 다시 실행하세요.</p>` };
+      return { steps: roadmap, html: head + `<p class="muted">이 장비(부위·레벨)의 ${esc(ko[optGrade])} 옵션 확률표가 없습니다. 장비를 바꿨다면 <code>python -m collector.fetch_potential</code>을 다시 실행하세요.</p>` };
     }
     optionProb = conditionProbability(lines, predicate, meta.exclusive);
-    if (optionProb <= 0) return { html: head + '<p class="err">이 부위·등급에서는 나올 수 없는 조건입니다.</p>' };
+    if (optionProb <= 0) return { steps: [], html: head + '<p class="err">이 부위·등급에서는 나올 수 없는 조건입니다.</p>' };
   }
   const p = { kind, level: Number(it.item_level), fromGrade: curGrade, toGrade: GRADES[Math.max(fromIdx, toIdx)], optionProb };
   const e = expectedPotential(meta, p);
@@ -93,7 +96,7 @@ export function potentialResult(goal, c, ctx) {
     '<p class="muted">메소 재설정 기준. 등급 상승 확률·천장·비용과 줄별 옵션 확률은 넥슨 공식 확률 공개 자료' +
     (kind === "additional" ? "(에디셔널 재설정 비용만 계산기 출처 1곳)" : "") +
     '입니다. 등급이 오르는 순간의 옵션과 "이전과 같은 결과는 다시 뽑음" 규칙은 무시한 근사입니다.</p>';
-  return { html, hasMeso: true, meso: e.meso, partial: false, mesoLabel: `${KIND_KO[kind]} 평균 비용` };
+  return { steps: roadmap, html, hasMeso: true, meso: e.meso, partial: false, mesoLabel: `${KIND_KO[kind]} 평균 비용` };
 }
 
 export function potentialFormFields(c, tables) {

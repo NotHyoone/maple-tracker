@@ -1,6 +1,7 @@
 // 목표 탭의 스타포스 목표: 장비 선택, 옵션, 기댓값 표시, 모의 시행(비동기)
 import { esc, fmtNum, fmtInt } from "./format.js";
 import { expected, maxStar, simulate } from "./calc/starforce.js";
+import { equipmentSteps } from "./roadmap.js";
 
 // 스타포스 강화가 안 되는 부위
 const NO_STARFORCE = new Set(["엠블렘", "뱃지", "훈장", "포켓 아이템", "보조무기"]);
@@ -63,12 +64,13 @@ const pct = (v) => (v >= 0.9995 ? "100%" : v < 0.0001 ? "0.01% 미만" : `${(v *
 
 export function starforceResult(goal, c, ctx) {
   const sp = sfParams(goal, c, ctx);
-  if (!sp) return { html: `<p class="muted">${esc(goal.slot)} 부위 장비를 찾을 수 없습니다. (장비를 바꿨다면 목표를 다시 추가하세요)</p>` };
+  if (!sp) return { steps: [], html: `<p class="muted">${esc(goal.slot)} 부위 장비를 찾을 수 없습니다. (장비를 바꿨다면 목표를 다시 추가하세요)</p>` };
   const { item, params } = sp;
   const r = expected(ctx.rules.starforce, params);
   const head = `${esc(item.item_name)} <span class="sub">${esc(item.item_equipment_slot)} · Lv.${esc(item.item_level)}</span><br>` +
     `★${esc(params.from)} → <b>★${esc(r.to)}</b>${r.to < Number(goal.target) ? ` <span class="sub">(이 장비는 최대 ${r.max}성)</span>` : ""}`;
-  if (r.to <= params.from) return { html: `${head}<p class="good">달성했습니다 🎉</p>` };
+  const steps = equipmentSteps("sf", goal.slot, `${goal.slot} ★${r.to} 달성`, r.to <= params.from);
+  if (r.to <= params.from) return { steps, html: `${head}<p class="good">달성했습니다 🎉</p>` };
 
   const opts = [params.starcatch ? "스타캐치" : "스타캐치 안 함",
     params.safeguard.length ? `파괴 방지 ${params.safeguard.join("·")}성` : null,
@@ -94,6 +96,7 @@ export function starforceResult(goal, c, ctx) {
     "</table></details>";
   return {
     html, hasMeso: true, meso: r.total, partial: false, mesoLabel: "스타포스 평균 비용",
+    steps,
     sim: { id: goal.id, params },
   };
 }
