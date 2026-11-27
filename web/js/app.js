@@ -62,6 +62,22 @@ function setupBackup() {
   });
 }
 
+function onPresetClick(event) {
+  const button = event.target.closest?.(".presets button[data-p]");
+  if (!button) return;
+  const group = button.closest(".presets");
+  const card = group.closest("[data-preset-group]");
+  if (!card || card.dataset.presetGroup !== group.dataset.group) return;
+  group.querySelectorAll("button[data-p]").forEach((b) => {
+    const selected = b.dataset.p === button.dataset.p;
+    b.classList.toggle("on", selected);
+    b.setAttribute("aria-pressed", String(selected));
+  });
+  card.querySelectorAll(".preset-body").forEach((body) => {
+    body.hidden = body.dataset.p !== button.dataset.p;
+  });
+}
+
 function render(d) {
   const now = Date.now();
   document.title = d.title;
@@ -80,7 +96,7 @@ function render(d) {
 
   const sel = chars.map((c, i) => `<button data-t="c${i}">${esc(c.basic.character_name)}</button>`).join("");
   const panes = chars.map((c, i) =>
-    `<div class="pane" id="c${i}">${characterPane(c, d.guides[c.basic.character_name], eventsById, now)}</div>`).join("");
+    `<div class="pane" id="c${i}">${characterPane(c, d.guides[c.basic.character_name], eventsById, now, `c${i}`)}</div>`).join("");
 
   $("#app").innerHTML = `
 <section id="t-char"><div class="charsel">${sel}</div>${panes || '<p class="muted">수집된 캐릭터가 없습니다.</p>'}</section>
@@ -96,6 +112,9 @@ function render(d) {
   setupTabs($("#tabs"), [...document.querySelectorAll("main > section")], "tab:main");
   setupTabs($(".charsel"), [...document.querySelectorAll(".pane")], "tab:character");
   setupBackup();
+  const app = $("#app");
+  app.removeEventListener("click", onPresetClick);
+  app.addEventListener("click", onPresetClick);
 }
 
 loadData().then(render).catch((err) => {

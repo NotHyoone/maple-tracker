@@ -1,5 +1,6 @@
 // 화면 조각을 HTML 문자열로 만드는 함수들. 모든 데이터 값은 esc()로 이스케이프합니다.
 import { esc, fmtNum, fmtDate, leftBadge, isEndingSoon, sparkPoints } from "./format.js";
+import { availablePresets, pickPreset, diffItems } from "./presets.js";
 
 const GRADE = { 레전드리: "L", 유니크: "U", 에픽: "E", 레어: "R" };
 const STAT_ROWS = ["보스 몬스터 데미지", "방어율 무시", "최종 데미지", "크리티컬 데미지", "데미지",
@@ -76,26 +77,64 @@ function symbolCard(sym) {
   }).join("") + "</ul></div>";
 }
 
-function itemCard(items, a) {
-  if (!items?.length) return "";
+function presetCard(title, group, presets, current, renderBody, fallback = "", footer = "") {
+  const numbers = availablePresets(presets);
+  if (!numbers.length) return fallback ? `<div class="card"><h2>${title}</h2>${fallback}${footer}</div>` : "";
+  const selected = numbers.includes(Number(current)) ? Number(current) : numbers[0];
+  const buttons = numbers.map((no) => `<button type="button" data-p="${no}"` +
+    ` class="${no === selected ? "on" : ""}" aria-pressed="${no === selected}">${no}` +
+    `${no === Number(current) ? ' <span class="sub">적용 중</span>' : ""}</button>`).join("");
+  const bodies = numbers.map((no) => `<div class="preset-body" data-p="${no}"${no === selected ? "" : " hidden"}>` +
+    renderBody(pickPreset(presets, no)) + "</div>").join("");
+  return `<div class="card" data-preset-group="${esc(group)}"><div class="preset-heading"><h2>${title}</h2>` +
+    `<div class="presets" data-group="${esc(group)}" role="group" aria-label="프리셋"><span class="sub">프리셋</span>${buttons}</div>` +
+    `</div>${bodies}${footer}</div>`;
+}
+
+function itemTable(items, changed = new Set()) {
   const rows = items.map((it) => {
     const pot = it.potential_option_grade || "", add = it.additional_potential_option_grade || "";
     const opts = [it.potential_option_1, it.potential_option_2, it.potential_option_3].filter(Boolean).join(" / ");
     const sf = String(it.starforce || "0") !== "0" ? `★${esc(it.starforce)}` : "";
     const lv = it.item_level ? `<span class="sub">Lv.${esc(it.item_level)} · </span>` : "";
-    return `<tr><td><img src="${esc(it.item_icon)}" alt=""></td>` +
+    return `<tr${changed.has(it.item_equipment_slot) ? ' class="diff"' : ""}><td><img src="${esc(it.item_icon)}" alt=""></td>` +
       `<td>${esc(it.item_name)}<br>${lv}<span class="sub">${esc(opts)}</span></td>` +
       `<td class="r">${sf}<br><span class="g-${esc(pot)}">${GRADE[pot] || ""}</span> <span class="g-${esc(add)}">${GRADE[add] || ""}</span></td></tr>`;
   }).join("");
-  return `<div class="card"><h2>장비 <span class="sub">평균 ${a.starforce_avg.toFixed(1)}성</span></h2><table>${rows}</table>` +
-    '<p class="muted">오른쪽 글자: 잠재 / 에디셔널 등급 (L 레전드리 · U 유니크 · E 에픽 · R 레어)</p></div>';
+  return `<table>${rows}</table>`;
 }
 
-export function characterPane(c, guide, eventsById, now) {
+function itemCard(c, a, group) {
+  const base = availablePresets(c.item_presets).includes(Number(c.item_preset_no)) ?
+    pickPreset(c.item_presets, c.item_preset_no) : c.item || [];
+  return presetCard(`장비 <span class="sub">평균 ${a.starforce_avg.toFixed(1)}성</span>`, group,
+    c.item_presets, c.item_preset_no, (items) => itemTable(items, diffItems(base, items)),
+    c.item?.length ? itemTable(c.item) : "",
+    '<p class="muted">오른쪽 글자: 잠재 / 에디셔널 등급 (L 레전드리 · U 유니크 · E 에픽 · R 레어)</p>');
+}
+
+function abilityCard(ability, group) {
+  if (!ability) return "";
+  const body = (value) => `<p class="g-${esc(value.grade)}">${esc(value.grade)}</p><ul class="list">` +
+    (value.lines || []).map((line) => `<li>${esc(line)}</li>`).join("") + "</ul>";
+  return presetCard("어빌리티", group, ability.presets, ability.preset_no, body,
+    ability.grade || ability.lines?.length ? body(ability) : "");
+}
+
+function hyperStatCard(hyper, group) {
+  if (!hyper) return "";
+  return presetCard("하이퍼스탯", group, hyper.presets, hyper.preset_no,
+    (stats) => '<ul class="list">' + stats.map((stat) =>
+      `<li><span>${esc(stat.stat_type)}<br><span class="sub">${esc(stat.stat_increase)}</span></span>` +
+      `<span class="r">Lv.${esc(stat.stat_level)}</span></li>`).join("") + "</ul>");
+}
+
+export function characterPane(c, guide, eventsById, now, group = JSON.stringify([c.basic.world_name, c.basic.character_name])) {
   const a = guide?.analysis || { hexa_avg: 0, starforce_avg: 0, exp_per_day: null };
   const errors = c.errors?.length ? `<p class="muted">일부 정보 조회 실패: ${esc(c.errors.join("; ").slice(0, 300))}</p>` : "";
   return heroCard(c, a) + guideCard(guide, eventsById, now) + statCard(c.stat || {}) +
-    hexaCard(c.hexamatrix, a) + symbolCard(c.symbol) + itemCard(c.item, a) + errors;
+    hexaCard(c.hexamatrix, a) + symbolCard(c.symbol) + itemCard(c, a, `${group}:item`) +
+    abilityCard(c.ability, `${group}:ability`) + hyperStatCard(c.hyper_stat, `${group}:hyper`) + errors;
 }
 
 export function eventCard(ev, now) {

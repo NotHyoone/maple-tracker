@@ -18,6 +18,7 @@ ENDPOINTS = {
     "set_effect": "character/set-effect",
     "dojang": "character/dojang",
     "union": "user/union",
+    "hyper_stat": "character/hyper-stat",
 }
 
 ITEM_KEYS = (
@@ -54,16 +55,25 @@ def stat_map(stat: dict) -> dict:
     return {s["stat_name"]: s["stat_value"] for s in stat.get("final_stat", [])}
 
 
+def slim_items(items: list[dict] | None) -> list[dict]:
+    return [
+        {**{k: it.get(k) for k in ITEM_KEYS},
+         # 스타포스 강화 비용은 아이템 레벨로 정해집니다
+         "item_level": (it.get("item_base_option") or {}).get("base_equipment_level")}
+        for it in items or []
+    ]
+
+
 def slim(raw: dict) -> dict:
     """페이지 표시/분석에 필요한 부분만 남겨 저장 용량을 줄입니다."""
     out = dict(raw)
     if "item" in raw:
-        out["item"] = [
-            {**{k: it.get(k) for k in ITEM_KEYS},
-             # 스타포스 강화 비용은 아이템 레벨로 정해집니다
-             "item_level": (it.get("item_base_option") or {}).get("base_equipment_level")}
-            for it in raw["item"].get("item_equipment", [])
+        item = raw["item"] or {}
+        out["item"] = slim_items(item.get("item_equipment"))
+        out["item_presets"] = [
+            slim_items(item.get(f"item_equipment_preset_{i}")) for i in range(1, 4)
         ]
+        out["item_preset_no"] = item.get("preset_no")
     if "symbol" in raw:
         out["symbol"] = [{k: s.get(k) for k in (
             "symbol_name", "symbol_icon", "symbol_level", "symbol_force",
@@ -77,8 +87,33 @@ def slim(raw: dict) -> dict:
         out["set_effect"] = [{"name": s.get("set_name"), "count": s.get("total_set_count")}
                              for s in raw["set_effect"].get("set_effect", [])]
     if "ability" in raw:
-        out["ability"] = {"grade": raw["ability"].get("ability_grade"),
-                          "lines": [a["ability_value"] for a in raw["ability"].get("ability_info", [])]}
+        ability = raw["ability"] or {}
+        out["ability"] = {
+            "grade": ability.get("ability_grade"),
+            "lines": [a["ability_value"] for a in ability.get("ability_info") or []],
+            "presets": [
+                {"grade": preset.get("ability_preset_grade"),
+                 "lines": [a["ability_value"] for a in preset.get("ability_info") or []]}
+                if (preset := ability.get(f"ability_preset_{i}")) is not None else None
+                for i in range(1, 4)
+            ],
+            "preset_no": ability.get("preset_no"),
+        }
+    if "hyper_stat" in raw:
+        hyper_stat = raw.get("hyper_stat") or {}
+        try:
+            preset_no = int(hyper_stat.get("use_preset_no"))
+        except (TypeError, ValueError):
+            preset_no = None
+        out["hyper_stat"] = {
+            "preset_no": preset_no,
+            "presets": [
+                [{k: s.get(k) for k in ("stat_type", "stat_level", "stat_increase")}
+                 for s in hyper_stat.get(f"hyper_stat_preset_{i}") or []
+                 if to_int(s.get("stat_level")) != 0]
+                for i in range(1, 4)
+            ],
+        }
     return out
 
 
