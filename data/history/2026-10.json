@@ -1,4 +1,91 @@
 {
+ "2026-10-01": {
+  "starforce": {},
+  "potential": {
+   "additional|메멘토 브론즈 에디셔널 큐브 (200제)|rare|normal": {
+    "n": 23,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 23
+    }
+   },
+   "main|메멘토 골드 큐브 (200제)|legendary|normal": {
+    "n": 4,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "100": 4
+    }
+   },
+   "main|메멘토 골드 큐브 (200제)|unique|normal": {
+    "n": 7,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "100": 7
+    }
+   }
+  }
+ },
+ "2026-10-02": {
+  "starforce": {},
+  "potential": {
+   "additional|메멘토 브론즈 에디셔널 큐브 (200제)|epic|normal": {
+    "n": 2,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "100": 2
+    }
+   },
+   "main|펄스 인핸서|legendary|normal": {
+    "n": 21,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "130": 21
+    }
+   }
+  }
+ },
+ "2026-10-08": {
+  "starforce": {},
+  "potential": {
+   "main|메멘토 실버 큐브 (200제)|unique|normal": {
+    "n": 5,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "200": 5
+    }
+   },
+   "main|메멘토 실버 큐브 (200제)|epic|normal": {
+    "n": 9,
+    "up": 1,
+    "guaranteed": 0,
+    "levels": {
+     "200": 9
+    }
+   },
+   "additional|메멘토 브론즈 에디셔널 큐브 (200제)|rare|normal": {
+    "n": 99,
+    "up": 1,
+    "guaranteed": 0,
+    "levels": {
+     "120": 99
+    }
+   },
+   "additional|메멘토 브론즈 에디셔널 큐브 (200제)|epic|normal": {
+    "n": 1,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 1
+    }
+   }
+  }
+ },
  "2026-10-11": {
   "starforce": {},
   "potential": {

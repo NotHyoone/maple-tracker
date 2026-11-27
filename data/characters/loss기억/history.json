@@ -9,5 +9,16 @@
   "authentic_force": 370,
   "union_level": null,
   "dojang_floor": null
+ },
+ {
+  "date": "2026-11-28",
+  "level": 286,
+  "exp": 98517290242921,
+  "exp_rate": 90.0,
+  "combat_power": 24369222,
+  "arcane_force": 1350,
+  "authentic_force": 370,
+  "union_level": 8551,
+  "dojang_floor": 50
  }
 ]

@@ -2,10 +2,41 @@
  "loss기억": {
   "analysis": {
    "level": 286,
-   "exp_rate": 85.996,
-   "exp_per_day": null,
-   "days_to_next": null,
-   "symbol_todo": [],
+   "exp_rate": 90.0,
+   "exp_per_day": 4.004000000000005,
+   "days_to_next": 2.4975024975024946,
+   "symbol_todo": [
+    {
+     "name": "어센틱심볼 : 세르니움",
+     "level": 8,
+     "max": 11
+    },
+    {
+     "name": "어센틱심볼 : 아르크스",
+     "level": 6,
+     "max": 11
+    },
+    {
+     "name": "어센틱심볼 : 오디움",
+     "level": 6,
+     "max": 11
+    },
+    {
+     "name": "어센틱심볼 : 도원경",
+     "level": 6,
+     "max": 11
+    },
+    {
+     "name": "어센틱심볼 : 아르테리아",
+     "level": 6,
+     "max": 11
+    },
+    {
+     "name": "어센틱심볼 : 카르시온",
+     "level": 5,
+     "max": 11
+    }
+   ],
    "hexa_avg": 6.0,
    "hexa_count": 14,
    "low_cores": [
@@ -25,10 +56,24 @@
      "hexa_core_level": 1
     }
    ],
-   "starforce_avg": 0,
-   "union_level": null
+   "starforce_avg": 12.785714285714286,
+   "union_level": 8551
   },
   "recommendations": [
+   {
+    "notice_id": 1421,
+    "title": "썬데이 메이플",
+    "url": "https://maplestory.nexon.com/News/Event/1421",
+    "score": 5,
+    "category": "헥사/6차 전직",
+    "reason": "HEXA 코어 평균 Lv.6.0/30. 낮은 코어: 앱솔루트 레인 Lv.1, 오버로드 : 템플러 온슬로트 Lv.1, 오버로드 : 바르가르 트라이던트 Lv.1",
+    "rewards": [
+     "주문의 흔적 강화 비용 50% 할인",
+     "사냥을 통해 획득할 수 있는 솔 에르다 2배 증가"
+    ],
+    "days_left": 2.0,
+    "upcoming": true
+   },
    {
     "notice_id": 1416,
     "title": "메이플스토리X 블루 아카이브",
@@ -42,7 +87,7 @@
      "경험치 4배 쿠폰 (30분)",
      "솔 에르다 / 솔 에르다 조각 선택권"
     ],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    },
    {
@@ -58,7 +103,7 @@
      "솔 에르다 / 솔 에르다 조각",
      "솔 에르다 / 솔 에르다 조각 선택권"
     ],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    },
    {
@@ -67,9 +112,9 @@
     "url": "https://maplestory.nexon.com/News/Event/1334",
     "score": 5,
     "category": "경험치/레벨업",
-    "reason": "Lv.286 (86.0%). 경험치 이벤트를 챙기면 레벨업이 빨라집니다.",
+    "reason": "Lv.286 (90.0%) — 지금 속도면 다음 레벨까지 약 2일. 경험치 이벤트를 챙기면 레벨업이 빨라집니다.",
     "rewards": [],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    },
    {
@@ -85,7 +130,7 @@
      "주말 누적 접속 시간 보상",
      "총 누적 접속 시간 보상"
     ],
-    "days_left": 20.2,
+    "days_left": 20.0,
     "upcoming": false
    },
    {
@@ -101,7 +146,7 @@
      "상급 EXP 교환권",
      "솔 에르다/솔 에르다 조각 선택권"
     ],
-    "days_left": 33.2,
+    "days_left": 33.0,
     "upcoming": false
    },
    {
@@ -110,14 +155,14 @@
     "url": "https://maplestory.nexon.com/News/Event/1413",
     "score": 3,
     "category": "장비 강화",
-    "reason": "장착 장비 평균 스타포스 0.0성. 강화 할인·확률 이벤트 때 몰아서 강화하세요.",
+    "reason": "장착 장비 평균 스타포스 12.8성. 강화 할인·확률 이벤트 때 몰아서 강화하세요.",
     "rewards": [
      "크레딧 획득 방법",
      "소라의 메소샵 판매 물품",
      "카르마 놀라운 긍정의 혼돈 주문서 100%",
      "펫장비 능력치 이전 주문서"
     ],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    },
    {
@@ -128,7 +173,7 @@
     "category": "버닝/신규 육성",
     "reason": "본캐는 해당 없지만, 260 미만 부캐 51명을 키울 때 쓰기 좋습니다(유니온·링크 스킬).",
     "rewards": [],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    }
   ]
@@ -137,7 +182,7 @@
   "analysis": {
    "level": 260,
    "exp_rate": 7.299,
-   "exp_per_day": null,
+   "exp_per_day": 0.0,
    "days_to_next": null,
    "symbol_todo": [
     {
@@ -159,6 +204,20 @@
   },
   "recommendations": [
    {
+    "notice_id": 1421,
+    "title": "썬데이 메이플",
+    "url": "https://maplestory.nexon.com/News/Event/1421",
+    "score": 5,
+    "category": "헥사/6차 전직",
+    "reason": "아직 HEXA 코어가 없습니다. 6차 전직 후 솔 에르다를 모으면 성장 폭이 큽니다.",
+    "rewards": [
+     "주문의 흔적 강화 비용 50% 할인",
+     "사냥을 통해 획득할 수 있는 솔 에르다 2배 증가"
+    ],
+    "days_left": 2.0,
+    "upcoming": true
+   },
+   {
     "notice_id": 1416,
     "title": "메이플스토리X 블루 아카이브",
     "url": "https://maplestory.nexon.com/News/Event/1416",
@@ -171,7 +230,7 @@
      "경험치 4배 쿠폰 (30분)",
      "솔 에르다 / 솔 에르다 조각 선택권"
     ],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    },
    {
@@ -187,7 +246,7 @@
      "솔 에르다 / 솔 에르다 조각",
      "솔 에르다 / 솔 에르다 조각 선택권"
     ],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    },
    {
@@ -198,7 +257,7 @@
     "category": "경험치/레벨업",
     "reason": "Lv.260 (7.3%). 경험치 이벤트를 챙기면 레벨업이 빨라집니다.",
     "rewards": [],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    },
    {
@@ -214,7 +273,7 @@
      "주말 누적 접속 시간 보상",
      "총 누적 접속 시간 보상"
     ],
-    "days_left": 20.2,
+    "days_left": 20.0,
     "upcoming": false
    },
    {
@@ -230,7 +289,7 @@
      "상급 EXP 교환권",
      "솔 에르다/솔 에르다 조각 선택권"
     ],
-    "days_left": 33.2,
+    "days_left": 33.0,
     "upcoming": false
    },
    {
@@ -246,7 +305,7 @@
      "카르마 놀라운 긍정의 혼돈 주문서 100%",
      "펫장비 능력치 이전 주문서"
     ],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    },
    {
@@ -257,7 +316,7 @@
     "category": "버닝/신규 육성",
     "reason": "본캐는 해당 없지만, 260 미만 부캐 51명을 키울 때 쓰기 좋습니다(유니온·링크 스킬).",
     "rewards": [],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    }
   ]
@@ -266,7 +325,7 @@
   "analysis": {
    "level": 203,
    "exp_rate": 27.962,
-   "exp_per_day": null,
+   "exp_per_day": 0.0,
    "days_to_next": null,
    "symbol_todo": [
     {
@@ -290,7 +349,7 @@
     "category": "버닝/신규 육성",
     "reason": "Lv.203로 버닝 혜택을 받을 수 있는 구간입니다.",
     "rewards": [],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    },
    {
@@ -306,7 +365,7 @@
      "경험치 4배 쿠폰 (30분)",
      "솔 에르다 / 솔 에르다 조각 선택권"
     ],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    },
    {
@@ -322,7 +381,7 @@
      "솔 에르다 / 솔 에르다 조각",
      "솔 에르다 / 솔 에르다 조각 선택권"
     ],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    },
    {
@@ -333,7 +392,7 @@
     "category": "경험치/레벨업",
     "reason": "Lv.203 (28.0%). 경험치 이벤트를 챙기면 레벨업이 빨라집니다.",
     "rewards": [],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    },
    {
@@ -349,8 +408,22 @@
      "상급 EXP 교환권",
      "솔 에르다/솔 에르다 조각 선택권"
     ],
-    "days_left": 33.2,
+    "days_left": 33.0,
     "upcoming": false
+   },
+   {
+    "notice_id": 1421,
+    "title": "썬데이 메이플",
+    "url": "https://maplestory.nexon.com/News/Event/1421",
+    "score": 3,
+    "category": "장비 강화",
+    "reason": "장착 장비 평균 스타포스 10.4성. 강화 할인·확률 이벤트 때 몰아서 강화하세요.",
+    "rewards": [
+     "주문의 흔적 강화 비용 50% 할인",
+     "사냥을 통해 획득할 수 있는 솔 에르다 2배 증가"
+    ],
+    "days_left": 2.0,
+    "upcoming": true
    },
    {
     "notice_id": 1413,
@@ -365,7 +438,7 @@
      "카르마 놀라운 긍정의 혼돈 주문서 100%",
      "펫장비 능력치 이전 주문서"
     ],
-    "days_left": 19.2,
+    "days_left": 19.0,
     "upcoming": false
    },
    {
@@ -381,7 +454,7 @@
      "탐험 코인 100개교환권 1개",
      "탐험 코인 500개교환권 1개"
     ],
-    "days_left": 20.2,
+    "days_left": 20.0,
     "upcoming": false
    }
   ]

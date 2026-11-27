@@ -1,6 +1,16 @@
 {
- "collected_at": "2026-11-27T01:52:33.633839+09:00",
+ "collected_at": "2026-11-28T00:08:52.018650+09:00",
  "events": [
+  {
+   "notice_id": 1421,
+   "title": "썬데이 메이플",
+   "url": "https://maplestory.nexon.com/News/Event/1421",
+   "thumbnail_url": "https://file.nexon.com/NxFile/download/FileDownloader.aspx?oidFile=4764901031022691117",
+   "date": "2026-11-27T10:00+09:00",
+   "date_event_start": "2026-11-29T00:00+09:00",
+   "date_event_end": "2026-11-29T23:59+09:00",
+   "text": "썬데이 메이플\n이벤트 기간\n주문의 흔적 강화 비용 50% 할인\n사냥을 통해 획득할 수 있는 솔 에르다 2배 증가"
+  },
   {
    "notice_id": 1408,
    "title": "직업 추천 AWARDS",
