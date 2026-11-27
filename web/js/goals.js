@@ -1,6 +1,7 @@
 // 목표 탭: 캐릭터별 목표 추가/삭제(브라우저 저장)와 계산 결과 표시
 import { esc, fmtNum, fmtInt } from "./format.js";
 import * as store from "./store.js";
+import { listPresets, savePreset, applyPreset, deletePreset } from "./settingpresets.js";
 import { buildExpTable, remainingExp, dailyExpGain } from "./calc/level.js";
 import { symbolGoal, daysFor } from "./calc/symbol.js";
 import { hexaGoal } from "./calc/hexa.js";
@@ -149,6 +150,24 @@ function summaryCard(results, prices) {
     (incomplete ? '<p class="muted">수치표나 시세가 없는 항목은 빠져 있어 실제로는 더 필요합니다.</p>' : "") + "</div>";
 }
 
+// ---------- 설정 프리셋 ----------
+
+function settingPresetCard() {
+  const presets = listPresets();
+  const rows = presets.map((p) => {
+    const date = Date.parse(p.saved_at);
+    const shownDate = Number.isNaN(date) ? "날짜 미상" : new Date(date).toLocaleString("ko-KR");
+    return `<li><span>${esc(p.name)}<br><span class="sub">${esc(shownDate)} · 목표 ${esc(p.goals.length)}개</span></span>` +
+      `<span class="row"><button type="button" class="btn small" data-setting-apply="${esc(p.name)}">불러오기</button>` +
+      `<button type="button" class="btn small" data-setting-delete="${esc(p.name)}">삭제</button></span></li>`;
+  }).join("");
+  return '<div class="card setting-presets"><h2>설정 프리셋</h2>' +
+    '<form id="setting-preset-form"><label>프리셋 이름 <input name="presetName" required placeholder="예: 본캐 육성"></label>' +
+    '<div class="row"><button class="btn primary" type="submit">현재 설정 저장</button></div></form>' +
+    '<p class="sub" id="setting-preset-msg" role="status"></p>' +
+    (presets.length ? `<ul class="list">${rows}</ul>` : '<p class="muted">저장된 프리셋이 없습니다.</p>') + '</div>';
+}
+
 // ---------- 시세 카드 ----------
 
 function priceCard(prices) {
@@ -220,8 +239,31 @@ export function renderGoalsTab(root, ctx) {
       (mine.length ? mine.map((g, j) => goalCard(g, results[j], ctx.prices)).join("") : '<p class="muted card">아직 목표가 없습니다. 아래에서 추가해 보세요.</p>') +
       addForm(c, i, ctx) + "</div>";
   }).join("");
-  root.innerHTML = `${priceCard(ctx.prices)}<div class="charsel" id="goal-sel">${sel}</div>${panes}` +
+  root.innerHTML = `${settingPresetCard()}${priceCard(ctx.prices)}<div class="charsel" id="goal-sel">${sel}</div>${panes}` +
     '<p class="muted">목표는 이 브라우저에만 저장됩니다. 계정·설정 탭에서 백업할 수 있습니다.</p>';
+
+  const presetAction = (action, message, failure = "저장하지 못했습니다 (브라우저 저장 차단)") => {
+    try {
+      if (!action()) { root.querySelector("#setting-preset-msg").textContent = failure; return; }
+      renderGoalsTab(root, ctx);
+      root.querySelector("#setting-preset-msg").textContent = message;
+    } catch (err) {
+      root.querySelector("#setting-preset-msg").textContent = err.message;
+    }
+  };
+  root.querySelector("#setting-preset-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    presetAction(() => savePreset(e.target.elements.presetName.value), "현재 설정을 저장했습니다.");
+  });
+  root.querySelectorAll("[data-setting-apply]").forEach((b) => b.addEventListener("click", () => {
+    if (!confirm(`“${b.dataset.settingApply}” 프리셋을 불러올까요? 현재 목표와 시세를 덮어씁니다.`)) return;
+    presetAction(() => applyPreset(b.dataset.settingApply), "프리셋을 불러왔습니다.",
+      "설정을 모두 저장하지 못했습니다 (브라우저 저장 차단). 목표만 적용되었을 수 있습니다. 다시 불러와 주세요.");
+  }));
+  root.querySelectorAll("[data-setting-delete]").forEach((b) => b.addEventListener("click", () => {
+    if (!confirm(`“${b.dataset.settingDelete}” 프리셋을 삭제할까요?`)) return;
+    presetAction(() => deletePreset(b.dataset.settingDelete), "프리셋을 삭제했습니다.");
+  }));
 
   root.querySelectorAll(".goal-form").forEach((f) => {
     f._char = ctx.chars[Number(f.dataset.char)];
