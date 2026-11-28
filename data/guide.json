@@ -2,9 +2,9 @@
  "loss기억": {
   "analysis": {
    "level": 286,
-   "exp_rate": 90.0,
-   "exp_per_day": 4.004000000000005,
-   "days_to_next": 2.4975024975024946,
+   "exp_rate": 91.92,
+   "exp_per_day": 5.924000000000007,
+   "days_to_next": 1.3639432815665073,
    "symbol_todo": [
     {
      "name": "어센틱심볼 : 세르니움",
@@ -37,7 +37,7 @@
      "max": 11
     }
    ],
-   "hexa_avg": 6.0,
+   "hexa_avg": 6.071428571428571,
    "hexa_count": 14,
    "low_cores": [
     {
@@ -66,12 +66,12 @@
     "url": "https://maplestory.nexon.com/News/Event/1421",
     "score": 5,
     "category": "헥사/6차 전직",
-    "reason": "HEXA 코어 평균 Lv.6.0/30. 낮은 코어: 앱솔루트 레인 Lv.1, 오버로드 : 템플러 온슬로트 Lv.1, 오버로드 : 바르가르 트라이던트 Lv.1",
+    "reason": "HEXA 코어 평균 Lv.6.1/30. 낮은 코어: 앱솔루트 레인 Lv.1, 오버로드 : 템플러 온슬로트 Lv.1, 오버로드 : 바르가르 트라이던트 Lv.1",
     "rewards": [
      "주문의 흔적 강화 비용 50% 할인",
      "사냥을 통해 획득할 수 있는 솔 에르다 2배 증가"
     ],
-    "days_left": 2.0,
+    "days_left": 1.4,
     "upcoming": true
    },
    {
@@ -80,14 +80,14 @@
     "url": "https://maplestory.nexon.com/News/Event/1416",
     "score": 5,
     "category": "헥사/6차 전직",
-    "reason": "HEXA 코어 평균 Lv.6.0/30. 낮은 코어: 앱솔루트 레인 Lv.1, 오버로드 : 템플러 온슬로트 Lv.1, 오버로드 : 바르가르 트라이던트 Lv.1",
+    "reason": "HEXA 코어 평균 Lv.6.1/30. 낮은 코어: 앱솔루트 레인 Lv.1, 오버로드 : 템플러 온슬로트 Lv.1, 오버로드 : 바르가르 트라이던트 Lv.1",
     "rewards": [
      "상급 EXP 교환권",
      "VIP 사우나 이용권",
      "경험치 4배 쿠폰 (30분)",
      "솔 에르다 / 솔 에르다 조각 선택권"
     ],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    },
    {
@@ -96,14 +96,14 @@
     "url": "https://maplestory.nexon.com/News/Event/1414",
     "score": 5,
     "category": "헥사/6차 전직",
-    "reason": "HEXA 코어 평균 Lv.6.0/30. 낮은 코어: 앱솔루트 레인 Lv.1, 오버로드 : 템플러 온슬로트 Lv.1, 오버로드 : 바르가르 트라이던트 Lv.1",
+    "reason": "HEXA 코어 평균 Lv.6.1/30. 낮은 코어: 앱솔루트 레인 Lv.1, 오버로드 : 템플러 온슬로트 Lv.1, 오버로드 : 바르가르 트라이던트 Lv.1",
     "rewards": [
      "경험치 4배 쿠폰 (30분)",
      "상급 EXP 교환권",
      "솔 에르다 / 솔 에르다 조각",
      "솔 에르다 / 솔 에르다 조각 선택권"
     ],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    },
    {
@@ -112,9 +112,9 @@
     "url": "https://maplestory.nexon.com/News/Event/1334",
     "score": 5,
     "category": "경험치/레벨업",
-    "reason": "Lv.286 (90.0%) — 지금 속도면 다음 레벨까지 약 2일. 경험치 이벤트를 챙기면 레벨업이 빨라집니다.",
+    "reason": "Lv.286 (91.9%) — 지금 속도면 다음 레벨까지 약 1일. 경험치 이벤트를 챙기면 레벨업이 빨라집니다.",
     "rewards": [],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    },
    {
@@ -123,14 +123,14 @@
     "url": "https://maplestory.nexon.com/News/Event/1410",
     "score": 5,
     "category": "헥사/6차 전직",
-    "reason": "HEXA 코어 평균 Lv.6.0/30. 낮은 코어: 앱솔루트 레인 Lv.1, 오버로드 : 템플러 온슬로트 Lv.1, 오버로드 : 바르가르 트라이던트 Lv.1",
+    "reason": "HEXA 코어 평균 Lv.6.1/30. 낮은 코어: 앱솔루트 레인 Lv.1, 오버로드 : 템플러 온슬로트 Lv.1, 오버로드 : 바르가르 트라이던트 Lv.1",
     "rewards": [
      "프리미엄 PC방 접속 보상 이벤트",
      "일일 누적 접속 시간 보상",
      "주말 누적 접속 시간 보상",
      "총 누적 접속 시간 보상"
     ],
-    "days_left": 20.0,
+    "days_left": 19.4,
     "upcoming": false
    },
    {
@@ -139,14 +139,14 @@
     "url": "https://maplestory.nexon.com/News/Event/1411",
     "score": 5,
     "category": "헥사/6차 전직",
-    "reason": "HEXA 코어 평균 Lv.6.0/30. 낮은 코어: 앱솔루트 레인 Lv.1, 오버로드 : 템플러 온슬로트 Lv.1, 오버로드 : 바르가르 트라이던트 Lv.1",
+    "reason": "HEXA 코어 평균 Lv.6.1/30. 낮은 코어: 앱솔루트 레인 Lv.1, 오버로드 : 템플러 온슬로트 Lv.1, 오버로드 : 바르가르 트라이던트 Lv.1",
     "rewards": [
      "경험치 4배 쿠폰 (30분)",
      "VIP 사우나 이용권",
      "상급 EXP 교환권",
      "솔 에르다/솔 에르다 조각 선택권"
     ],
-    "days_left": 33.0,
+    "days_left": 32.4,
     "upcoming": false
    },
    {
@@ -162,7 +162,7 @@
      "카르마 놀라운 긍정의 혼돈 주문서 100%",
      "펫장비 능력치 이전 주문서"
     ],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    },
    {
@@ -173,7 +173,7 @@
     "category": "버닝/신규 육성",
     "reason": "본캐는 해당 없지만, 260 미만 부캐 51명을 키울 때 쓰기 좋습니다(유니온·링크 스킬).",
     "rewards": [],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    }
   ]
@@ -214,7 +214,7 @@
      "주문의 흔적 강화 비용 50% 할인",
      "사냥을 통해 획득할 수 있는 솔 에르다 2배 증가"
     ],
-    "days_left": 2.0,
+    "days_left": 1.4,
     "upcoming": true
    },
    {
@@ -230,7 +230,7 @@
      "경험치 4배 쿠폰 (30분)",
      "솔 에르다 / 솔 에르다 조각 선택권"
     ],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    },
    {
@@ -246,7 +246,7 @@
      "솔 에르다 / 솔 에르다 조각",
      "솔 에르다 / 솔 에르다 조각 선택권"
     ],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    },
    {
@@ -257,7 +257,7 @@
     "category": "경험치/레벨업",
     "reason": "Lv.260 (7.3%). 경험치 이벤트를 챙기면 레벨업이 빨라집니다.",
     "rewards": [],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    },
    {
@@ -273,7 +273,7 @@
      "주말 누적 접속 시간 보상",
      "총 누적 접속 시간 보상"
     ],
-    "days_left": 20.0,
+    "days_left": 19.4,
     "upcoming": false
    },
    {
@@ -289,7 +289,7 @@
      "상급 EXP 교환권",
      "솔 에르다/솔 에르다 조각 선택권"
     ],
-    "days_left": 33.0,
+    "days_left": 32.4,
     "upcoming": false
    },
    {
@@ -305,7 +305,7 @@
      "카르마 놀라운 긍정의 혼돈 주문서 100%",
      "펫장비 능력치 이전 주문서"
     ],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    },
    {
@@ -316,7 +316,7 @@
     "category": "버닝/신규 육성",
     "reason": "본캐는 해당 없지만, 260 미만 부캐 51명을 키울 때 쓰기 좋습니다(유니온·링크 스킬).",
     "rewards": [],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    }
   ]
@@ -349,7 +349,7 @@
     "category": "버닝/신규 육성",
     "reason": "Lv.203로 버닝 혜택을 받을 수 있는 구간입니다.",
     "rewards": [],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    },
    {
@@ -365,7 +365,7 @@
      "경험치 4배 쿠폰 (30분)",
      "솔 에르다 / 솔 에르다 조각 선택권"
     ],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    },
    {
@@ -381,7 +381,7 @@
      "솔 에르다 / 솔 에르다 조각",
      "솔 에르다 / 솔 에르다 조각 선택권"
     ],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    },
    {
@@ -392,7 +392,7 @@
     "category": "경험치/레벨업",
     "reason": "Lv.203 (28.0%). 경험치 이벤트를 챙기면 레벨업이 빨라집니다.",
     "rewards": [],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    },
    {
@@ -408,7 +408,7 @@
      "상급 EXP 교환권",
      "솔 에르다/솔 에르다 조각 선택권"
     ],
-    "days_left": 33.0,
+    "days_left": 32.4,
     "upcoming": false
    },
    {
@@ -422,7 +422,7 @@
      "주문의 흔적 강화 비용 50% 할인",
      "사냥을 통해 획득할 수 있는 솔 에르다 2배 증가"
     ],
-    "days_left": 2.0,
+    "days_left": 1.4,
     "upcoming": true
    },
    {
@@ -438,7 +438,7 @@
      "카르마 놀라운 긍정의 혼돈 주문서 100%",
      "펫장비 능력치 이전 주문서"
     ],
-    "days_left": 19.0,
+    "days_left": 18.4,
     "upcoming": false
    },
    {
@@ -454,7 +454,7 @@
      "탐험 코인 100개교환권 1개",
      "탐험 코인 500개교환권 1개"
     ],
-    "days_left": 20.0,
+    "days_left": 19.4,
     "upcoming": false
    }
   ]

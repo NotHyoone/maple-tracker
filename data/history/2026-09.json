@@ -1,4 +1,740 @@
 {
+ "2026-09-01": {
+  "starforce": {},
+  "potential": {
+   "additional|카르마 브론즈 에디셔널 큐브|epic|normal": {
+    "n": 12,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "100": 12
+    }
+   },
+   "main|메멘토 실버 큐브 (200제)|unique|normal": {
+    "n": 25,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "100": 25
+    }
+   },
+   "additional|카르마 브론즈 에디셔널 큐브|rare|normal": {
+    "n": 16,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 16
+    }
+   },
+   "main|이벤트 링 전용 골드 큐브|legendary|normal": {
+    "n": 11,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 11
+    }
+   },
+   "main|이벤트 링 전용 골드 큐브|unique|normal": {
+    "n": 74,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 74
+    }
+   }
+  }
+ },
+ "2026-09-02": {
+  "starforce": {
+   "12|none|noguard|none": {
+    "success": 1,
+    "keep": 2,
+    "down": 0,
+    "destroy": 0
+   },
+   "11|none|noguard|none": {
+    "success": 1,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "10|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "9|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "8|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "7|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "6|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "5|none|noguard|none": {
+    "success": 1,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "4|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "3|none|noguard|none": {
+    "success": 1,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "2|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "1|none|noguard|none": {
+    "success": 1,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "0|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   }
+  },
+  "potential": {
+   "main|메멘토 실버 큐브 (200제)|rare|normal": {
+    "n": 15,
+    "up": 1,
+    "guaranteed": 0,
+    "levels": {
+     "120": 15
+    }
+   },
+   "additional|카르마 브론즈 에디셔널 큐브|rare|normal": {
+    "n": 19,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 19
+    }
+   },
+   "additional|카르마 브론즈 에디셔널 큐브|epic|normal": {
+    "n": 3,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "100": 3
+    }
+   },
+   "main|메멘토 실버 큐브 (200제)|unique|normal": {
+    "n": 3,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "100": 3
+    }
+   },
+   "main|이벤트 링 전용 골드 큐브|epic|normal": {
+    "n": 5,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 5
+    }
+   },
+   "main|메멘토 실버 큐브 (200제)|epic|normal": {
+    "n": 3,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 3
+    }
+   },
+   "additional|메멘토 브론즈 에디셔널 큐브 (200제)|rare|normal": {
+    "n": 5,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 5
+    }
+   },
+   "main|잠재능력 재설정|epic|normal": {
+    "n": 4,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 4
+    }
+   },
+   "main|잠재능력 재설정|rare|normal": {
+    "n": 1,
+    "up": 1,
+    "guaranteed": 0,
+    "levels": {
+     "120": 1
+    }
+   }
+  }
+ },
+ "2026-09-05": {
+  "starforce": {
+   "7|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "6|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "5|none|noguard|none": {
+    "success": 1,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "4|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "3|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "2|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "1|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "0|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   }
+  },
+  "potential": {
+   "main|메멘토 실버 큐브 (200제)|unique|normal": {
+    "n": 20,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "100": 20
+    }
+   }
+  }
+ },
+ "2026-09-06": {
+  "starforce": {
+   "4|none|noguard|event": {
+    "success": 1,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "3|none|noguard|event": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "2|none|noguard|event": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "1|none|noguard|event": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "0|none|noguard|event": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "14|none|noguard|event": {
+    "success": 1,
+    "keep": 2,
+    "down": 0,
+    "destroy": 0
+   },
+   "13|none|noguard|event": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   }
+  },
+  "potential": {}
+ },
+ "2026-09-07": {
+  "starforce": {
+   "0|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   }
+  },
+  "potential": {}
+ },
+ "2026-09-09": {
+  "starforce": {
+   "13|none|noguard|none": {
+    "success": 0,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "12|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "11|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "10|none|noguard|none": {
+    "success": 1,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "9|none|noguard|none": {
+    "success": 1,
+    "keep": 3,
+    "down": 0,
+    "destroy": 0
+   },
+   "8|none|noguard|none": {
+    "success": 1,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "7|none|noguard|none": {
+    "success": 1,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "6|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "5|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "4|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "3|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "2|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "1|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "0|none|noguard|none": {
+    "success": 2,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   }
+  },
+  "potential": {}
+ },
+ "2026-09-10": {
+  "starforce": {
+   "0|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   }
+  },
+  "potential": {
+   "main|메멘토 실버 큐브 (200제)|rare|normal": {
+    "n": 4,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 4
+    }
+   }
+  }
+ },
+ "2026-09-12": {
+  "starforce": {},
+  "potential": {
+   "additional|메멘토 브론즈 에디셔널 큐브 (200제)|rare|normal": {
+    "n": 12,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 12
+    }
+   }
+  }
+ },
+ "2026-09-14": {
+  "starforce": {},
+  "potential": {
+   "main|카르마 블랙 큐브|rare|normal": {
+    "n": 1,
+    "up": 1,
+    "guaranteed": 0,
+    "levels": {
+     "120": 1
+    }
+   },
+   "main|메멘토 실버 큐브 (200제)|rare|normal": {
+    "n": 4,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 4
+    }
+   }
+  }
+ },
+ "2026-09-15": {
+  "starforce": {},
+  "potential": {
+   "additional|메멘토 브론즈 에디셔널 큐브 (200제)|rare|normal": {
+    "n": 22,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 22
+    }
+   }
+  }
+ },
+ "2026-09-16": {
+  "starforce": {},
+  "potential": {
+   "main|카르마 실버 큐브|unique|normal": {
+    "n": 53,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "160": 53
+    }
+   },
+   "main|메멘토 골드 큐브 (200제)|unique|normal": {
+    "n": 1,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "160": 1
+    }
+   },
+   "main|메멘토 실버 큐브 (200제)|unique|normal": {
+    "n": 3,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "160": 1,
+     "120": 2
+    }
+   },
+   "main|카르마 블랙 큐브|unique|normal": {
+    "n": 4,
+    "up": 1,
+    "guaranteed": 0,
+    "levels": {
+     "120": 4
+    }
+   },
+   "additional|카르마 화이트 에디셔널 큐브|rare|normal": {
+    "n": 3,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 3
+    }
+   },
+   "additional|메멘토 브론즈 에디셔널 큐브 (200제)|rare|normal": {
+    "n": 27,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "120": 27
+    }
+   }
+  }
+ },
+ "2026-09-17": {
+  "starforce": {
+   "8|none|noguard|item": {
+    "success": 1,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "7|none|noguard|item": {
+    "success": 1,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "6|none|noguard|item": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "5|none|noguard|item": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "4|none|noguard|item": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "3|none|noguard|item": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "2|none|noguard|item": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "1|none|noguard|item": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "0|none|noguard|item": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   }
+  },
+  "potential": {
+   "main|펄스 인핸서|unique|normal": {
+    "n": 2,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "130": 2
+    }
+   },
+   "main|펄스 인핸서|epic|normal": {
+    "n": 7,
+    "up": 1,
+    "guaranteed": 0,
+    "levels": {
+     "130": 7
+    }
+   },
+   "main|펄스 인핸서|rare|normal": {
+    "n": 10,
+    "up": 1,
+    "guaranteed": 0,
+    "levels": {
+     "130": 10
+    }
+   }
+  }
+ },
+ "2026-09-18": {
+  "starforce": {
+   "7|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "6|none|noguard|none": {
+    "success": 1,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "5|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "4|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "3|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "2|none|noguard|none": {
+    "success": 1,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "1|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "0|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "13|none|noguard|none": {
+    "success": 1,
+    "keep": 7,
+    "down": 0,
+    "destroy": 0
+   },
+   "12|none|noguard|none": {
+    "success": 1,
+    "keep": 6,
+    "down": 0,
+    "destroy": 0
+   },
+   "11|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   },
+   "10|none|noguard|none": {
+    "success": 1,
+    "keep": 1,
+    "down": 0,
+    "destroy": 0
+   },
+   "9|none|noguard|none": {
+    "success": 1,
+    "keep": 0,
+    "down": 0,
+    "destroy": 0
+   }
+  },
+  "potential": {
+   "main|카르마 블랙 큐브|legendary|normal": {
+    "n": 2,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "130": 2
+    }
+   },
+   "additional|메멘토 브론즈 에디셔널 큐브 (200제)|rare|normal": {
+    "n": 17,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "130": 17
+    }
+   },
+   "additional|에디셔널 잠재능력 재설정|rare|normal": {
+    "n": 55,
+    "up": 1,
+    "guaranteed": 0,
+    "levels": {
+     "130": 55
+    }
+   }
+  }
+ },
+ "2026-09-19": {
+  "starforce": {},
+  "potential": {
+   "additional|카르마 화이트 에디셔널 큐브|epic|normal": {
+    "n": 4,
+    "up": 0,
+    "guaranteed": 0,
+    "levels": {
+     "100": 4
+    }
+   }
+  }
+ },
  "2026-09-21": {
   "starforce": {},
   "potential": {

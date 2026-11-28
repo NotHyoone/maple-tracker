@@ -7,8 +7,8 @@
   "character_class": "레테",
   "character_class_level": "6",
   "character_level": 286,
-  "character_exp": 98517290242921,
-  "character_exp_rate": "90.000",
+  "character_exp": 100618793645452,
+  "character_exp_rate": "91.920",
   "character_guild_name": "역고드름",
   "character_image": "https://open.api.nexon.com/static/maplestory/character/look/LAHHADHCGEFIMFOLOJGIEOOFPDLBJHCMAMDGCAFHCBFJFPICNAFHDBLNGECCCMPGKCICLLDPGGGJNLGGPHKFDMLKAIANFFGINOJDHJJAEKDAACPAEGLFOIKEGMKDCHKIOEMELIPDFACJEBLDDBAPIBOFEEDODKOIMKBPPEJJKCBMLFAMAMEOPBPONKGHMHPCOFCCLOLAKLNMENELHHAJFCDGABKFGBOILJFEFFKINPPFFEMBONLMLDBBPBFCOAHHCKFPKLIAHJPOIFJHEGGADAHPGAEHIOJELFGAPIHOKCPEKMOAFNKFBHHBALAAJCKEHIOKOLHOOMAHJDPHDPAHPGKOEKFEHADOBJCDKAKOBBENOIKLIOOOCGMFAGKJNFCFBEBOHHHOPEMKAGGAOLKPBKOJDDHDFACKIJEPHBDMLBEPIJKNHMAONGNNCMFHBAACMCOKHNHGKMMIFFEFJEMMKBDMFHHHPODJMHGBPNHHOECPKMNOPNONLIADIDAIJLJCPICFCABGMADNLEJPJOCCBCGIIDPNJBGPCGKKJKIJMJDBHIGPJEOIPHPCHMLADCIJFKBJBLDNOCCDNMEAGPOEFMNGNCEAKKJFHLMFOGIFMFJKMFOHKOFACCLMLKINHBLAHKJHLLLKPCPFJDIKLDGOHIKDHFJAOCLFCOLLNGENOJILDGHHOOLKHIBGOJKIPGIHHBIMEKLNEMHPMOONBDGEDAPKKMJNIDCPEONEKFGBIJKDKOPBHNEPAKHFJNPIFKBLNJFCLELNMNKCIPNPLHIOLBFHKKIIFFFGCHHCGIDIGCDHABBLJIIAGLANLECJFODCAKBHNFILNPFDOAPBDJHICBKIMLIBNFCNKPPGCEIJHDPLMFDBNPLEGLGLPHAHLBAJBDJHGHIMJDECEPGONIJCPAPLMKFLEEEEFHMKJBLNCFFKPBMMGLOCGNADFGHCLOBEMMNIHLCIGLKIPAAFPILKANFFMGHCGJFPPJHKBENLBBPEBKJACDEHNMGKOLLCLBPC?wmotion=W00",
   "character_date_create": "2026-08-30T00:00+09:00",
@@ -16,14 +16,14 @@
   "liberation_quest_clear": "0"
  },
  "stat": {
-  "최소 스탯공격력": "25502355",
-  "최대 스탯공격력": "28335948",
+  "최소 스탯공격력": "26035149",
+  "최대 스탯공격력": "28610051",
   "데미지": "97.00",
   "보스 몬스터 데미지": "254.00",
-  "최종 데미지": "160.64",
-  "방어율 무시": "90.99",
-  "크리티컬 확률": "86",
-  "크리티컬 데미지": "59.25",
+  "최종 데미지": "162.66",
+  "방어율 무시": "91.23",
+  "크리티컬 확률": "96",
+  "크리티컬 데미지": "67.25",
   "상태이상 내성": "62",
   "스탠스": "100",
   "방어력": "16926",
@@ -34,30 +34,30 @@
   "어센틱포스": "370",
   "STR": "2714",
   "DEX": "2335",
-  "INT": "40117",
+  "INT": "40166",
   "LUK": "4425",
-  "HP": "51941",
-  "MP": "71937",
+  "HP": "67611",
+  "MP": "86470",
   "AP 배분 STR": "4",
   "AP 배분 DEX": "4",
   "AP 배분 INT": "1448",
   "AP 배분 LUK": "4",
   "AP 배분 HP": "0",
   "AP 배분 MP": "0",
-  "아이템 드롭률": "30",
+  "아이템 드롭률": "54",
   "메소 획득량": "48",
   "버프 지속시간": "60",
-  "공격 속도": "6",
+  "공격 속도": "8",
   "일반 몬스터 데미지": "99.00",
   "재사용 대기시간 감소 (초)": "2",
   "재사용 대기시간 감소 (%)": "6",
   "재사용 대기시간 미적용": "7",
   "속성 내성 무시": "5.00",
   "상태이상 추가 데미지": "0.00",
-  "무기 숙련도": "90",
-  "추가 경험치 획득": "119.00",
+  "무기 숙련도": "91",
+  "추가 경험치 획득": "154.00",
   "공격력": "1104",
-  "마력": "2789",
+  "마력": "2791",
   "전투력": "24369222",
   "소환수 지속시간 증가": "10"
  },
@@ -130,7 +130,7 @@
   {
    "hexa_core_name": "임펠 VI/팩트 매니페스트",
    "hexa_core_type": "마스터리 코어",
-   "hexa_core_level": 11
+   "hexa_core_level": 12
   },
   {
    "hexa_core_name": "오버로드 : 템플러 온슬로트",
@@ -328,7 +328,7 @@
    "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDIHOB",
    "symbol_level": 8,
    "symbol_force": "80",
-   "symbol_growth_count": 1744,
+   "symbol_growth_count": 1778,
    "symbol_require_growth_count": 736
   },
   {
@@ -336,7 +336,7 @@
    "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDIHOA",
    "symbol_level": 6,
    "symbol_force": "60",
-   "symbol_growth_count": 1349,
+   "symbol_growth_count": 1368,
    "symbol_require_growth_count": 444
   },
   {
@@ -344,7 +344,7 @@
    "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDIHOD",
    "symbol_level": 6,
    "symbol_force": "60",
-   "symbol_growth_count": 1295,
+   "symbol_growth_count": 1314,
    "symbol_require_growth_count": 444
   },
   {
@@ -352,7 +352,7 @@
    "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDIHOC",
    "symbol_level": 6,
    "symbol_force": "60",
-   "symbol_growth_count": 1221,
+   "symbol_growth_count": 1240,
    "symbol_require_growth_count": 444
   },
   {
@@ -360,7 +360,7 @@
    "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDIHOF",
    "symbol_level": 6,
    "symbol_force": "60",
-   "symbol_growth_count": 1165,
+   "symbol_growth_count": 1185,
    "symbol_require_growth_count": 444
   },
   {
@@ -368,7 +368,7 @@
    "symbol_icon": "https://open.api.nexon.com/static/maplestory/item/icon/KEIDIHOE",
    "symbol_level": 5,
    "symbol_force": "50",
-   "symbol_growth_count": 453,
+   "symbol_growth_count": 472,
    "symbol_require_growth_count": 325
   }
  ],
@@ -2284,6 +2284,6 @@
   ]
  ],
  "item_preset_no": 2,
- "collected_at": "2026-11-28T00:08:52.833065+09:00",
+ "collected_at": "2026-11-28T13:45:41.359249+09:00",
  "errors": []
 }
